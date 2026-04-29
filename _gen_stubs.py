@@ -409,8 +409,9 @@ TEMPLATE = """<!doctype html>
   .gallery-row.full > .gallery-item { flex: 0 0 100%; }
   .gallery-row.full > .gallery-item img { height: auto; object-fit: unset; }
   @media (max-width: 700px) {
-    .gallery-row { flex-direction: column; }
-    .gallery-row.center > .gallery-item, .gallery-row.full > .gallery-item { flex: 1 1 auto; }
+    .gallery-row { flex-direction: column; gap: 4px; }
+    .gallery-row > .gallery-item { flex: 1 1 auto; }
+    .gallery-row > .gallery-item img { height: auto; object-fit: unset; }
   }
 
   /* description */

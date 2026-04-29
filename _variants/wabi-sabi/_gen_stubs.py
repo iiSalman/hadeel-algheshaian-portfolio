@@ -400,8 +400,9 @@ TEMPLATE = r"""<!doctype html>
   .gallery-row.full > .gallery-item { flex: 0 0 100%; }
   .gallery-row.full > .gallery-item img { height: auto; object-fit: unset; filter: none; }
   @media (max-width: 700px) {
-    .gallery-row { flex-direction: column; }
-    .gallery-row.center > .gallery-item, .gallery-row.full > .gallery-item { flex: 1 1 auto; }
+    .gallery-row { flex-direction: column; gap: 6px; }
+    .gallery-row > .gallery-item { flex: 1 1 auto; }
+    .gallery-row > .gallery-item img { height: auto; object-fit: unset; }
   }
 
   .description { max-width: 64ch; margin: 0 auto; padding: 96px 40px 64px; }
