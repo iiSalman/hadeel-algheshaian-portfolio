@@ -61,6 +61,14 @@
   .nav-links { display: flex; align-items: center; gap: 32px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
   .nav-links a:hover { color: var(--text); }
   .nav-toggles { display: flex; align-items: center; gap: 10px; }
+  .nav-burger { display: none; background: transparent; border: 1px solid var(--border); color: var(--text); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; align-items: center; justify-content: center; padding: 0; }
+  .nav-burger span, .nav-burger span::before, .nav-burger span::after { display: block; width: 18px; height: 1.5px; background: currentColor; }
+  .nav-burger span { position: relative; }
+  .nav-burger span::before { content: ""; position: absolute; left: 0; top: -6px; }
+  .nav-burger span::after { content: ""; position: absolute; left: 0; top: 6px; }
+  .nav.open .nav-burger span { background: transparent; }
+  .nav.open .nav-burger span::before { top: 0; transform: rotate(45deg); }
+  .nav.open .nav-burger span::after { top: 0; transform: rotate(-45deg); }
   .toggle-btn { width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center;
     border: 1px solid var(--border); background: transparent; color: var(--text); border-radius: 50%;
     font-family: var(--font-en); font-size: 10px; font-weight: 500; letter-spacing: 0.08em; cursor: pointer;
@@ -193,7 +201,14 @@
   /* responsive */
   @media (max-width: 900px) {
     .nav { padding: 14px 20px; }
-    .nav-links { display: none; }
+    .nav-burger { display: inline-flex; }
+    .nav-links { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--nav-bg);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      flex-direction: column; align-items: flex-start; gap: 0; padding: 16px 24px 24px;
+      border-bottom: 1px solid var(--border); font-size: 13px; letter-spacing: 0.18em; }
+    .nav-links a { padding: 14px 0; width: 100%; border-bottom: 1px solid var(--border); }
+    .nav-links a:last-child { border-bottom: none; }
+    .nav.open .nav-links { display: flex; }
     .nav-logo-name { font-size: 16px; }
     .project-head { padding: 100px 20px 36px; }
     .gallery { padding: 0 20px; }
@@ -240,7 +255,7 @@ main.dynamic-bg { position: relative; isolation: isolate; }
           mask: var(--art) center / contain no-repeat;
 }
 :root[data-theme="light"] .bg-motif { background-color: #1A1A1A; opacity: 0.14; }
-@media (max-width: 700px) { .bg-motif { display: none; } }
+@media (max-width: 700px) { .bg-motif { width: calc(var(--size, 30vw) * 0.7); opacity: 0.12; } }
 </style>
 </head>
 <body>
@@ -261,6 +276,7 @@ main.dynamic-bg { position: relative; isolation: isolate; }
       <svg class="theme-icon-dark" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
     <button class="toggle-btn" id="lang-toggle" aria-label="Toggle language">EN</button>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu" aria-expanded="false"><span></span></button>
   </div>
 </nav>
 <main class="dynamic-bg">
@@ -439,6 +455,12 @@ main.dynamic-bg { position: relative; isolation: isolate; }
       lang = lang === 'en' ? 'ar' : 'en';
       applyLanguage();
     });
+    const navEl = document.querySelector('.nav');
+    document.getElementById('nav-burger').addEventListener('click', () => {
+      const open = navEl.classList.toggle('open');
+      document.getElementById('nav-burger').setAttribute('aria-expanded', open);
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navEl.classList.remove('open')));
 
     // Justified-rows: set --ar from each image's natural aspect on paired rows
     document.querySelectorAll('.gallery-row:not(.center):not(.full) > .gallery-item img').forEach(img => {

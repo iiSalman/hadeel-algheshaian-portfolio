@@ -56,7 +56,7 @@ main.dynamic-bg { position: relative; isolation: isolate; }
           mask: var(--art) center / contain no-repeat;
 }
 :root[data-theme="light"] .bg-motif { background-color: #1A1A1A; opacity: 0.14; }
-@media (max-width: 700px) { .bg-motif { display: none; } }
+@media (max-width: 700px) { .bg-motif { width: calc(var(--size, 30vw) * 0.7); opacity: 0.12; } }
 """
 
 START = "<!-- BG-MOTIFS-START -->"

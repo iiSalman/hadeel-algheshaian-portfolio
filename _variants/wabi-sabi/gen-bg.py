@@ -47,7 +47,7 @@ main.dynamic-bg { position: relative; isolation: isolate; }
   transform: rotate(var(--rot, 0deg));
 }
 :root[data-theme="light"] .bg-motif { background-color: #1F1814; opacity: 0.18; }
-@media (max-width: 700px) { .bg-motif { display: none; } }
+@media (max-width: 700px) { .bg-motif { width: calc(var(--size, 28vw) * 0.7); opacity: 0.16; } }
 """
 
 START = "<!-- BG-MOTIFS-START -->"
