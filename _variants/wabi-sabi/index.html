@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hadeel Algheshaian — Wabi-Sabi Variant</title>
+<meta name="description" content="Interior-design portfolio of Hadeel Algheshaian — Wabi-Sabi variant.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var l = localStorage.getItem('lang') || 'en';
+    document.documentElement.setAttribute('lang', l);
+    document.documentElement.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+    var t = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  :root {
+    --bg: #1F1814;
+    --surface: #2A211A;
+    --border: #3A2F25;
+    --text: #ECE4D0;
+    --muted: #8A7E6B;
+    --accent: #B5755A;
+    --accent-2: #7A8A5C;
+    --nav-bg: rgba(31, 24, 20, 0.86);
+    --paper-tint: rgba(236, 228, 208, 0.04);
+    --font-en: 'Newsreader', Georgia, serif;
+    --font-ar: 'Tajawal', system-ui, sans-serif;
+    --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --rule: rgba(181, 117, 90, 0.5);
+  }
+  :root[data-theme="light"] {
+    --bg: #ECE4D0;
+    --surface: #DCD3BC;
+    --border: #BAA985;
+    --text: #2A211A;
+    --muted: #6B5C45;
+    --accent: #8B4F32;
+    --accent-2: #6B7F5A;
+    --nav-bg: rgba(236, 228, 208, 0.94);
+    --paper-tint: rgba(42, 33, 26, 0.04);
+    --rule: rgba(139, 79, 50, 0.55);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-en);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 18% 22%, var(--paper-tint) 0%, transparent 40%),
+      radial-gradient(circle at 78% 68%, var(--paper-tint) 0%, transparent 35%);
+  }
+  html[lang="ar"] body { font-family: var(--font-ar); }
+  html[lang="ar"] *, html[lang="ar"] *::before, html[lang="ar"] *::after {
+    letter-spacing: 0 !important; text-transform: none !important;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ========== nav ========== */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100; direction: ltr;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 44px; background: var(--nav-bg);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  }
+  .nav::after {
+    content: ""; position: absolute; left: 4%; right: 4%; bottom: 0; height: 1px;
+    background: linear-gradient(to right, transparent 0%, var(--rule) 18%, var(--rule) 82%, transparent 100%);
+    opacity: 0.7;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; cursor: pointer; }
+  .nav-logo-mark {
+    display: block; width: 38px; height: 38px;
+    background-color: var(--text);
+    -webkit-mask: url("brand/logo-mark.png") center / contain no-repeat;
+            mask: url("brand/logo-mark.png") center / contain no-repeat;
+    animation: logo-spin 38s linear infinite;
+    transform-origin: 50% 50%;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    opacity: 0.92;
+  }
+  .nav-logo-name {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: 19px; letter-spacing: 0.02em; color: var(--text);
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 36px;
+    font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted);
+    font-weight: 400;
+  }
+  .nav-links a { transition: color 0.4s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-toggles { display: flex; align-items: center; gap: 12px; }
+  .toggle-btn {
+    width: 32px; height: 32px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border); background: transparent; color: var(--text);
+    border-radius: 50%; cursor: pointer;
+    font-family: var(--font-en); font-size: 10px; font-weight: 400;
+    letter-spacing: 0.08em;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .theme-icon-light, .theme-icon-dark { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+  :root[data-theme="dark"] .theme-icon-dark { display: none; }
+  :root[data-theme="light"] .theme-icon-light { display: none; }
+  @keyframes logo-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .nav-logo-mark { animation: none; } }
+
+  /* ========== hero — asymmetric ========== */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 130px 80px 80px;
+    overflow: hidden; gap: 32px;
+  }
+  .hero-mark { position: relative; display: flex; justify-content: center; align-items: center; }
+  .hero-mark svg { width: 70%; max-width: 460px; aspect-ratio: 1; opacity: 0.85; }
+  .hero-mark svg path { stroke: var(--accent); fill: none; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+  .hero-mark .hero-mark-shadow path { stroke: var(--accent-2); opacity: 0.35; transform: translate(8px, 10px); }
+  .hero-text { position: relative; padding-left: 24px; }
+  .hero-eyebrow {
+    font-family: var(--font-en);
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 32px;
+  }
+  .hero-name {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: clamp(56px, 8vw, 116px);
+    line-height: 0.96;
+    letter-spacing: -0.012em;
+    color: var(--text);
+    margin: 0 0 28px;
+    direction: ltr;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  }
+  .hero-name .last { display: block; padding-left: 8%; transform: translateY(-6px); }
+  .hero-rule {
+    width: 84px; height: 14px; margin-bottom: 26px;
+  }
+  .hero-rule path { stroke: var(--accent); stroke-width: 3; stroke-linecap: round; fill: none; }
+  .hero-tagline {
+    font-family: var(--font-serif); font-style: italic;
+    font-size: 18px; color: var(--muted); max-width: 38ch;
+    line-height: 1.55;
+  }
+  .hero-scroll-cue {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted);
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .hero-scroll-cue::after {
+    content: ""; width: 22px; height: 26px;
+    background: var(--accent); opacity: 0.55;
+    -webkit-mask: url("brand/background-art/4.svg") center/contain no-repeat;
+            mask: url("brand/background-art/4.svg") center/contain no-repeat;
+    animation: brush-pulse 3.4s ease-in-out infinite;
+  }
+  @keyframes brush-pulse {
+    0%, 100% { opacity: 0.55; transform: translateY(0); }
+    50%      { opacity: 0.25; transform: translateY(6px); }
+  }
+  @media (prefers-reduced-motion: reduce) { .hero-scroll-cue::after { animation: none; } }
+
+  /* ========== brush separators ========== */
+  .brush-rule {
+    display: block; width: 220px; height: 22px; margin: 0 auto;
+    color: var(--accent); opacity: 0.85;
+  }
+  .brush-rule path { stroke: currentColor; stroke-width: 4; stroke-linecap: round; fill: none; }
+
+  /* ========== chapter ========== */
+  .chapter {
+    position: relative; padding: 110px 40px 28px; text-align: center;
+  }
+  .chapter-eyebrow {
+    font-family: var(--font-en); font-size: 11px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .chapter-title {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: clamp(34px, 5vw, 56px);
+    margin: 12px 0 22px; color: var(--text);
+    line-height: 1.05;
+  }
+
+  /* ========== about — torn-paper mosaic ========== */
+  .about {
+    position: relative; min-height: 600px;
+    display: grid; grid-template-columns: 1.05fr 1fr;
+    align-items: stretch; overflow: hidden; isolation: isolate;
+    padding: 24px;
+  }
+  .about-mosaic {
+    position: relative; overflow: hidden; aspect-ratio: 1;
+    border: 1px solid var(--border);
+  }
+  .mosaic-slice {
+    position: absolute; inset: 0;
+    background-position: center; background-size: cover;
+    filter: sepia(0.5) saturate(0.7) brightness(0.55) contrast(0.95);
+    pointer-events: none;
+    transition: filter 1.2s;
+  }
+  :root[data-theme="light"] .mosaic-slice { filter: sepia(0.42) saturate(0.78) brightness(0.92) contrast(0.95); }
+  .mosaic-vignette {
+    position: absolute; inset: 0; pointer-events: none; z-index: 4;
+    background:
+      radial-gradient(circle at center, transparent 50%, rgba(31,24,20,0.55) 100%),
+      linear-gradient(180deg, transparent 70%, rgba(31,24,20,0.35) 100%);
+  }
+  :root[data-theme="light"] .mosaic-vignette {
+    background:
+      radial-gradient(circle at center, transparent 55%, rgba(236,228,208,0.6) 100%);
+  }
+  .about-text {
+    padding: 56px 56px 56px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+    z-index: 4;
+  }
+  .about-eyebrow {
+    font-family: var(--font-en); font-size: 11px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
+  }
+  .about-title {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: clamp(28px, 3.6vw, 42px); margin: 0 0 28px;
+    line-height: 1.15;
+  }
+  .about-bio {
+    font-family: var(--font-en); font-weight: 300;
+    font-size: 16px; line-height: 1.95; color: var(--text);
+    max-width: 42ch;
+    margin: 0;
+  }
+  .about-sig {
+    margin-top: 36px;
+    font-family: var(--font-serif); font-style: italic;
+    font-size: 19px; color: var(--accent); letter-spacing: 0.02em;
+  }
+
+  /* ========== filters ========== */
+  .filters {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 28px; padding: 8px 40px 64px;
+  }
+  .filter-pill {
+    border: 0; background: transparent; padding: 6px 4px;
+    color: var(--muted); cursor: pointer;
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: 18px; letter-spacing: 0.02em;
+    transition: color 0.4s;
+    position: relative;
+  }
+  .filter-pill:hover { color: var(--text); }
+  .filter-pill.active { color: var(--accent); }
+  .filter-pill.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -8px;
+    height: 6px; background: var(--accent); opacity: 0.55;
+    -webkit-mask: url("brand/background-art/4.svg") center / contain no-repeat;
+            mask: url("brand/background-art/4.svg") center / contain no-repeat;
+  }
+
+  /* ========== project grid — staggered, slightly imperfect ========== */
+  .grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 56px 48px;
+    padding: 0 64px 96px;
+    max-width: 1480px; margin: 0 auto;
+  }
+  .project-card {
+    position: relative;
+    aspect-ratio: 3 / 1;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(28px) rotate(0deg);
+    transition: opacity 1.4s ease, transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+    border: 1px solid var(--border);
+  }
+  .project-card.visible { opacity: 1; transform: translateY(0) rotate(var(--rot, 0deg)); }
+  .project-card:nth-child(odd) { --rot: -0.5deg; }
+  .project-card:nth-child(even) { --rot: 0.5deg; transform-origin: 80% 20%; }
+  .project-card:nth-child(3n) { margin-top: 32px; }
+  .project-card-img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 38%;
+    filter: sepia(0.18) saturate(0.85) brightness(0.78);
+    transition: filter 1.0s, transform 1.8s ease-out;
+  }
+  :root[data-theme="light"] .project-card-img { filter: sepia(0.12) saturate(0.92) brightness(0.96); }
+  .project-card:hover .project-card-img { filter: sepia(0) saturate(1) brightness(1); transform: scale(1.05); }
+  .project-card-meta {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px 26px;
+    background: linear-gradient(to top, rgba(20, 14, 10, 0.86) 0%, rgba(20, 14, 10, 0) 100%);
+    color: #ECE4D0;
+  }
+  .project-card-num {
+    font-family: var(--font-serif); font-style: italic; font-size: 13px;
+    color: var(--accent); margin-bottom: 4px; opacity: 0.9;
+  }
+  .project-card-title {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: 26px; line-height: 1.1; margin: 0 0 6px;
+  }
+  .project-card-year {
+    font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(236, 228, 208, 0.78);
+  }
+
+  /* ========== contact strip ========== */
+  .contact-strip {
+    border-top: 1px solid var(--border);
+    padding: 96px 40px 64px; text-align: center;
+  }
+  .contact-strip .chapter-title { margin-bottom: 36px; }
+  .contact-list {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 44px;
+    list-style: none; padding: 0; margin: 0;
+    font-family: var(--font-serif); font-style: italic;
+    font-size: 17px; color: var(--text);
+  }
+  .contact-list .ph { direction: ltr; unicode-bidi: isolate; color: var(--text); }
+  .contact-list a { transition: color 0.4s; }
+  .contact-list a:hover { color: var(--accent); }
+  .footer {
+    padding: 36px 40px 44px; text-align: center;
+    font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1.4s ease, transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .project-card { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 900px) {
+    .nav { padding: 14px 22px; }
+    .nav-links { display: none; }
+    .nav-logo-name { font-size: 17px; }
+    .hero { grid-template-columns: 1fr; padding: 110px 28px 72px; }
+    .hero-mark { order: 2; }
+    .hero-text { padding-left: 0; text-align: center; }
+    .hero-name .last { padding-left: 0; }
+    .hero-rule { margin: 0 auto 24px; }
+    .hero-tagline { margin: 0 auto; }
+    .about { grid-template-columns: 1fr; min-height: auto; padding: 16px; }
+    .about-mosaic { aspect-ratio: 16 / 12; }
+    .about-text { padding: 44px 24px 24px; }
+    .grid { grid-template-columns: 1fr; gap: 36px; padding: 0 24px 64px; }
+    .project-card:nth-child(3n) { margin-top: 0; }
+    .filters { gap: 18px; padding: 0 22px 42px; }
+    .chapter { padding: 72px 22px 22px; }
+  }
+
+/* Dynamic Background System (Wabi-Sabi) */
+main.dynamic-bg { position: relative; isolation: isolate; }
+.bg-motif {
+  position: absolute; aspect-ratio: 1;
+  width: var(--size, 28vw); left: var(--x, 50%); top: var(--y, 50%);
+  pointer-events: none; z-index: -1;
+  background-color: #ECE4D0; opacity: 0.22;
+  -webkit-mask: var(--art) center / contain no-repeat;
+          mask: var(--art) center / contain no-repeat;
+  transform: rotate(var(--rot, 0deg));
+}
+:root[data-theme="light"] .bg-motif { background-color: #1F1814; opacity: 0.18; }
+@media (max-width: 700px) { .bg-motif { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Hadeel Algheshaian — Home">
+    <span class="nav-logo-mark"></span>
+    <span class="nav-logo-name">Hadeel</span>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="#projects" data-en="Work" data-ar="الأعمال">Work</a>
+    <a href="#about" data-en="About" data-ar="نبذة">About</a>
+    <a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a>
+  </div>
+  <div class="nav-toggles">
+    <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="theme-icon-light" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="theme-icon-dark" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="toggle-btn" id="lang-toggle" aria-label="Toggle language">EN</button>
+  </div>
+</nav>
+<main class="dynamic-bg">
+<!-- BG-MOTIFS-START -->
+  <div class="bg-motif" style="--art:url('brand/background-art/14.svg'); --x:2%; --y:5%; --size:17vw; --rot:11deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/11.svg'); --x:82%; --y:5%; --size:15vw; --rot:13deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/12.svg'); --x:4%; --y:21%; --size:18vw; --rot:-13deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/13.svg'); --x:82%; --y:24%; --size:16vw; --rot:7deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/10.svg'); --x:2%; --y:44%; --size:17vw; --rot:7deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/14.svg'); --x:84%; --y:48%; --size:16vw; --rot:-15deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/11.svg'); --x:1%; --y:67%; --size:17vw; --rot:-9deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/12.svg'); --x:83%; --y:67%; --size:16vw; --rot:8deg"></div>
+<!-- BG-MOTIFS-END -->
+
+
+
+<section class="hero">
+  <div class="hero-mark">
+    <svg class="hero-mark-shadow" viewBox="0 0 600 600" aria-hidden="true">
+      <path d="M 300,80 a 220,220 0 1 1 -210,290" />
+    </svg>
+    <svg viewBox="0 0 600 600" aria-hidden="true" style="position:absolute">
+      <path d="M 300,80 a 220,220 0 1 1 -210,290" />
+    </svg>
+  </div>
+  <div class="hero-text">
+    <div class="hero-eyebrow" data-en="Interior Design — Selected Works" data-ar="التصميم الداخلي — أعمال مختارة">Interior Design — Selected Works</div>
+    <h1 class="hero-name">
+      <span>Hadeel</span>
+      <span class="last">Algheshaian</span>
+    </h1>
+    <svg class="hero-rule" viewBox="0 0 84 14" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M 2,8 Q 22,2 44,8 T 82,7" />
+    </svg>
+    <p class="hero-tagline" data-en="Designed for the hour you spend there — not the photograph." data-ar="مصمَّم للساعة التي تقضيها هناك — لا للصورة.">Designed for the hour you spend there — not the photograph.</p>
+  </div>
+  <div class="hero-scroll-cue" data-en="Scroll" data-ar="تمرير">Scroll</div>
+</section>
+
+<section class="chapter reveal" id="about">
+  <div class="chapter-eyebrow" data-en="— About —" data-ar="— نبذة —">— About —</div>
+  <h2 class="chapter-title" data-en="A studio of one" data-ar="مرسم منفرد">A studio of one</h2>
+  <svg class="brush-rule" viewBox="0 0 220 22" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M 6,12 Q 50,4 110,12 T 214,11" />
+  </svg>
+</section>
+
+<section class="about" aria-label="About">
+  <div class="about-mosaic" id="about-mosaic"></div>
+  <div class="about-text">
+    <div class="about-eyebrow" data-en="Interior &amp; Event &amp; Furniture Designer" data-ar="مصممة داخلية وفعاليات وأثاث">Interior &amp; Event &amp; Furniture Designer</div>
+    <h3 class="about-title" data-en="Who is Hadeel Algheshaian?" data-ar="من هي هديل الغيشيان؟">Who is Hadeel Algheshaian?</h3>
+    <p class="about-bio" data-en="I am a designer specialized in interior design, event design, and furniture design. I focus on creating beautiful and functional spaces with a strong attention to detail, believing that details make the true difference. I work with precision and flexibility to deliver designs that suit diverse tastes, aiming to translate each client's vision into a unique experience that leaves a lasting impression." data-ar="حول أي مساحة إلى مكان جميل وعملي يعكس شخصية أصحابه. أؤمن أن التفاصيل تصنع الفرق. أعمل بدقة ومرونة لتقديم تصاميم تناسب الأذواق المختلفة، وأسعى لترجمة رؤية كل عميل إلى تجربة فريدة تترك أثراً يدوم.">I am a designer specialized in interior design, event design, and furniture design. I focus on creating beautiful and functional spaces with a strong attention to detail, believing that details make the true difference. I work with precision and flexibility to deliver designs that suit diverse tastes, aiming to translate each client's vision into a unique experience that leaves a lasting impression.</p>
+    <div class="about-sig">— Hadeel</div>
+  </div>
+</section>
+
+<section class="chapter reveal" id="projects">
+  <div class="chapter-eyebrow" data-en="— Selected Work —" data-ar="— أعمال مختارة —">— Selected Work —</div>
+  <h2 class="chapter-title" data-en="Eight projects" data-ar="ثمانية مشاريع">Eight projects</h2>
+  <svg class="brush-rule" viewBox="0 0 220 22" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M 4,10 Q 48,16 100,10 T 216,11" />
+  </svg>
+</section>
+
+<div class="filters" id="filters" role="tablist" aria-label="Filter projects"></div>
+
+<div class="grid" id="grid"></div>
+
+<section class="contact-strip">
+  <span class="chapter-eyebrow" data-en="— Contact —" data-ar="— تواصل —">— Contact —</span>
+  <h2 class="chapter-title" data-en="Available for new work." data-ar="متاحة لأعمال جديدة.">Available for new work.</h2>
+  <ul class="contact-list">
+    <li><a href="mailto:int.hadeel.sa@gmail.com"><span class="ph">int.hadeel.sa@gmail.com</span></a></li>
+    <li><a href="tel:+966503109887"><span class="ph">+966 50 310 9887</span></a></li>
+    <li><a href="https://instagram.com/int.hadeel"><span class="ph">@int.hadeel</span></a></li>
+    <li><a href="contact.html" data-en="Full Contact →" data-ar="تواصل كامل ←">Full Contact →</a></li>
+  </ul>
+</section>
+
+<footer class="footer">
+  <span data-en="© 2026 Hadeel Algheshaian · Wabi-Sabi Variant" data-ar="© 2026 هديل الغيشيان · النسخة الواسابي‑سابية">© 2026 Hadeel Algheshaian · Wabi-Sabi Variant</span>
+</footer>
+
+<script>
+  const PROJECTS = [
+    { slug: 'almamlaka',    n: '01', title: { en: 'ALMAMLAKA',                   ar: 'المملكة' },                      year: 2026, type: { en: 'Cultural',    ar: 'ثقافي' },     hero: '../../2. ALMAMLAKA/1. Project start/1. hero photo.png' },
+    { slug: 'coffee-day',   n: '02', title: { en: 'International Coffee Day',    ar: 'يوم القهوة العالمي' },             year: 2025, type: { en: 'Commercial',  ar: 'تجاري' },     hero: '../../3. International Coffee Day/1. Project start/1. hero photo.png' },
+    { slug: 'courtyard',    n: '03', title: { en: 'Courtyard',                   ar: 'الفناء' },                        year: 2025, type: { en: 'Cultural',    ar: 'ثقافي' },     hero: '../../4. courtyard/1. Project start/1. hero photo.png' },
+    { slug: 'lavender',     n: '04', title: { en: 'Lavender Center',             ar: 'مركز الخزامى' },                  year: 2024, type: { en: 'Commercial',  ar: 'تجاري' },     hero: '../../5. Lavender Center/1. Project start/1. hero photo.png' },
+    { slug: 'almaarefa',    n: '05', title: { en: 'AlMaarefa University',        ar: 'جامعة المعرفة' },                 year: 2024, type: { en: 'Cultural',    ar: 'ثقافي' },     hero: '../../6. AlMaarefa University/1. Project start/1. hero photo.png' },
+    { slug: 'awjaj',        n: '06', title: { en: 'Awjaj Hotel',                 ar: 'فندق أوجاج' },                    year: 2023, type: { en: 'Hospitality', ar: 'ضيافة' },     hero: '../../7. Awjaj hotel/1. Project start/1. hero photo.png' },
+    { slug: 'culinary',     n: '07', title: { en: 'Culinary Arts Institute',     ar: 'معهد فنون الطهي' },                year: 2023, type: { en: 'Cultural',    ar: 'ثقافي' },     hero: '../../8. Culinary Arts Institute/1. Project start/1. hero photo.png' },
+    { slug: 'company',      n: '08', title: { en: 'Company',                     ar: 'مقر الشركة' },                    year: 2022, type: { en: 'Commercial',  ar: 'تجاري' },     hero: '../../9. company/1. Project start/1. hero photo.png' }
+  ];
+
+  let activeFilter = 'all';
+  let lang = localStorage.getItem('lang') || 'en';
+
+  // ========== torn-paper mosaic — irregular polygons ==========
+  // 8 hand-tuned polygons that tile the about-mosaic with rough edges.
+  const MOSAIC_CLIPS = [
+    // top row (4 pieces) — irregular, slightly overlapping fault lines
+    'polygon(0% 0%, 28% 0%, 33% 12%, 22% 28%, 0% 30%)',
+    'polygon(28% 0%, 56% 0%, 60% 16%, 48% 30%, 33% 24%, 22% 12%)',
+    'polygon(56% 0%, 80% 0%, 78% 18%, 64% 32%, 52% 22%, 60% 12%)',
+    'polygon(80% 0%, 100% 0%, 100% 30%, 86% 38%, 70% 28%, 78% 14%)',
+    // bottom row
+    'polygon(0% 30%, 22% 28%, 32% 50%, 22% 70%, 0% 72%)',
+    'polygon(22% 28%, 48% 30%, 52% 56%, 36% 76%, 22% 70%, 32% 50%)',
+    'polygon(48% 30%, 70% 28%, 78% 56%, 60% 78%, 36% 76%, 52% 56%)',
+    'polygon(70% 28%, 100% 30%, 100% 100%, 60% 100%, 60% 78%, 78% 56%)'
+  ];
+  // Slight rotation per slice for hand-placed feel
+  const MOSAIC_ROT = [-0.6, 0.5, -0.4, 0.7, -0.5, 0.4, -0.7, 0.6];
+
+  function renderMosaic() {
+    const root = document.getElementById('about-mosaic');
+    if (!root) return;
+    root.innerHTML = '';
+    PROJECTS.forEach((p, i) => {
+      const slice = document.createElement('div');
+      slice.className = 'mosaic-slice';
+      slice.style.backgroundImage = `url("${encodeURI(p.hero)}")`;
+      slice.style.clipPath = MOSAIC_CLIPS[i];
+      slice.style.webkitClipPath = MOSAIC_CLIPS[i];
+      slice.style.transform = `rotate(${MOSAIC_ROT[i]}deg)`;
+      root.appendChild(slice);
+    });
+    const v = document.createElement('div');
+    v.className = 'mosaic-vignette';
+    root.appendChild(v);
+  }
+
+  function uniqueTypes() {
+    const seen = new Set(); const out = [];
+    PROJECTS.forEach(p => { if (!seen.has(p.type.en)) { seen.add(p.type.en); out.push(p.type); } });
+    return out;
+  }
+  const FILTER_LABELS = { en: { all: 'All' }, ar: { all: 'الكل' } };
+  function renderFilters() {
+    const c = document.getElementById('filters'); c.innerHTML = '';
+    const items = [{ key: 'all', label: { en: FILTER_LABELS.en.all, ar: FILTER_LABELS.ar.all } }]
+      .concat(uniqueTypes().map(t => ({ key: t.en, label: t })));
+    items.forEach(it => {
+      const b = document.createElement('button');
+      b.className = 'filter-pill' + (it.key === activeFilter ? ' active' : '');
+      b.textContent = it.label[lang];
+      b.dataset.key = it.key;
+      b.addEventListener('click', () => { activeFilter = it.key; renderFilters(); renderCards(); });
+      c.appendChild(b);
+    });
+  }
+
+  let revealObserver;
+  function renderCards() {
+    const g = document.getElementById('grid'); g.innerHTML = '';
+    const list = activeFilter === 'all' ? PROJECTS : PROJECTS.filter(p => p.type.en === activeFilter);
+    list.forEach((p, i) => {
+      const a = document.createElement('a');
+      a.className = 'project-card';
+      a.href = `project-${p.slug}.html`;
+      a.innerHTML = `
+        <img class="project-card-img" src="${encodeURI(p.hero)}" alt="${p.title.en}" loading="lazy">
+        <div class="project-card-meta">
+          <div class="project-card-num">${p.n}</div>
+          <h3 class="project-card-title" data-title>${p.title[lang]}</h3>
+          <div class="project-card-year">${p.year}</div>
+        </div>`;
+      g.appendChild(a);
+      setTimeout(() => a.classList.add('visible'), i * 110);
+    });
+  }
+
+  function attachReveal() {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')); return;
+    }
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
+  }
+
+  function applyLanguage() {
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const v = el.dataset[lang === 'ar' ? 'ar' : 'en'];
+      if (v != null) el.textContent = v;
+    });
+    document.getElementById('lang-toggle').textContent = lang === 'en' ? 'AR' : 'EN';
+    renderFilters(); renderCards();
+  }
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderMosaic(); renderFilters(); renderCards(); applyLanguage(); attachReveal();
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      lang = lang === 'en' ? 'ar' : 'en'; applyLanguage();
+    });
+  });
+</script>
+
+
+</main>
+</body>
+</html>

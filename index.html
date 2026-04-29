@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hadeel Algheshaian — Interior Design Portfolio</title>
+<meta name="description" content="Interior-design portfolio of Hadeel Algheshaian — selected projects across hospitality, commercial, and cultural work.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var l = localStorage.getItem('lang') || 'en';
+    document.documentElement.setAttribute('lang', l);
+    document.documentElement.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+    var t = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  :root {
+    --bg: #0E1418;
+    --surface: #161D22;
+    --border: #252e34;
+    --text: #E8E4D8;
+    --muted: #8a8475;
+    --accent: #A98756;
+    --nav-bg: rgba(14, 20, 24, 0.82);
+    --hero-bg-filter: grayscale(100%) brightness(0.42);
+    --about-fade: 14, 20, 24;
+    --font-en: 'Inter', system-ui, sans-serif;
+    --font-ar: 'Tajawal', system-ui, sans-serif;
+    --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --measure: 64ch;
+    --rule: rgba(169, 135, 86, 0.45);
+  }
+  :root[data-theme="light"] {
+    --bg: #EFE8DA;
+    --surface: #E1D7C2;
+    --border: #B8A883;
+    --text: #2C2218;
+    --muted: #7A6E54;
+    --accent: #A98756;
+    --nav-bg: rgba(239, 232, 218, 0.92);
+    --hero-bg-filter: sepia(0.18) saturate(0.85) brightness(0.95) contrast(0.96);
+    --about-fade: 239, 232, 218;
+    --rule: rgba(169, 135, 86, 0.55);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-en);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  html[lang="ar"] body { font-family: var(--font-ar); }
+  html[lang="ar"] *, html[lang="ar"] *::before, html[lang="ar"] *::after {
+    letter-spacing: 0 !important; text-transform: none !important;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ========== nav ========== */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    direction: ltr;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s, background 0.3s;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; cursor: pointer; }
+  .nav-logo-mark {
+    display: block; width: 36px; height: 36px;
+    background-color: var(--text);
+    -webkit-mask: url("brand/logo-mark.png") center / contain no-repeat;
+            mask: url("brand/logo-mark.png") center / contain no-repeat;
+    animation: logo-spin 28s linear infinite;
+    transform-origin: 50% 50%;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+  }
+  .nav-logo-name {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: var(--text);
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 32px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-toggles { display: flex; align-items: center; gap: 10px; }
+  .toggle-btn {
+    width: 30px; height: 30px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    border-radius: 50%;
+    font-family: var(--font-en);
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .theme-icon-light, .theme-icon-dark { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+  :root[data-theme="dark"] .theme-icon-dark { display: none; }
+  :root[data-theme="light"] .theme-icon-light { display: none; }
+  @keyframes logo-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .nav-logo-mark { animation: none; } }
+
+  /* ========== hero ========== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 120px 40px 80px;
+    overflow: hidden;
+  }
+  .hero-eyebrow {
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+  .hero-rule {
+    width: 1px; height: 56px;
+    background: var(--accent);
+    margin-bottom: 40px;
+    opacity: 0.7;
+  }
+  .hero-name {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(52px, 9vw, 124px);
+    line-height: 1;
+    letter-spacing: -0.012em;
+    color: var(--text);
+    text-align: center;
+    margin: 0;
+    direction: ltr;
+  }
+  .hero-tagline {
+    margin-top: 36px;
+    font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+  .hero-scroll-cue {
+    position: absolute; bottom: 28px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted);
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .hero-scroll-cue::after {
+    content: ""; width: 1px; height: 32px;
+    background: var(--accent);
+    opacity: 0.7;
+    animation: scroll-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes scroll-pulse {
+    0%, 100% { transform: scaleY(1); transform-origin: top; opacity: 0.7; }
+    50%      { transform: scaleY(0.4); opacity: 0.3; }
+  }
+  @media (prefers-reduced-motion: reduce) { .hero-scroll-cue::after { animation: none; } }
+
+  /* ========== chapter separator ========== */
+  .chapter {
+    position: relative;
+    padding: 96px 40px 32px;
+    text-align: center;
+  }
+  .chapter-rule { width: 80px; height: 1px; background: var(--accent); margin: 0 auto 28px; opacity: 0.7; }
+  .chapter-eyebrow { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); }
+  .chapter-title {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: clamp(32px, 4.5vw, 52px); margin: 12px 0 0;
+    color: var(--text);
+  }
+
+  /* ========== about + diagonal mosaic ========== */
+  .about {
+    position: relative;
+    min-height: 560px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .about-mosaic {
+    position: relative;
+    overflow: hidden;
+  }
+  .mosaic-slice {
+    position: absolute; inset: 0;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(100%) brightness(0.42) contrast(1.1);
+    pointer-events: none;
+  }
+  :root[data-theme="light"] .mosaic-slice { filter: sepia(0.32) saturate(0.78) brightness(0.92) contrast(0.95); }
+  .mosaic-seams {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .mosaic-seams line { stroke: var(--accent); stroke-width: 0.6; opacity: 0.55; }
+  .about-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(var(--about-fade), 0) 0%, rgba(var(--about-fade), 0.2) 60%, rgba(var(--about-fade), 0.95) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .about-text {
+    padding: 80px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+    z-index: 4;
+    background: var(--bg);
+  }
+  .about-eyebrow { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .about-title {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: 38px; margin: 0 0 28px; line-height: 1.1;
+  }
+  .about-bio {
+    font-size: 15px; line-height: 1.8; color: var(--text);
+    max-width: 38ch;
+    margin: 0;
+  }
+  .about-bio em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+  .about-sig {
+    margin-top: 32px;
+    font-family: var(--font-serif); font-style: italic; font-size: 18px; color: var(--accent);
+  }
+
+  /* ========== filters ========== */
+  .filters {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 8px;
+    padding: 0 40px 56px;
+  }
+  .filter-pill {
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: transparent;
+    padding: 9px 20px;
+    font-family: var(--font-en);
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .filter-pill:hover { color: var(--text); border-color: var(--accent); }
+  .filter-pill.active {
+    background: var(--accent);
+    color: #0E1418;
+    border-color: var(--accent);
+  }
+
+  /* ========== project grid ========== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 0 40px 96px;
+    max-width: 1480px;
+    margin: 0 auto;
+  }
+  .project-card {
+    position: relative;
+    aspect-ratio: 3 / 1;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .project-card.visible { opacity: 1; transform: translateY(0); }
+  .project-card-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover; object-position: center 38%;
+    filter: grayscale(0.18) brightness(0.78);
+    transition: filter 0.6s, transform 1.4s ease-out;
+  }
+  :root[data-theme="light"] .project-card-img { filter: brightness(0.96) saturate(0.92); }
+  .project-card:hover .project-card-img { filter: grayscale(0) brightness(1); transform: scale(1.04); }
+  :root[data-theme="light"] .project-card:hover .project-card-img { filter: brightness(1) saturate(1); transform: scale(1.04); }
+  .project-card-meta {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 32px 28px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0) 100%);
+    color: #E8E4D8;
+  }
+  .project-card-num {
+    font-family: var(--font-serif); font-style: italic; font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .project-card-title {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: 28px; line-height: 1.1;
+    margin: 0 0 6px;
+  }
+  .project-card-year {
+    font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(232, 228, 216, 0.75);
+  }
+
+  /* ========== contact strip ========== */
+  .contact-strip {
+    border-top: 1px solid var(--border);
+    padding: 80px 40px;
+    text-align: center;
+  }
+  .contact-strip .chapter-eyebrow { display: block; margin-bottom: 14px; }
+  .contact-strip .chapter-title { margin-bottom: 32px; }
+  .contact-list {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;
+    list-style: none; padding: 0; margin: 0;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .contact-list .ph {
+    direction: ltr; unicode-bidi: isolate;
+    color: var(--text);
+  }
+  .contact-list a:hover { color: var(--accent); }
+  .footer {
+    padding: 32px 40px 40px;
+    text-align: center;
+    font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ========== reveal ========== */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .project-card { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+
+  /* ========== responsive ========== */
+  @media (max-width: 900px) {
+    .nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .nav-logo-name { font-size: 16px; }
+    .hero { padding: 100px 20px 60px; }
+    .about { grid-template-columns: 1fr; min-height: auto; }
+    .about-mosaic { aspect-ratio: 16/9; }
+    .about-text { padding: 56px 28px; background: var(--bg); }
+    .about-overlay { background: linear-gradient(to bottom, rgba(var(--about-fade), 0) 0%, rgba(var(--about-fade), 0.95) 100%); }
+    .grid { grid-template-columns: 1fr; gap: 24px; padding: 0 20px 64px; }
+    .filters { padding: 0 20px 40px; }
+    .chapter { padding: 64px 20px 24px; }
+  }
+
+/* Dynamic Background System */
+main.dynamic-bg { position: relative; isolation: isolate; }
+.bg-motif {
+  position: absolute; aspect-ratio: 1;
+  width: var(--size, 30vw); left: var(--x, 50%); top: var(--y, 50%);
+  pointer-events: none; z-index: -1;
+  background-color: #E8E4D8; opacity: 0.18;
+  -webkit-mask: var(--art) center / contain no-repeat;
+          mask: var(--art) center / contain no-repeat;
+}
+:root[data-theme="light"] .bg-motif { background-color: #1A1A1A; opacity: 0.14; }
+@media (max-width: 700px) { .bg-motif { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Hadeel Algheshaian — Home">
+    <span class="nav-logo-mark"></span>
+    <span class="nav-logo-name">Hadeel</span>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="#projects" data-en="Work" data-ar="الأعمال">Work</a>
+    <a href="#about" data-en="About" data-ar="نبذة">About</a>
+    <a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a>
+  </div>
+  <div class="nav-toggles">
+    <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="theme-icon-light" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="theme-icon-dark" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="toggle-btn" id="lang-toggle" aria-label="Toggle language">EN</button>
+  </div>
+</nav>
+<main class="dynamic-bg">
+<!-- BG-MOTIFS-START -->
+  <div class="bg-motif" style="--art:url('brand/background-art/11.svg'); --x:2%; --y:4%; --size:14vw"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/14.svg'); --x:82%; --y:3%; --size:17vw"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/13.svg'); --x:-0%; --y:25%; --size:19vw"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/10.svg'); --x:81%; --y:24%; --size:19vw"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/12.svg'); --x:-0%; --y:45%; --size:18vw"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/11.svg'); --x:86%; --y:48%; --size:20vw"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/14.svg'); --x:4%; --y:64%; --size:15vw"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/13.svg'); --x:83%; --y:71%; --size:16vw"></div>
+<!-- BG-MOTIFS-END -->
+
+
+
+<section class="hero">
+  <div class="hero-eyebrow" data-en="Interior Design Portfolio" data-ar="ملف أعمال التصميم الداخلي">Interior Design Portfolio</div>
+  <div class="hero-rule"></div>
+  <h1 class="hero-name">Hadeel Algheshaian</h1>
+  <div class="hero-tagline" data-en="Selected Work · 2022 — 2026" data-ar="أعمال مختارة · 2022 — 2026">Selected Work · 2022 — 2026</div>
+  <div class="hero-scroll-cue" data-en="Scroll" data-ar="تمرير">Scroll</div>
+</section>
+
+<section class="chapter reveal" id="about">
+  <div class="chapter-eyebrow" data-en="— About —" data-ar="— نبذة —">— About —</div>
+  <h2 class="chapter-title" data-en="A Studio of One" data-ar="مرسم منفرد">A Studio of One</h2>
+</section>
+
+<section class="about" aria-label="About">
+  <div class="about-mosaic" id="about-mosaic">
+    <!-- 8 triangular slices populated by JS, plus brass hairlines -->
+  </div>
+  <div class="about-overlay"></div>
+  <div class="about-text">
+    <div class="about-eyebrow" data-en="Interior &amp; Event &amp; Furniture Designer" data-ar="مصممة داخلية وفعاليات وأثاث">Interior &amp; Event &amp; Furniture Designer</div>
+    <h3 class="about-title" data-en="Who is Hadeel Algheshaian?" data-ar="من هي هديل الغيشيان؟">Who is Hadeel Algheshaian?</h3>
+    <p class="about-bio" data-en="I am a designer specialized in interior design, event design, and furniture design. I focus on creating beautiful and functional spaces with a strong attention to detail, believing that details make the true difference. I work with precision and flexibility to deliver designs that suit diverse tastes, aiming to translate each client's vision into a unique experience that leaves a lasting impression." data-ar="حول أي مساحة إلى مكان جميل وعملي يعكس شخصية أصحابه. أؤمن أن التفاصيل تصنع الفرق. أعمل بدقة ومرونة لتقديم تصاميم تناسب الأذواق المختلفة، وأسعى لترجمة رؤية كل عميل إلى تجربة فريدة تترك أثراً يدوم.">I am a designer specialized in interior design, event design, and furniture design. I focus on creating beautiful and functional spaces with a strong attention to detail, believing that details make the true difference. I work with precision and flexibility to deliver designs that suit diverse tastes, aiming to translate each client's vision into a unique experience that leaves a lasting impression.</p>
+    <div class="about-sig">— Hadeel</div>
+  </div>
+</section>
+
+<section class="chapter reveal" id="projects">
+  <div class="chapter-eyebrow" data-en="— Selected Work —" data-ar="— أعمال مختارة —">— Selected Work —</div>
+  <h2 class="chapter-title" data-en="Eight Projects" data-ar="ثمانية مشاريع">Eight Projects</h2>
+</section>
+
+<div class="filters" id="filters" role="tablist" aria-label="Filter projects"></div>
+
+<div class="grid" id="grid"></div>
+
+<section class="contact-strip">
+  <span class="chapter-eyebrow" data-en="— Contact —" data-ar="— تواصل —">— Contact —</span>
+  <h2 class="chapter-title" data-en="Available for new work." data-ar="متاحة لأعمال جديدة.">Available for new work.</h2>
+  <ul class="contact-list">
+    <li><a href="mailto:int.hadeel.sa@gmail.com"><span class="ph">int.hadeel.sa@gmail.com</span></a></li>
+    <li><a href="tel:+966503109887"><span class="ph">+966 50 310 9887</span></a></li>
+    <li><a href="https://instagram.com/int.hadeel"><span class="ph">@int.hadeel</span></a></li>
+    <li><a href="contact.html" data-en="Full Contact →" data-ar="تواصل كامل ←">Full Contact →</a></li>
+  </ul>
+</section>
+
+<footer class="footer">
+  <span data-en="© 2026 Hadeel Algheshaian · All Rights Reserved" data-ar="© 2026 هديل الغيشيان · جميع الحقوق محفوظة">© 2026 Hadeel Algheshaian · All Rights Reserved</span>
+</footer>
+
+<script>
+  // ========== project data ==========
+  const PROJECTS = [
+    { slug: 'almamlaka',    n: '01', title: { en: 'ALMAMLAKA',                   ar: 'المملكة' },                      year: 2026, type: { en: 'Cultural',    ar: 'ثقافي' },     hero: '2. ALMAMLAKA/1. Project start/1. hero photo.png' },
+    { slug: 'coffee-day',   n: '02', title: { en: 'International Coffee Day',    ar: 'يوم القهوة العالمي' },             year: 2025, type: { en: 'Commercial',  ar: 'تجاري' },     hero: '3. International Coffee Day/1. Project start/1. hero photo.png' },
+    { slug: 'courtyard',    n: '03', title: { en: 'Courtyard',                   ar: 'الفناء' },                        year: 2025, type: { en: 'Cultural',    ar: 'ثقافي' },     hero: '4. courtyard/1. Project start/1. hero photo.png' },
+    { slug: 'lavender',     n: '04', title: { en: 'Lavender Center',             ar: 'مركز الخزامى' },                  year: 2024, type: { en: 'Commercial',  ar: 'تجاري' },     hero: '5. Lavender Center/1. Project start/1. hero photo.png' },
+    { slug: 'almaarefa',    n: '05', title: { en: 'AlMaarefa University',        ar: 'جامعة المعرفة' },                 year: 2024, type: { en: 'Cultural',    ar: 'ثقافي' },     hero: '6. AlMaarefa University/1. Project start/1. hero photo.png' },
+    { slug: 'awjaj',        n: '06', title: { en: 'Awjaj Hotel',                 ar: 'فندق أوجاج' },                    year: 2023, type: { en: 'Hospitality', ar: 'ضيافة' },     hero: '7. Awjaj hotel/1. Project start/1. hero photo.png' },
+    { slug: 'culinary',     n: '07', title: { en: 'Culinary Arts Institute',     ar: 'معهد فنون الطهي' },                year: 2023, type: { en: 'Cultural',    ar: 'ثقافي' },     hero: '8. Culinary Arts Institute/1. Project start/1. hero photo.png' },
+    { slug: 'company',      n: '08', title: { en: 'Company',                     ar: 'مقر الشركة' },                    year: 2022, type: { en: 'Commercial',  ar: 'تجاري' },     hero: '9. company/1. Project start/1. hero photo.png' }
+  ];
+
+  let activeFilter = 'all';
+  let lang = localStorage.getItem('lang') || 'en';
+
+  // ========== diagonal mosaic ==========
+  const MOSAIC_CLIPS = [
+    'polygon(0 0, 50% 0, 0 50%)',
+    'polygon(50% 0, 50% 50%, 0 50%)',
+    'polygon(50% 0, 100% 0, 50% 50%)',
+    'polygon(100% 0, 100% 50%, 50% 50%)',
+    'polygon(0 50%, 50% 50%, 0 100%)',
+    'polygon(50% 50%, 50% 100%, 0 100%)',
+    'polygon(50% 50%, 100% 50%, 50% 100%)',
+    'polygon(100% 50%, 100% 100%, 50% 100%)'
+  ];
+
+  function renderMosaic() {
+    const root = document.getElementById('about-mosaic');
+    if (!root) return;
+    root.innerHTML = '';
+    PROJECTS.forEach((p, i) => {
+      const slice = document.createElement('div');
+      slice.className = 'mosaic-slice';
+      slice.style.backgroundImage = `url("${encodeURI(p.hero)}")`;
+      slice.style.clipPath = MOSAIC_CLIPS[i];
+      slice.style.webkitClipPath = MOSAIC_CLIPS[i];
+      root.appendChild(slice);
+    });
+    const seams = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    seams.setAttribute('class', 'mosaic-seams');
+    seams.setAttribute('viewBox', '0 0 100 100');
+    seams.setAttribute('preserveAspectRatio', 'none');
+    seams.innerHTML = `
+      <line x1="0" y1="50" x2="100" y2="50" />
+      <line x1="50" y1="0" x2="50" y2="100" />
+      <line x1="0" y1="0"  x2="50"  y2="50" />
+      <line x1="50" y1="0" x2="0"   y2="50" />
+      <line x1="50" y1="0" x2="100" y2="50" />
+      <line x1="100" y1="0" x2="50" y2="50" />
+      <line x1="0" y1="100" x2="50" y2="50" />
+      <line x1="50" y1="100" x2="0" y2="50" />
+      <line x1="50" y1="100" x2="100" y2="50" />
+      <line x1="100" y1="100" x2="50" y2="50" />
+    `;
+    root.appendChild(seams);
+  }
+
+  // ========== filters ==========
+  function uniqueTypes() {
+    const seen = new Set();
+    const out = [];
+    PROJECTS.forEach(p => {
+      if (!seen.has(p.type.en)) {
+        seen.add(p.type.en);
+        out.push(p.type);
+      }
+    });
+    return out;
+  }
+  const FILTER_LABELS = {
+    en: { all: 'All' },
+    ar: { all: 'الكل' }
+  };
+
+  function renderFilters() {
+    const c = document.getElementById('filters');
+    c.innerHTML = '';
+    const types = uniqueTypes();
+    const items = [{ key: 'all', label: { en: FILTER_LABELS.en.all, ar: FILTER_LABELS.ar.all } }]
+      .concat(types.map(t => ({ key: t.en, label: t })));
+    items.forEach(it => {
+      const b = document.createElement('button');
+      b.className = 'filter-pill' + (it.key === activeFilter ? ' active' : '');
+      b.textContent = it.label[lang];
+      b.dataset.key = it.key;
+      b.addEventListener('click', () => {
+        activeFilter = it.key;
+        renderFilters();
+        renderCards();
+      });
+      c.appendChild(b);
+    });
+  }
+
+  // ========== cards ==========
+  let revealObserver;
+
+  function renderCards() {
+    const g = document.getElementById('grid');
+    g.innerHTML = '';
+    const list = activeFilter === 'all'
+      ? PROJECTS
+      : PROJECTS.filter(p => p.type.en === activeFilter);
+    list.forEach((p, i) => {
+      const a = document.createElement('a');
+      a.className = 'project-card';
+      a.href = `project-${p.slug}.html`;
+      a.innerHTML = `
+        <img class="project-card-img" src="${encodeURI(p.hero)}" alt="${p.title.en}" loading="lazy">
+        <div class="project-card-meta">
+          <div class="project-card-num">${p.n}</div>
+          <h3 class="project-card-title" data-title>${p.title[lang]}</h3>
+          <div class="project-card-year">${p.year}</div>
+        </div>
+      `;
+      g.appendChild(a);
+      setTimeout(() => a.classList.add('visible'), i * 90);
+    });
+  }
+
+  // ========== reveal ==========
+  function attachReveal() {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      return;
+    }
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            revealObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
+  }
+
+  // ========== language ==========
+  function applyLanguage() {
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const v = el.dataset[lang === 'ar' ? 'ar' : 'en'];
+      if (v != null) el.textContent = v;
+    });
+    document.getElementById('lang-toggle').textContent = lang === 'en' ? 'AR' : 'EN';
+    renderFilters();
+    renderCards();
+  }
+
+  // ========== theme ==========
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+  }
+
+  // ========== boot ==========
+  document.addEventListener('DOMContentLoaded', () => {
+    renderMosaic();
+    renderFilters();
+    renderCards();
+    applyLanguage();
+    attachReveal();
+
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      lang = lang === 'en' ? 'ar' : 'en';
+      applyLanguage();
+    });
+  });
+</script>
+
+
+</main>
+</body>
+</html>

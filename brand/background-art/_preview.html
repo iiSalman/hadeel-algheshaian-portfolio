@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Background-art preview — Hadeel Algheshaian</title>
+<style>
+  :root{
+    --bg:#0E1418; --surface:#161D22; --border:#252e34;
+    --text:#E8E4D8; --muted:#8a8475; --accent:#A98756;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:32px;background:var(--bg);color:var(--text);
+       font-family:'Inter',system-ui,sans-serif;font-size:13px;line-height:1.5}
+  h1{font-family:'Cormorant Garamond','Times New Roman',serif;
+     font-style:italic;font-weight:400;font-size:28px;margin:0 0 4px;color:var(--text)}
+  .sub{color:var(--muted);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:32px}
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .tile{background:var(--surface);border:1px solid var(--border);
+        aspect-ratio:1;position:relative;display:flex;align-items:center;justify-content:center}
+  .tile .num{position:absolute;top:8px;left:10px;font-family:'Cormorant Garamond',serif;
+             font-style:italic;font-size:18px;color:var(--accent)}
+  .tile .label{position:absolute;bottom:8px;left:10px;right:10px;font-size:10px;
+               letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+  .tile .art{width:78%;height:78%;background-color:var(--accent);opacity:0.85;
+             -webkit-mask-position:center;mask-position:center;
+             -webkit-mask-size:contain;mask-size:contain;
+             -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+  .tile:nth-child(1) .art{ -webkit-mask-image:url('1.svg'); mask-image:url('1.svg') }
+  .tile:nth-child(2) .art{ -webkit-mask-image:url('2.svg'); mask-image:url('2.svg') }
+  .tile:nth-child(3) .art{ -webkit-mask-image:url('3.svg'); mask-image:url('3.svg') }
+  .tile:nth-child(4) .art{ -webkit-mask-image:url('4.svg'); mask-image:url('4.svg') }
+  .tile:nth-child(5) .art{ -webkit-mask-image:url('5.svg'); mask-image:url('5.svg') }
+  .tile:nth-child(6) .art{ -webkit-mask-image:url('6.svg'); mask-image:url('6.svg') }
+  .tile:nth-child(7) .art{ -webkit-mask-image:url('7.svg'); mask-image:url('7.svg') }
+  .tile:nth-child(8) .art{ -webkit-mask-image:url('8.svg'); mask-image:url('8.svg') }
+  .tile:nth-child(9) .art{ -webkit-mask-image:url('9.svg'); mask-image:url('9.svg') }
+  .tile:nth-child(10) .art{ -webkit-mask-image:url('10.svg'); mask-image:url('10.svg') }
+  .tile:nth-child(11) .art{ -webkit-mask-image:url('11.svg'); mask-image:url('11.svg') }
+  .tile:nth-child(12) .art{ -webkit-mask-image:url('12.svg'); mask-image:url('12.svg') }
+  .tile:nth-child(13) .art{ -webkit-mask-image:url('13.svg'); mask-image:url('13.svg') }
+  .tile:nth-child(14) .art{ -webkit-mask-image:url('14.svg'); mask-image:url('14.svg') }
+  .tile:nth-child(15) .art{ -webkit-mask-image:url('15.svg'); mask-image:url('15.svg') }
+  .legend{margin-top:32px;color:var(--muted);font-size:12px;line-height:1.7}
+  .legend strong{color:var(--text);font-weight:500}
+</style>
+</head>
+<body>
+  <h1>Background-art preview</h1>
+  <div class="sub">Hadeel Algheshaian · 15 motifs · Najdi-heavy lean</div>
+  <div class="grid">
+    <div class="tile"><span class="num">01</span><div class="art"></div><span class="label">8-pt star tessellation</span></div>
+    <div class="tile"><span class="num">02</span><div class="art"></div><span class="label">12-pt rosette</span></div>
+    <div class="tile"><span class="num">03</span><div class="art"></div><span class="label">Hexagonal lattice</span></div>
+    <div class="tile"><span class="num">04</span><div class="art"></div><span class="label">Mamluk interlace</span></div>
+    <div class="tile"><span class="num">05</span><div class="art"></div><span class="label">Najdi triangle window</span></div>
+    <div class="tile"><span class="num">06</span><div class="art"></div><span class="label">8-pt compass rose</span></div>
+    <div class="tile"><span class="num">07</span><div class="art"></div><span class="label">16-pt compass rose</span></div>
+    <div class="tile"><span class="num">08</span><div class="art"></div><span class="label">Square 4-fold tessellation</span></div>
+    <div class="tile"><span class="num">09</span><div class="art"></div><span class="label">Floor plan — residence</span></div>
+    <div class="tile"><span class="num">10</span><div class="art"></div><span class="label">North elevation</span></div>
+    <div class="tile"><span class="num">11</span><div class="art"></div><span class="label">Drafting tools</span></div>
+    <div class="tile"><span class="num">12</span><div class="art"></div><span class="label">Building section</span></div>
+    <div class="tile"><span class="num">13</span><div class="art"></div><span class="label">Dimension study</span></div>
+    <div class="tile"><span class="num">14</span><div class="art"></div><span class="label">1-pt perspective room</span></div>
+    <div class="tile"><span class="num">15</span><div class="art"></div><span class="label">Chair joinery blueprint</span></div>
+  </div>
+  <div class="legend">
+    <strong>How they'll look in production:</strong> ~8–12% opacity, masked with the brass accent, anchored to wide outer margins behind body content — never centred behind text. Phone breakpoint hides them.<br>
+    <strong>Curation:</strong> tell me which numbers to drop (e.g., "drop 4, 7, 12"). Rejects move to <code>_rejected/</code>; the rest get wired into the build via <code>gen-bg.py</code>.
+  </div>
+</body>
+</html>

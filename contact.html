@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Hadeel Algheshaian</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var l = localStorage.getItem('lang') || 'en';
+    document.documentElement.setAttribute('lang', l);
+    document.documentElement.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+    var t = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  :root {
+    --bg: #0E1418; --surface: #161D22; --border: #252e34;
+    --text: #E8E4D8; --muted: #8a8475; --accent: #A98756;
+    --nav-bg: rgba(14, 20, 24, 0.82);
+    --font-en: 'Inter', system-ui, sans-serif;
+    --font-ar: 'Tajawal', system-ui, sans-serif;
+    --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  }
+  :root[data-theme="light"] {
+    --bg: #EFE8DA; --surface: #E1D7C2; --border: #B8A883;
+    --text: #2C2218; --muted: #7A6E54; --accent: #A98756;
+    --nav-bg: rgba(239, 232, 218, 0.92);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; min-height: 100%; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--font-en); font-weight: 300; font-size: 15px; line-height: 1.65;
+    display: flex; flex-direction: column; min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  html[lang="ar"] body { font-family: var(--font-ar); }
+  html[lang="ar"] *, html[lang="ar"] *::before, html[lang="ar"] *::after {
+    letter-spacing: 0 !important; text-transform: none !important;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .nav { position: sticky; top: 0; z-index: 100; direction: ltr;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px; background: var(--nav-bg); backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 14px; cursor: pointer; }
+  .nav-logo-mark { display: block; width: 36px; height: 36px; background-color: var(--text);
+    -webkit-mask: url("brand/logo-mark.png") center / contain no-repeat;
+            mask: url("brand/logo-mark.png") center / contain no-repeat;
+    animation: logo-spin 28s linear infinite; transform-origin: 50% 50%;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.35)); }
+  .nav-logo-name { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 18px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  .nav-toggles { display: flex; align-items: center; gap: 10px; }
+  .toggle-btn { width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border); background: transparent; color: var(--text); border-radius: 50%;
+    font-family: var(--font-en); font-size: 10px; font-weight: 500; letter-spacing: 0.08em; cursor: pointer; }
+  .toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .theme-icon-light, .theme-icon-dark { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+  :root[data-theme="dark"] .theme-icon-dark { display: none; }
+  :root[data-theme="light"] .theme-icon-light { display: none; }
+  @keyframes logo-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .nav-logo-mark { animation: none; } }
+
+  main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 96px 40px; text-align: center; }
+  .eyebrow { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); }
+  .rule { width: 80px; height: 1px; background: var(--accent); margin: 28px auto 32px; opacity: 0.7; }
+  .title { font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: clamp(40px, 6vw, 76px); margin: 0 0 18px; line-height: 1.05; }
+  .lede { color: var(--muted); max-width: 60ch; margin: 0 auto 64px; font-size: 16px; line-height: 1.8; }
+
+  .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0; max-width: 920px; width: 100%; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .card { padding: 36px 28px; border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px;
+    transition: background 0.3s; }
+  .card:last-child { border-right: none; }
+  .card:hover { background: var(--surface); }
+  .card-eyebrow { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted); }
+  .card-value { font-family: var(--font-serif); font-style: italic; font-size: 22px; color: var(--text);
+    direction: ltr; unicode-bidi: isolate; }
+  .card-value:hover { color: var(--accent); }
+  @media (max-width: 700px) {
+    .nav { padding: 14px 20px; } .nav-links { display: none; } .nav-logo-name { font-size: 16px; }
+    main { padding: 72px 20px; }
+    .card { border-right: none; border-bottom: 1px solid var(--border); }
+    .card:last-child { border-bottom: none; }
+  }
+
+  .footer { padding: 28px 40px; text-align: center; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--border); }
+
+/* Dynamic Background System */
+main.dynamic-bg { position: relative; isolation: isolate; }
+.bg-motif {
+  position: absolute; aspect-ratio: 1;
+  width: var(--size, 30vw); left: var(--x, 50%); top: var(--y, 50%);
+  pointer-events: none; z-index: -1;
+  background-color: #E8E4D8; opacity: 0.18;
+  -webkit-mask: var(--art) center / contain no-repeat;
+          mask: var(--art) center / contain no-repeat;
+}
+:root[data-theme="light"] .bg-motif { background-color: #1A1A1A; opacity: 0.14; }
+@media (max-width: 700px) { .bg-motif { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Home">
+    <span class="nav-logo-mark"></span>
+    <span class="nav-logo-name">Hadeel</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#projects" data-en="Work" data-ar="الأعمال">Work</a>
+    <a href="index.html#about" data-en="About" data-ar="نبذة">About</a>
+    <a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a>
+  </div>
+  <div class="nav-toggles">
+    <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="theme-icon-light" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="theme-icon-dark" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="toggle-btn" id="lang-toggle" aria-label="Toggle language">EN</button>
+  </div>
+</nav>
+
+<main class="dynamic-bg">
+<!-- BG-MOTIFS-START -->
+  <div class="bg-motif" style="--art:url('brand/background-art/13.svg'); --x:-1%; --y:13%; --size:19vw"></div>
+<!-- BG-MOTIFS-END -->
+
+  <div class="eyebrow" data-en="— Contact —" data-ar="— تواصل —">— Contact —</div>
+  <div class="rule"></div>
+  <h1 class="title" data-en="Available for new work." data-ar="متاحة لأعمال جديدة.">Available for new work.</h1>
+  <p class="lede" data-en="Studios, hospitality, cultural, and private interior commissions across the Kingdom and the wider region. Briefs welcome at any stage." data-ar="مكاتب وفنادق ومساحات ثقافية وأعمال داخلية خاصة في المملكة والمنطقة. أرحب بالمشاريع في أي مرحلة.">Studios, hospitality, cultural, and private interior commissions across the Kingdom and the wider region. Briefs welcome at any stage.</p>
+
+  <div class="contact-cards">
+    <div class="card">
+      <div class="card-eyebrow" data-en="Email" data-ar="بريد إلكتروني">Email</div>
+      <a class="card-value" href="mailto:int.hadeel.sa@gmail.com">int.hadeel.sa@gmail.com</a>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow" data-en="Phone / WhatsApp" data-ar="هاتف / واتساب">Phone / WhatsApp</div>
+      <a class="card-value" href="tel:+966503109887">+966 50 310 9887</a>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow" data-en="Instagram" data-ar="انستغرام">Instagram</div>
+      <a class="card-value" href="https://instagram.com/int.hadeel">@int.hadeel</a>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow" data-en="Location" data-ar="الموقع">Location</div>
+      <span class="card-value" data-en="Riyadh, Saudi Arabia" data-ar="الرياض، المملكة العربية السعودية">Riyadh, Saudi Arabia</span>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <span data-en="© 2026 Hadeel Algheshaian · All Rights Reserved" data-ar="© 2026 هديل الغيشيان · جميع الحقوق محفوظة">© 2026 Hadeel Algheshaian · All Rights Reserved</span>
+</footer>
+
+<script>
+  let lang = localStorage.getItem('lang') || 'en';
+  function applyLanguage() {
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const v = el.dataset[lang === 'ar' ? 'ar' : 'en'];
+      if (v != null) el.textContent = v;
+    });
+    document.getElementById('lang-toggle').textContent = lang === 'en' ? 'AR' : 'EN';
+  }
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    applyLanguage();
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      lang = lang === 'en' ? 'ar' : 'en';
+      applyLanguage();
+    });
+  });
+</script>
+
+</body>
+</html>

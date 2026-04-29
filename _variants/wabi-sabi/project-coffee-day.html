@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>International Coffee Day — Hadeel Algheshaian (Wabi-Sabi)</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var l = localStorage.getItem('lang') || 'en';
+    document.documentElement.setAttribute('lang', l);
+    document.documentElement.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+    var t = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  :root {
+    --bg: #1F1814; --surface: #2A211A; --border: #3A2F25;
+    --text: #ECE4D0; --muted: #8A7E6B; --accent: #B5755A; --accent-2: #7A8A5C;
+    --nav-bg: rgba(31, 24, 20, 0.86);
+    --paper-tint: rgba(236, 228, 208, 0.04);
+    --hero-bg-filter: sepia(0.4) saturate(0.65) brightness(0.42) contrast(1.0);
+    --font-en: 'Newsreader', Georgia, serif;
+    --font-ar: 'Tajawal', system-ui, sans-serif;
+    --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --rule: rgba(181, 117, 90, 0.5);
+  }
+  :root[data-theme="light"] {
+    --bg: #ECE4D0; --surface: #DCD3BC; --border: #BAA985;
+    --text: #2A211A; --muted: #6B5C45; --accent: #8B4F32; --accent-2: #6B7F5A;
+    --nav-bg: rgba(236, 228, 208, 0.94);
+    --paper-tint: rgba(42, 33, 26, 0.04);
+    --hero-bg-filter: sepia(0.3) saturate(0.85) brightness(0.95) contrast(0.95);
+    --rule: rgba(139, 79, 50, 0.55);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-en);
+    font-weight: 300; font-size: 16px; line-height: 1.85; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 18% 22%, var(--paper-tint) 0%, transparent 40%),
+      radial-gradient(circle at 78% 68%, var(--paper-tint) 0%, transparent 35%); }
+  html[lang="ar"] body { font-family: var(--font-ar); }
+  /* Arabic: never letter-space (breaks letter joining) and no uppercase (no case in Arabic) */
+  html[lang="ar"] *, html[lang="ar"] *::before, html[lang="ar"] *::after {
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; direction: ltr;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 44px; background: var(--nav-bg);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .nav::after { content: ""; position: absolute; left: 4%; right: 4%; bottom: 0; height: 1px;
+    background: linear-gradient(to right, transparent 0%, var(--rule) 18%, var(--rule) 82%, transparent 100%); opacity: 0.7; }
+  .nav-logo { display: flex; align-items: center; gap: 14px; cursor: pointer; }
+  .nav-logo-mark { display: block; width: 38px; height: 38px; background-color: var(--text);
+    -webkit-mask: url("brand/logo-mark.png") center / contain no-repeat;
+            mask: url("brand/logo-mark.png") center / contain no-repeat;
+    animation: logo-spin 38s linear infinite; transform-origin: 50% 50%;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); opacity: 0.92; }
+  .nav-logo-name { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 19px; letter-spacing: 0.02em; }
+  .nav-links { display: flex; align-items: center; gap: 36px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
+  .nav-links a { transition: color 0.4s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-toggles { display: flex; align-items: center; gap: 12px; }
+  .toggle-btn { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border); background: transparent; color: var(--text); border-radius: 50%;
+    font-family: var(--font-en); font-size: 10px; cursor: pointer; transition: border-color 0.3s, color 0.3s; }
+  .toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .theme-icon-light, .theme-icon-dark { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+  :root[data-theme="dark"] .theme-icon-dark { display: none; }
+  :root[data-theme="light"] .theme-icon-light { display: none; }
+  @keyframes logo-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .nav-logo-mark { animation: none; } }
+
+  .brush-rule { display: block; width: 220px; height: 22px; margin: 12px auto 0; color: var(--accent); opacity: 0.85; }
+  .brush-rule path { stroke: currentColor; stroke-width: 4; stroke-linecap: round; fill: none; }
+
+  .project-hero-wrap {
+    position: relative; isolation: isolate;
+    margin-top: 76px;  /* clear the fixed nav */
+    min-height: 86vh;
+    overflow: hidden;
+  }
+  .project-hero { display: block; width: 100%; height: 86vh; min-height: 540px; object-fit: cover;
+    filter: sepia(0.10) saturate(0.94); }
+  .project-hero-overlay-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 46%;
+    pointer-events: none; z-index: 1;
+    background: linear-gradient(to bottom, rgba(15, 10, 6, 0.65) 0%, rgba(15, 10, 6, 0.32) 55%, rgba(15, 10, 6, 0) 100%);
+  }
+  .project-hero-overlay-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
+    pointer-events: none; z-index: 1;
+    background: linear-gradient(to top, rgba(15, 10, 6, 0.82) 0%, rgba(15, 10, 6, 0.45) 35%, rgba(15, 10, 6, 0) 100%);
+  }
+  .project-hero-title {
+    position: absolute; top: 56px; left: 0; right: 0; z-index: 3;
+    text-align: center; padding: 0 40px;
+    color: #ECE4D0;
+  }
+  .ph-num {
+    font-family: var(--font-serif); font-style: italic;
+    font-size: 14px; color: var(--accent); margin-bottom: 6px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.55);
+  }
+  .ph-name {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: clamp(48px, 7vw, 96px); line-height: 1.04;
+    color: #ECE4D0; margin: 0;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+  }
+  .ph-rule { display: block; width: 110px; height: 14px; margin: 16px auto 0; color: var(--accent); opacity: 0.9; }
+  .ph-rule path { stroke: currentColor; stroke-width: 3; stroke-linecap: round; fill: none; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5)); }
+  .ph-year {
+    margin-top: 12px;
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(236, 228, 208, 0.85);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.55);
+  }
+  .project-hero-desc {
+    position: absolute; left: 0; bottom: 0; z-index: 2;
+    max-width: 62ch;
+    padding: 36px 56px 44px;
+    color: #ECE4D0;
+  }
+  .project-hero-desc .desc-eyebrow {
+    font-family: var(--font-en);
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(236, 228, 208, 0.82); margin-bottom: 14px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+  }
+  .project-hero-desc .desc-body {
+    font-family: var(--font-en); font-weight: 300;
+    font-size: 15px; line-height: 1.85; color: #ECE4D0;
+    margin: 0; max-width: 56ch;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  }
+  @media (max-width: 700px) {
+    .project-hero-wrap { min-height: 70vh; }
+    .project-hero { height: 70vh; min-height: 460px; }
+    .project-hero-title { top: 40px; padding: 0 20px; }
+    .project-hero-desc { padding: 22px 20px 26px; max-width: 100%; }
+    .project-hero-desc .desc-body { font-size: 14px; line-height: 1.7; }
+  }
+
+  .section-header { text-align: center; padding: 110px 40px 22px; }
+  .section-header.chapter-block { position: relative; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); position: relative; z-index: 1; }
+  .section-title { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 32px; margin: 8px 0 0; position: relative; z-index: 1; }
+
+  /* gallery — justified rows: flex-grow = aspect-ratio gives equal heights with zero crop */
+  .gallery { padding: 0 40px; max-width: 1480px; margin: 0 auto; }
+  .gallery-row { display: flex; gap: 6px; margin-bottom: 6px; align-items: stretch; }
+  .gallery-row > .gallery-item { flex: var(--ar, 1) 1 0; min-width: 0; cursor: pointer; overflow: hidden; position: relative; }
+  .gallery-row > .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: sepia(0.05); transition: filter 0.6s, transform 1.4s ease-out; }
+  .gallery-row > .gallery-item:hover img { filter: sepia(0); transform: scale(1.02); }
+  /* center: trailing odd image, half-width, natural aspect */
+  .gallery-row.center { justify-content: center; align-items: flex-start; }
+  .gallery-row.center > .gallery-item { flex: 0 0 calc(50% - 3px); }
+  .gallery-row.center > .gallery-item img { height: auto; object-fit: unset; }
+  /* full: single-image section (e.g. 2D drawing), spans full width and blends white */
+  .gallery-row.full { align-items: flex-start; }
+  .gallery-row.full > .gallery-item { flex: 0 0 100%; }
+  .gallery-row.full > .gallery-item img { height: auto; object-fit: unset; filter: none; }
+  @media (max-width: 700px) {
+    .gallery-row { flex-direction: column; }
+    .gallery-row.center > .gallery-item, .gallery-row.full > .gallery-item { flex: 1 1 auto; }
+  }
+
+  .description { max-width: 64ch; margin: 0 auto; padding: 96px 40px 64px; }
+  .description-eyebrow { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .description-title { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 30px; margin: 0 0 22px; }
+  .description-body { font-size: 16px; line-height: 1.95; color: var(--text); }
+
+  .lightbox { position: fixed; inset: 0; background: #110b07; display: none; z-index: 9000; flex-direction: column; cursor: zoom-out; }
+  .lightbox.open { display: flex; }
+  .lightbox-stage { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; padding: 24px; min-height: 0; }
+  .lightbox-stage img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .lightbox-counter { position: absolute; top: 18px; left: 24px; color: var(--text); font-family: var(--font-en); font-size: 11px; letter-spacing: 0.32em; }
+  .lightbox-close { position: fixed; top: 22px; right: 24px; background: rgba(0,0,0,0.75); color: #fff; border: 2px solid #fff; width: 56px; height: 56px; cursor: pointer; font-size: 32px; line-height: 1; border-radius: 50%; z-index: 9999; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px rgba(0,0,0,0.35), 0 6px 24px rgba(0,0,0,0.7); padding: 0; }
+  .lightbox-close:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,0,0,0.9); transform: scale(1.05); }
+  .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: 1px solid rgba(236,228,208,0.3); color: var(--text); width: 48px; height: 48px; border-radius: 50%; cursor: pointer; font-size: 20px; }
+  .lightbox-prev { left: 24px; } .lightbox-next { right: 24px; }
+  .lightbox-prev:hover, .lightbox-next:hover { border-color: var(--accent); color: var(--accent); }
+  .lightbox-strip { display: flex; gap: 6px; padding: 12px; overflow-x: auto; background: #080503; border-top: 1px solid #2A211A; height: 96px; flex-shrink: 0; }
+  .lightbox-strip-thumb { flex-shrink: 0; width: 96px; height: 72px; cursor: pointer; opacity: 0.45; transition: opacity 0.3s; border: 1px solid transparent; overflow: hidden; }
+  .lightbox-strip-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .lightbox-strip-thumb.active { opacity: 1; border-color: var(--accent); }
+  .lightbox-strip-thumb:hover { opacity: 0.85; }
+
+  .pf { padding: 56px 40px; text-align: center; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; max-width: 1280px; margin: 0 auto; }
+  .pf a { color: var(--muted); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; }
+  .pf a:hover { color: var(--accent); }
+  .pf .pf-title { font-family: var(--font-serif); font-style: italic; font-size: 17px; color: var(--text); }
+
+  @media (max-width: 900px) {
+    .nav { padding: 14px 22px; } .nav-links { display: none; } .nav-logo-name { font-size: 17px; }
+    .project-head { padding: 110px 22px 44px; min-height: 320px; }
+    .gallery { padding: 0 22px; }
+    .description { padding: 64px 22px 48px; }
+    .pf { padding: 40px 22px; }
+    .lightbox-strip { height: 76px; } .lightbox-strip-thumb { width: 76px; height: 58px; }
+  }
+
+  
+.chapter-block { position: relative; }
+.chapter-block::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(85, 60, 35, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 65%, rgba(85, 60, 35, 0.14) 0%, transparent 55%);
+  mix-blend-mode: multiply; opacity: 0.85;
+}
+.chapter-block::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.18;
+  background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.04) 0 2px, transparent 2px 6px),
+                    repeating-linear-gradient(-45deg, rgba(0,0,0,0.04) 0 2px, transparent 2px 6px);
+}
+
+
+/* Dynamic Background System (Wabi-Sabi) */
+main.dynamic-bg { position: relative; isolation: isolate; }
+.bg-motif {
+  position: absolute; aspect-ratio: 1;
+  width: var(--size, 28vw); left: var(--x, 50%); top: var(--y, 50%);
+  pointer-events: none; z-index: -1;
+  background-color: #ECE4D0; opacity: 0.22;
+  -webkit-mask: var(--art) center / contain no-repeat;
+          mask: var(--art) center / contain no-repeat;
+  transform: rotate(var(--rot, 0deg));
+}
+:root[data-theme="light"] .bg-motif { background-color: #1F1814; opacity: 0.18; }
+@media (max-width: 700px) { .bg-motif { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Home">
+    <span class="nav-logo-mark"></span>
+    <span class="nav-logo-name">Hadeel</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#projects" data-en="Work" data-ar="الأعمال">Work</a>
+    <a href="index.html#about" data-en="About" data-ar="نبذة">About</a>
+    <a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a>
+  </div>
+  <div class="nav-toggles">
+    <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="theme-icon-light" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="theme-icon-dark" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="toggle-btn" id="lang-toggle" aria-label="Toggle language">EN</button>
+  </div>
+</nav>
+<main class="dynamic-bg">
+<!-- BG-MOTIFS-START -->
+  <div class="bg-motif" style="--art:url('brand/background-art/11.svg'); --x:0%; --y:3%; --size:16vw; --rot:12deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/13.svg'); --x:86%; --y:9%; --size:15vw; --rot:-5deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/10.svg'); --x:-1%; --y:20%; --size:18vw; --rot:-11deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/12.svg'); --x:80%; --y:25%; --size:19vw; --rot:1deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/14.svg'); --x:-1%; --y:45%; --size:18vw; --rot:-11deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/11.svg'); --x:82%; --y:48%; --size:18vw; --rot:2deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/13.svg'); --x:1%; --y:65%; --size:16vw; --rot:-13deg"></div>
+  <div class="bg-motif" style="--art:url('brand/background-art/10.svg'); --x:84%; --y:72%; --size:14vw; --rot:3deg"></div>
+<!-- BG-MOTIFS-END -->
+
+
+
+<div class="project-hero-wrap">
+  <img class="project-hero" src="../../3. International Coffee Day/1. Project start/1. hero photo.png" alt="International Coffee Day">
+  <div class="project-hero-overlay-top"></div>
+  <div class="project-hero-overlay-bottom"></div>
+  <div class="project-hero-title">
+    <div class="ph-num">02</div>
+    <h1 class="ph-name" data-en="International Coffee Day" data-ar="يوم القهوة العالمي">International Coffee Day</h1>
+    <svg class="ph-rule" viewBox="0 0 110 14" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M 4,8 Q 30,2 56,8 T 106,7" />
+    </svg>
+    <div class="ph-year">2025</div>
+  </div>
+  <div class="project-hero-desc">
+    <div class="desc-eyebrow" data-en="— On the project —" data-ar="— عن المشروع —">— On the project —</div>
+    <p class="desc-body" data-en="Three booths designed for International Coffee Day — French, Saudi, and Dopamicaffeine — each pulling material register from a different coffee tradition while sharing one structural language." data-ar="ثلاثة أجنحة لمعرض يوم القهوة العالمي — فرنسي وسعودي ودوبامي‑كافين — كل جناح يستلهم مادته من تقليد قهوة مختلف بينما يتشاركون في لغة إنشائية واحدة.">Three booths designed for International Coffee Day — French, Saudi, and Dopamicaffeine — each pulling material register from a different coffee tradition while sharing one structural language.</p>
+  </div>
+</div>
+
+<section class="section-header chapter-block">
+<h2 class="section-title" data-en="French Coffee Booth" data-ar="جناح القهوة الفرنسية">French Coffee Booth</h2>
+<svg class="brush-rule" viewBox="0 0 220 22" preserveAspectRatio="none" aria-hidden="true"><path d="M 6,12 Q 50,4 110,12 T 214,11" /></svg></section>
+<div class="gallery">
+<div class="gallery-row">
+<div class="gallery-item" data-idx="0"><img src="../../3. International Coffee Day/2. French Coffee Booth/1.jpg" alt="" loading="eager"></div>
+<div class="gallery-item" data-idx="1"><img src="../../3. International Coffee Day/2. French Coffee Booth/2.jpg" alt="" loading="eager"></div>
+</div>
+<div class="gallery-row center">
+<div class="gallery-item" data-idx="2"><img src="../../3. International Coffee Day/2. French Coffee Booth/3.jpg" alt="" loading="eager"></div>
+</div>
+</div>
+<section class="section-header chapter-block">
+<h2 class="section-title" data-en="Saudi Coffee Booth" data-ar="جناح القهوة السعودية">Saudi Coffee Booth</h2>
+<svg class="brush-rule" viewBox="0 0 220 22" preserveAspectRatio="none" aria-hidden="true"><path d="M 6,12 Q 50,4 110,12 T 214,11" /></svg></section>
+<div class="gallery">
+<div class="gallery-row">
+<div class="gallery-item" data-idx="3"><img src="../../3. International Coffee Day/3. Saudi Coffee Booth/1.png" alt="" loading="eager"></div>
+<div class="gallery-item" data-idx="4"><img src="../../3. International Coffee Day/3. Saudi Coffee Booth/2.png" alt="" loading="eager"></div>
+</div>
+<div class="gallery-row">
+<div class="gallery-item" data-idx="5"><img src="../../3. International Coffee Day/3. Saudi Coffee Booth/3.png" alt="" loading="eager"></div>
+<div class="gallery-item" data-idx="6"><img src="../../3. International Coffee Day/3. Saudi Coffee Booth/4.png" alt="" loading="eager"></div>
+</div>
+<div class="gallery-row center">
+<div class="gallery-item" data-idx="7"><img src="../../3. International Coffee Day/3. Saudi Coffee Booth/5.png" alt="" loading="eager"></div>
+</div>
+</div>
+<section class="section-header chapter-block">
+<h2 class="section-title" data-en="Dupamicaffeine booth" data-ar="جناح دوبامي‑كافين">Dupamicaffeine booth</h2>
+<svg class="brush-rule" viewBox="0 0 220 22" preserveAspectRatio="none" aria-hidden="true"><path d="M 6,12 Q 50,4 110,12 T 214,11" /></svg></section>
+<div class="gallery">
+<div class="gallery-row">
+<div class="gallery-item" data-idx="8"><img src="../../3. International Coffee Day/4. Dupamicaffeine booth/1.png" alt="" loading="eager"></div>
+<div class="gallery-item" data-idx="9"><img src="../../3. International Coffee Day/4. Dupamicaffeine booth/2.png" alt="" loading="eager"></div>
+</div>
+<div class="gallery-row center">
+<div class="gallery-item" data-idx="10"><img src="../../3. International Coffee Day/4. Dupamicaffeine booth/3.png" alt="" loading="eager"></div>
+</div>
+</div>
+
+<footer class="pf">
+  <a href="index.html" data-en="← All Work" data-ar="→ كل الأعمال">← All Work</a>
+  <span class="pf-title">International Coffee Day</span>
+  <a href="contact.html" data-en="Contact →" data-ar="← تواصل">Contact →</a>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+  <div class="lightbox-stage">
+    <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous">‹</button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next">›</button>
+  </div>
+  <div class="lightbox-strip" id="lightbox-strip"></div>
+</div>
+
+<script>
+  const ALL_IMAGES = ["../../3. International Coffee Day/2. French Coffee Booth/1.jpg", "../../3. International Coffee Day/2. French Coffee Booth/2.jpg", "../../3. International Coffee Day/2. French Coffee Booth/3.jpg", "../../3. International Coffee Day/3. Saudi Coffee Booth/1.png", "../../3. International Coffee Day/3. Saudi Coffee Booth/2.png", "../../3. International Coffee Day/3. Saudi Coffee Booth/3.png", "../../3. International Coffee Day/3. Saudi Coffee Booth/4.png", "../../3. International Coffee Day/3. Saudi Coffee Booth/5.png", "../../3. International Coffee Day/4. Dupamicaffeine booth/1.png", "../../3. International Coffee Day/4. Dupamicaffeine booth/2.png", "../../3. International Coffee Day/4. Dupamicaffeine booth/3.png"];
+  let lbIndex = 0;
+  let lang = localStorage.getItem('lang') || 'en';
+
+  function balanceGallery() { /* column-flow handles layout */ }
+  function layoutAll() { /* no-op */ }
+
+  function openLightbox(idx) {
+    lbIndex = idx;
+    document.getElementById('lightbox').classList.add('open');
+    document.getElementById('lightbox').setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    paintLightbox(); buildStrip();
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightbox').setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  function paintLightbox() {
+    document.getElementById('lightbox-img').src = ALL_IMAGES[lbIndex];
+    document.getElementById('lightbox-counter').textContent = (lbIndex + 1) + ' / ' + ALL_IMAGES.length;
+    document.querySelectorAll('.lightbox-strip-thumb').forEach((t, i) => {
+      t.classList.toggle('active', i === lbIndex);
+      if (i === lbIndex) t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    });
+  }
+  function buildStrip() {
+    const strip = document.getElementById('lightbox-strip'); strip.innerHTML = '';
+    ALL_IMAGES.forEach((src, i) => {
+      const t = document.createElement('div');
+      t.className = 'lightbox-strip-thumb' + (i === lbIndex ? ' active' : '');
+      t.innerHTML = `<img src="${src}" loading="lazy" alt="">`;
+      t.addEventListener('click', () => { lbIndex = i; paintLightbox(); });
+      strip.appendChild(t);
+    });
+  }
+  function nextLb() { lbIndex = (lbIndex + 1) % ALL_IMAGES.length; paintLightbox(); }
+  function prevLb() { lbIndex = (lbIndex - 1 + ALL_IMAGES.length) % ALL_IMAGES.length; paintLightbox(); }
+
+  function applyLanguage() {
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const v = el.dataset[lang === 'ar' ? 'ar' : 'en'];
+      if (v != null) el.textContent = v;
+    });
+    document.getElementById('lang-toggle').textContent = lang === 'en' ? 'AR' : 'EN';
+  }
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.gallery-item').forEach((el) => {
+      el.addEventListener('click', () => {
+        const idx = parseInt(el.dataset.idx, 10);
+        if (!isNaN(idx)) openLightbox(idx);
+      });
+    });
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-next').addEventListener('click', nextLb);
+    document.getElementById('lightbox-prev').addEventListener('click', prevLb);
+    // Click anywhere in lightbox closes it, except on the image itself or interactive controls
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target.closest('.lightbox-prev, .lightbox-next, .lightbox-close, .lightbox-strip')) return;
+      if (e.target.id === 'lightbox-img') return;
+      closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextLb();
+      if (e.key === 'ArrowLeft') prevLb();
+    });
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      lang = lang === 'en' ? 'ar' : 'en'; applyLanguage();
+    });
+
+    // Justified-rows: set --ar from each image's natural aspect on paired rows
+    document.querySelectorAll('.gallery-row:not(.center):not(.full) > .gallery-item img').forEach(img => {
+      const apply = () => {
+        if (!img.naturalWidth) return;
+        img.parentElement.style.setProperty('--ar', img.naturalWidth / img.naturalHeight);
+      };
+      if (img.complete && img.naturalWidth) apply();
+      else img.addEventListener('load', apply, { once: true });
+    });
+
+    Promise.all([...document.images].filter(i => !i.complete).map(i => new Promise(r => i.addEventListener('load', r, { once: true })).catch(() => {})))
+      .then(() => layoutAll());
+    layoutAll();
+    setTimeout(layoutAll, 400);
+    setTimeout(layoutAll, 1200);
+    let t;
+    window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(layoutAll, 120); });
+
+    applyLanguage();
+
+    
+  });
+</script>
+
+
+</main>
+</body>
+</html>
