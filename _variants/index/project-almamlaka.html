@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 01 — ALMAMLAKA — Hadeel Algheshaian</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: oklch(96% 0.005 80); --ink: oklch(18% 0.01 250);
+    --rule: oklch(70% 0.005 80); --ferrous: oklch(58% 0.15 35); --quiet: oklch(48% 0.01 80);
+    --serif: 'EB Garamond', Georgia, serif; --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --ar: 'Tajawal', system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  html[lang="ar"] body { font-family: var(--ar); }
+  html[lang="ar"] *, html[lang="ar"] *::before, html[lang="ar"] *::after { letter-spacing: 0 !important; text-transform: none !important; }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--ferrous); color: var(--paper); }
+
+  .running-head {
+    position: sticky; top: 0; z-index: 50; background: var(--paper);
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 32px;
+    padding: 16px 48px 14px; border-bottom: 1px solid var(--ink);
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet);
+  }
+  .running-head .center { font-family: var(--serif); font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none; color: var(--ink); }
+  .running-head .right { text-align: right; }
+  .running-head a:hover { color: var(--ferrous); }
+  .toggle { background: transparent; border: none; font: inherit; color: inherit; cursor: pointer; padding: 0 0 0 18px; }
+  .toggle:hover { color: var(--ferrous); }
+
+  /* chapter title page */
+  .chapter-title {
+    min-height: 78vh;
+    padding: 14vh 48px 9vh;
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 760px) 1fr;
+    column-gap: 48px;
+    align-items: center;
+  }
+  .chapter-stamp {
+    grid-column: 2;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ferrous);
+    margin-bottom: 32px; display: flex; align-items: baseline; gap: 18px;
+  }
+  .chapter-stamp::before { content: ""; width: 36px; height: 1px; background: var(--ferrous); transform: translateY(-3px); }
+  .chapter-numeral {
+    grid-column: 2;
+    font-family: var(--mono); font-size: 14px; letter-spacing: 0.04em; color: var(--quiet); margin-bottom: 14px;
+  }
+  .chapter-title-h {
+    grid-column: 2;
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    font-size: clamp(56px, 8vw, 112px); line-height: 0.96;
+    margin: 0 0 0.5em; letter-spacing: -0.012em;
+  }
+  .chapter-deck {
+    grid-column: 2;
+    font-style: italic; font-size: 22px; line-height: 1.5; color: var(--quiet);
+    max-width: 56ch;
+  }
+  .chapter-meta {
+    grid-column: 2; margin-top: 56px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--quiet);
+    border-top: 1px solid var(--ink); padding-top: 22px;
+  }
+  .chapter-meta dt { color: var(--ferrous); margin-bottom: 4px; }
+  .chapter-meta dd { margin: 0; color: var(--ink); }
+
+  /* plate (single image with caption like a book illustration) */
+  .plate {
+    margin: 0; padding: 56px 48px;
+    display: grid; grid-template-columns: 1fr minmax(auto, 1100px) 1fr; column-gap: 48px;
+  }
+  .plate figure { grid-column: 2; margin: 0; }
+  .plate img { width: 100%; height: auto; display: block; }
+  .plate figcaption {
+    margin-top: 14px;
+    display: grid; grid-template-columns: 80px 1fr; gap: 18px; align-items: baseline;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
+  }
+  .plate figcaption .num { color: var(--ferrous); }
+  .plate figcaption .text { font-family: var(--serif); font-size: 14px; letter-spacing: 0; text-transform: none; font-style: italic; color: var(--ink); }
+
+  /* body — two-column reading */
+  .body-col {
+    padding: 80px 48px;
+    display: grid; grid-template-columns: 80px 1fr 1fr; column-gap: 48px;
+    border-top: 1px solid var(--rule);
+  }
+  .body-marker {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--ferrous);
+  }
+  .body-col h2 {
+    grid-column: 2 / span 2;
+    font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(32px, 4vw, 48px); line-height: 1.05;
+    margin: 0 0 28px;
+  }
+  .body-col .col-a, .body-col .col-b { grid-column: span 1; font-size: 17px; line-height: 1.7; }
+  .body-col .col-a p:first-child::first-letter {
+    font-family: var(--serif); font-style: italic; font-size: 4.4em; line-height: 0.85;
+    float: left; padding: 0.06em 0.16em 0 0; color: var(--ferrous);
+  }
+  .body-col p { margin: 0 0 1em; text-align: justify; hyphens: auto; }
+  html[lang="ar"] .body-col .col-a, html[lang="ar"] .body-col .col-b { text-align: right; }
+  html[lang="ar"] .body-col p { text-align: justify; }
+  html[lang="ar"] .body-col .col-a p:first-child::first-letter { float: right; padding: 0 0 0 0.16em; }
+
+  /* paired plates */
+  .paired {
+    padding: 0 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .paired figure { margin: 0; }
+  .paired img { width: 100%; height: auto; display: block; }
+  .paired figcaption { margin-top: 10px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet); }
+  .paired figcaption .num { color: var(--ferrous); margin-right: 12px; }
+
+  /* end nav */
+  .endnav {
+    margin-top: 96px; padding: 32px 48px; border-top: 1px solid var(--ink);
+    display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: baseline;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
+  }
+  .endnav .center { text-align: center; font-family: var(--serif); font-style: italic; font-size: 18px; letter-spacing: 0; text-transform: none; color: var(--ink); }
+  .endnav .right { text-align: right; }
+  .endnav a:hover { color: var(--ferrous); }
+
+  @media (max-width: 900px) {
+    .running-head { padding: 14px 22px 12px; }
+    .chapter-title { padding: 14vh 22px 9vh; grid-template-columns: 1fr; }
+    .chapter-stamp, .chapter-numeral, .chapter-title-h, .chapter-deck, .chapter-meta { grid-column: 1; }
+    .chapter-title-h { font-size: clamp(48px, 12vw, 88px); }
+    .chapter-meta { grid-template-columns: 1fr 1fr; }
+    .plate { padding: 32px 22px; grid-template-columns: 1fr; }
+    .plate figure { grid-column: 1; }
+    .body-col { padding: 56px 22px; grid-template-columns: 1fr; row-gap: 24px; }
+    .body-col h2 { grid-column: 1; }
+    .paired { grid-template-columns: 1fr; padding: 0 22px; }
+    .endnav { padding: 22px; grid-template-columns: 1fr; row-gap: 12px; text-align: center; }
+    .endnav .right { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="running-head">
+  <div class="left">CH. 01 / VIII</div>
+  <div class="center">ALMAMLAKA</div>
+  <div class="right">
+    <a href="index.html" data-en="Index" data-ar="الفهرس">Index</a>
+    <button class="toggle" id="lang-toggle">AR</button>
+  </div>
+</header>
+
+<section class="chapter-title">
+  <div class="chapter-numeral">No. 001 — VIII</div>
+  <div class="chapter-stamp" data-en="Cultural · 2026" data-ar="ثقافي · 2026">Cultural · 2026</div>
+  <h1 class="chapter-title-h">ALMAMLAKA.</h1>
+  <p class="chapter-deck" data-en="A civic interior that gathers Najdi proportion and modern restraint, and asks the visitor to slow down at the threshold." data-ar="فضاء داخلي مدني يجمع بين النسب النجدية والانضباط المعاصر، ويطلب من الزائر أن يبطئ عند العتبة.">
+    A civic interior that gathers Najdi proportion and modern restraint, and asks the visitor to slow down at the threshold.
+  </p>
+  <dl class="chapter-meta">
+    <div><dt>Year</dt><dd>2026</dd></div>
+    <div><dt>Type</dt><dd data-en="Cultural" data-ar="ثقافي">Cultural</dd></div>
+    <div><dt>Location</dt><dd data-en="Riyadh" data-ar="الرياض">Riyadh</dd></div>
+    <div><dt>Folio</dt><dd>009 — 026</dd></div>
+  </dl>
+</section>
+
+<section class="plate">
+  <figure>
+    <img src="../../2.%20ALMAMLAKA/4.%203D%20shots/1.jpg" alt="">
+    <figcaption><span class="num">PL. I.</span> <span class="text" data-en="Threshold composition; Najdi pendant work above brick coursing." data-ar="تكوين العتبة؛ تعليقات نجدية فوق طبقات الطوب.">Threshold composition; Najdi pendant work above brick coursing.</span></figcaption>
+  </figure>
+</section>
+
+<section class="body-col">
+  <div class="body-marker">§ Brief</div>
+  <h2 data-en="On atmosphere as program." data-ar="عن الأجواء بوصفها برنامجاً.">On atmosphere as program.</h2>
+  <div class="col-a">
+    <p data-en="The brief for ALMAMLAKA was unusual in that it asked, in different words, for a building that would feel inevitable. The site is a corner of a contemporary mall — bright, hurried, indifferent to history — and the client wanted a counter-current. The interior had to carry the gravity of a place that has been there for a while, while remaining, of course, very new." data-ar="كان البرنامج لمشروع المملكة غير مألوف، إذ طلب — بكلمات مختلفة — مبنىً يبدو وكأنه كان دائماً هنا. الموقع زاوية في مولٍّ معاصر — مضيءٍ، مستعجل، لا مبالٍ بالتاريخ — وأراد العميل تياراً معاكساً. كان على الفضاء الداخلي أن يحمل ثقل مكانٍ كان موجوداً منذ زمنٍ، مع أنه — بطبيعة الحال — جديد تماماً.">The brief for ALMAMLAKA was unusual in that it asked, in different words, for a building that would feel inevitable. The site is a corner of a contemporary mall — bright, hurried, indifferent to history — and the client wanted a counter-current. The interior had to carry the gravity of a place that has been there for a while, while remaining, of course, very new.</p>
+    <p data-en="The first move was the threshold: a deep porch of brick coursing and tasselled pendants that does the labour of an actual masonry wall, even though it is, in plan, only forty centimetres of frame. From this porch, sightlines slow. You enter through cool air and a long horizontal of warm brass." data-ar="كان أول قرارٍ هو العتبة: شُرفة عميقة من طبقات الطوب والتعليقات المهدّبة، تقوم بعمل جدارٍ بنّاءٍ كاملٍ، رغم أنها في المسقط أربعون سنتيمتراً من الإطار فحسب. من هذه الشُرفة، تتباطأ خطوط النظر. تدخل عبر هواءٍ بارد وشريطٍ أفقي طويل من النحاس الدافئ.">The first move was the threshold: a deep porch of brick coursing and tasselled pendants that does the labour of an actual masonry wall, even though it is, in plan, only forty centimetres of frame. From this porch, sightlines slow. You enter through cool air and a long horizontal of warm brass.</p>
+  </div>
+  <div class="col-b">
+    <p data-en="Inside, the strategy is reduction. A single colour story — terracotta, brass, bone — and a single rule about light: it falls, never glares. The carpet is a continuous deep red, hand-knotted to deaden footfall, so the room sounds older than it looks. We chose to keep the visible structure of the contemporary shell — its clean steel grid — and to fill the interval between that grid and the ground with materials that have been around for a long time." data-ar="في الداخل، الاستراتيجية اختزال. حكاية لونٍ واحدة — تيراكوتا، نحاس، عظم — وقاعدةٌ واحدة عن الضوء: يقع، لا يُبهر. السجاد قطعةٌ متواصلة بحُمرة عميقة، منسوجٌ يدوياً ليُخمد وقع الأقدام، فيبدو صوت الغرفة أقدم مما تبدو عليه. اخترنا الإبقاء على البنية الظاهرة للقشرة المعاصرة — شبكتها الفولاذية النظيفة — وملء الفسحة بين هذه الشبكة والأرض بموادٍ موجودةٍ منذ زمن.">Inside, the strategy is reduction. A single colour story — terracotta, brass, bone — and a single rule about light: it falls, never glares. The carpet is a continuous deep red, hand-knotted to deaden footfall, so the room sounds older than it looks. We chose to keep the visible structure of the contemporary shell — its clean steel grid — and to fill the interval between that grid and the ground with materials that have been around for a long time.</p>
+    <p data-en="ALMAMLAKA is, finally, an argument for slowness. It does not ask the visitor to admire it; it asks them to stand still." data-ar="مشروع المملكة، في نهاية المطاف، حجّةٌ لصالح البطء. لا يطلب من الزائر إعجاباً؛ يطلب منه أن يقف ساكناً.">ALMAMLAKA is, finally, an argument for slowness. It does not ask the visitor to admire it; it asks them to stand still.</p>
+  </div>
+</section>
+
+<section class="paired">
+  <figure>
+    <img src="../../2.%20ALMAMLAKA/4.%203D%20shots/2.jpg" alt="">
+    <figcaption><span class="num">PL. II.</span> Hall, looking toward porch.</figcaption>
+  </figure>
+  <figure>
+    <img src="../../2.%20ALMAMLAKA/4.%203D%20shots/3.jpg" alt="">
+    <figcaption><span class="num">PL. III.</span> Detail; brass coursing, bone trim.</figcaption>
+  </figure>
+</section>
+
+<section class="plate">
+  <figure>
+    <img src="../../2.%20ALMAMLAKA/4.%203D%20shots/4.jpg" alt="">
+    <figcaption><span class="num">PL. IV.</span> <span class="text" data-en="Carpet seam meets stone; light falling, never glaring." data-ar="حافة السجاد تلتقي الحجر؛ ضوءٌ يقع، لا يُبهر.">Carpet seam meets stone; light falling, never glaring.</span></figcaption>
+  </figure>
+</section>
+
+<section class="paired">
+  <figure>
+    <img src="../../2.%20ALMAMLAKA/4.%203D%20shots/5.jpg" alt="">
+    <figcaption><span class="num">PL. V.</span> Vestibule, oblique view.</figcaption>
+  </figure>
+  <figure>
+    <img src="../../2.%20ALMAMLAKA/4.%203D%20shots/6.jpg" alt="">
+    <figcaption><span class="num">PL. VI.</span> Pendants, in repetition.</figcaption>
+  </figure>
+</section>
+
+<nav class="endnav">
+  <a class="left" href="index.html" data-en="← Index" data-ar="→ الفهرس">← Index</a>
+  <span class="center">— END OF CHAPTER 01 —</span>
+  <a class="right" href="../../contact.html" data-en="Colophon →" data-ar="← بيانات النشر">Colophon →</a>
+</nav>
+
+<script>
+  let lang = localStorage.getItem('lang') || 'en';
+  function applyLanguage() {
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const v = el.dataset[lang === 'ar' ? 'ar' : 'en'];
+      if (v != null) el.textContent = v;
+    });
+    document.getElementById('lang-toggle').textContent = lang === 'en' ? 'AR' : 'EN';
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    applyLanguage();
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      lang = lang === 'en' ? 'ar' : 'en'; applyLanguage();
+    });
+  });
+</script>
+
+</body>
+</html>
