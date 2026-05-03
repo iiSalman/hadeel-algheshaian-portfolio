@@ -3,24 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hadeel Algheshaian — Frame</title>
-<meta name="description" content="Eight projects, frame by frame.">
+<title>Hadeel Algheshaian — Selected Interiors</title>
+<meta name="description" content="A portfolio of selected interior projects by Hadeel Algheshaian — Riyadh, 2022—2026.">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --char: oklch(14% 0.005 250);
-    --char-2: oklch(20% 0.005 250);
-    --paper: oklch(98% 0.005 60);
-    --paper-2: oklch(94% 0.008 60);
-    --ink: oklch(18% 0.005 250);
-    --ink-soft: oklch(36% 0.005 250);
-    --vermillion: oklch(58% 0.20 28);
-    --quiet-light: oklch(64% 0.005 250);
-    --quiet-dark: oklch(58% 0.005 250);
-    --display: 'Cormorant Garamond', 'Times New Roman', serif;
+    --paper: oklch(96% 0.008 80);
+    --paper-2: oklch(94% 0.008 75);
+    --ink: oklch(22% 0.005 250);
+    --graphite: oklch(38% 0.005 250);
+    --quiet: oklch(58% 0.005 250);
+    --rule: oklch(80% 0.008 80);
+    --copper: oklch(56% 0.06 50);
+    --display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
     --sans: 'Inter', system-ui, -apple-system, sans-serif;
     --ar: 'Tajawal', system-ui, sans-serif;
   }
@@ -28,288 +26,340 @@
   html, body { margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
-    background: var(--char); color: var(--paper);
-    font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    scroll-snap-type: y mandatory;
-    height: 100vh; overflow-y: auto;
+    background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-weight: 300; font-size: 16px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
   html[lang="ar"] body { font-family: var(--ar); }
   html[lang="ar"] *, html[lang="ar"] *::before, html[lang="ar"] *::after { letter-spacing: 0 !important; text-transform: none !important; }
   a { color: inherit; text-decoration: none; }
-  ::selection { background: var(--vermillion); color: var(--paper); }
+  ::selection { background: var(--ink); color: var(--paper); }
+  img { display: block; max-width: 100%; }
 
-  /* fixed top counter */
-  .runner {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  /* ========== bar ========== */
+  .bar {
+    position: sticky; top: 0; z-index: 50;
     display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;
-    padding: 18px 36px;
-    font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--paper);
-    mix-blend-mode: difference;
-    pointer-events: none;
+    padding: 22px 56px;
+    background: oklch(96% 0.008 80 / 0.92); backdrop-filter: saturate(1.2) blur(8px); -webkit-backdrop-filter: saturate(1.2) blur(8px);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--sans); font-size: 11px; color: var(--graphite); letter-spacing: 0.16em;
   }
-  .runner > * { pointer-events: auto; }
-  .runner .left { font-weight: 500; letter-spacing: 0.32em; }
-  .runner .center {
-    font-family: var(--display); font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none;
-  }
-  .runner .right { display: flex; gap: 20px; justify-content: flex-end; align-items: center; }
-  .runner button.toggle {
-    background: transparent; border: 1px solid currentColor; color: inherit;
-    font: inherit; font-size: 10px; letter-spacing: 0.18em; padding: 6px 12px; border-radius: 999px; cursor: pointer;
-  }
-  .runner button.toggle:hover { border-color: var(--vermillion); color: var(--vermillion); }
+  .bar-left { font-style: italic; font-family: var(--display); font-size: 17px; letter-spacing: 0; color: var(--ink); }
+  .bar-center { font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--quiet); }
+  .bar-right { display: flex; gap: 22px; justify-content: flex-end; align-items: center; }
+  .bar-right a { transition: color .25s; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--graphite); }
+  .bar-right a:hover { color: var(--copper); }
+  .bar button.toggle { background: transparent; border: 1px solid var(--rule); color: var(--graphite);
+    font: inherit; font-size: 10px; letter-spacing: 0.18em; padding: 5px 11px; border-radius: 999px; cursor: pointer;
+    transition: border-color .25s, color .25s; }
+  .bar button.toggle:hover { border-color: var(--copper); color: var(--copper); }
 
-  /* fixed counter (current frame) */
-  .frame-counter {
-    position: fixed; bottom: 32px; left: 36px; z-index: 50;
-    font-family: var(--sans); font-weight: 500; font-size: 11px; letter-spacing: 0.32em;
-    color: var(--paper); mix-blend-mode: difference;
+  /* ========== opening ========== */
+  .opening {
+    min-height: calc(100vh - 56px);
+    display: grid; grid-template-columns: 6fr 5fr;
+    align-items: stretch;
+    border-bottom: 1px solid var(--rule);
+  }
+  .opening-text {
+    grid-column: 1; padding: 14vh 80px 9vh;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 32px;
+  }
+  .opening-eyebrow {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--copper);
     display: flex; align-items: center; gap: 14px;
   }
-  .frame-counter .now {
-    font-family: var(--display); font-style: italic; font-size: 32px; line-height: 1; color: var(--vermillion);
-    margin-right: 6px;
+  .opening-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .opening-name {
+    font-family: var(--display); font-weight: 400; font-style: normal;
+    font-size: clamp(54px, 7vw, 108px); line-height: 0.96;
+    letter-spacing: -0.018em; margin: 0;
+    color: var(--ink);
   }
-  .frame-counter .total { opacity: 0.7; }
-  .frame-counter .bar {
-    width: 80px; height: 1px; background: currentColor; opacity: 0.4; position: relative; overflow: hidden;
+  .opening-name em { font-style: italic; color: var(--copper); font-weight: 400; }
+  .opening-tagline {
+    font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.5;
+    color: var(--graphite); max-width: 36ch; margin: 0;
   }
-  .frame-counter .bar::after {
-    content: ""; position: absolute; left: 0; top: 0; height: 100%;
-    width: var(--progress, 0%); background: var(--vermillion); transition: width .8s cubic-bezier(0.16,1,0.3,1);
+  .opening-meta {
+    margin-top: 28px;
+    display: grid; grid-template-columns: repeat(3, auto); gap: 32px; justify-content: start;
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--quiet);
   }
-
-  /* generic frame */
-  .frame {
-    height: 100vh; min-height: 720px; scroll-snap-align: start; scroll-snap-stop: always;
-    position: relative; overflow: hidden;
-    display: grid; grid-template-columns: 1fr 1fr; align-items: end;
+  .opening-meta dt { color: var(--graphite); margin-bottom: 4px; font-size: 10px; letter-spacing: 0.32em; }
+  .opening-meta dd { margin: 0; font-family: var(--display); font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none; color: var(--ink); }
+  .opening-figure {
+    grid-column: 2; position: relative; align-self: stretch; min-height: 60vh;
+    background: var(--paper-2);
+    overflow: hidden;
   }
-  .frame.dark { background: var(--char); color: var(--paper); }
-  .frame.light { background: var(--paper); color: var(--ink); }
-
-  /* hero — opening frame */
-  .opening {
-    grid-template-columns: 1fr;
-    place-items: center;
-    text-align: center;
+  .opening-figure::before {
+    content: ""; position: absolute; left: 64px; right: 64px; top: 64px; bottom: 64px;
+    background: var(--ink); opacity: 0.92;
   }
-  .opening .stamp {
-    position: absolute; top: 88px; left: 50%; transform: translateX(-50%);
-    font-family: var(--sans); font-size: 10px; letter-spacing: 0.5em; text-transform: uppercase;
-    opacity: 0.8;
-    display: flex; align-items: center; gap: 12px;
+  .opening-figure img {
+    position: absolute; left: 64px; right: 64px; top: 64px; bottom: 64px;
+    width: calc(100% - 128px); height: calc(100% - 128px);
+    object-fit: cover;
+    filter: grayscale(0.18) brightness(0.96);
   }
-  .opening .stamp::before, .opening .stamp::after { content: ""; width: 28px; height: 1px; background: currentColor; opacity: 0.6; }
-  .opening h1 {
-    font-family: var(--display); font-style: italic; font-weight: 400;
-    font-size: clamp(72px, 11vw, 180px); line-height: 0.92; letter-spacing: -0.02em;
-    margin: 0;
-  }
-  .opening h1 .accent { color: var(--vermillion); }
-  .opening .deck {
-    margin-top: 36px; max-width: 60ch;
-    font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.5; opacity: 0.78;
-  }
-  .opening .footnote {
-    position: absolute; bottom: 96px; left: 50%; transform: translateX(-50%);
-    font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; opacity: 0.7;
-  }
-  .opening .footnote::before {
-    content: ""; display: block; width: 1px; height: 32px; background: currentColor; margin: 0 auto 14px; opacity: 0.5;
-    animation: cuepulse 2.4s ease-in-out infinite;
-  }
-  @keyframes cuepulse {
-    0%, 100% { transform: scaleY(1); transform-origin: top; opacity: 0.5; }
-    50%      { transform: scaleY(0.4); opacity: 0.2; }
+  .opening-figure figcaption {
+    position: absolute; bottom: 28px; left: 64px;
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--graphite);
   }
 
-  /* project frame layout */
+  /* ========== preface (about) ========== */
+  .preface {
+    padding: 14vh 80px;
+    border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: 1fr 2fr; gap: 64px;
+    align-items: start;
+  }
+  .preface-marker {
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper);
+    padding-top: 12px; position: relative;
+  }
+  .preface-marker::before { content: ""; position: absolute; left: 0; top: 0; width: 32px; height: 1px; background: var(--copper); }
+  .preface-body {
+    font-family: var(--display); font-weight: 400; font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.5; color: var(--ink); max-width: 56ch;
+  }
+  .preface-body em { font-style: italic; color: var(--copper); }
+  .preface-body p { margin: 0 0 1em; }
+
+  /* ========== projects ========== */
+  .projects {
+    padding: 0;
+  }
   .project {
+    padding: 14vh 80px;
+    display: grid; grid-template-columns: repeat(12, 1fr);
+    column-gap: 48px; row-gap: 48px;
+    border-bottom: 1px solid var(--rule);
     position: relative;
+    align-items: center;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .project .bg-img {
-    position: absolute; inset: 0;
-    background-size: cover; background-position: center;
-    transition: transform 1.4s cubic-bezier(0.16,1,0.3,1);
+  .project.in-view { opacity: 1; transform: translateY(0); }
+  .project[data-side="right"] .project-figure { grid-column: 1 / span 7; }
+  .project[data-side="right"] .project-text { grid-column: 9 / span 4; }
+  .project[data-side="left"] .project-figure { grid-column: 6 / span 7; grid-row: 1; }
+  .project[data-side="left"] .project-text { grid-column: 1 / span 4; grid-row: 1; }
+  .project-figure {
+    position: relative; overflow: hidden;
+    aspect-ratio: 4 / 3;
   }
-  .project .bg-img::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, oklch(8% 0.005 250 / 0.1) 0%, oklch(8% 0.005 250 / 0.42) 65%, oklch(8% 0.005 250 / 0.74) 100%);
+  .project-figure img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(0.05) brightness(0.99);
+    transition: filter .8s, transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .project.light .bg-img::after {
-    background: linear-gradient(180deg, oklch(98% 0.005 60 / 0) 0%, oklch(98% 0.005 60 / 0.18) 60%, oklch(98% 0.005 60 / 0.5) 100%);
+  .project:hover .project-figure img {
+    filter: grayscale(0); transform: scale(1.02);
   }
-  .project .frame-num {
-    position: absolute; top: 96px; left: 36px; z-index: 2;
-    font-family: var(--sans); font-weight: 500; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
-    display: flex; align-items: baseline; gap: 14px; opacity: 0.85;
+  .project-no {
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--copper); margin-bottom: 22px;
+    display: flex; align-items: center; gap: 14px;
   }
-  .project .frame-num .big {
-    font-family: var(--display); font-style: italic; font-size: 88px; line-height: 1;
-    letter-spacing: -0.02em; opacity: 1; color: var(--vermillion);
+  .project-no::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .project-title {
+    font-family: var(--display); font-weight: 400; font-size: clamp(36px, 3.4vw, 52px); line-height: 1.05;
+    letter-spacing: -0.012em; color: var(--ink); margin: 0 0 14px;
   }
-  .project .vermillion-bar {
-    position: absolute; top: 0; right: 0; bottom: 0; width: 4px;
-    background: var(--vermillion); z-index: 2;
-    transform-origin: top; transform: scaleY(0);
-    transition: transform 1.6s cubic-bezier(0.16,1,0.3,1);
+  .project-title-ar {
+    font-family: var(--ar); font-size: 22px; line-height: 1.3; color: var(--quiet); margin: 0 0 22px;
+    direction: rtl; font-weight: 400;
   }
-  .project.in-view .vermillion-bar { transform: scaleY(1); }
-  .project.in-view .bg-img { transform: scale(1.04); }
-
-  .caption-card {
-    position: relative; z-index: 2;
-    grid-column: 1; grid-row: 1;
-    align-self: end; justify-self: start;
-    margin: 0 0 56px 36px;
-    max-width: 520px;
-    background: oklch(14% 0.005 250 / 0.78);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    color: var(--paper);
-    padding: 28px 32px;
-    border-left: 0; /* never use side stripes */
+  .project-info {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--quiet); margin-bottom: 22px;
   }
-  .project.light .caption-card { background: oklch(98% 0.005 60 / 0.85); color: var(--ink); }
-  .caption-card .meta {
-    display: flex; gap: 14px; align-items: baseline; margin-bottom: 14px;
-    font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.7;
+  .project-info span + span::before { content: " · "; opacity: 0.6; }
+  .project-deck {
+    font-family: var(--display); font-style: italic; font-size: 19px; line-height: 1.55;
+    color: var(--graphite); margin: 0 0 28px; max-width: 38ch;
   }
-  .caption-card .meta .accent { color: var(--vermillion); }
-  .caption-card h2 {
-    font-family: var(--display); font-style: italic; font-weight: 400;
-    font-size: clamp(36px, 4.4vw, 56px); line-height: 1; letter-spacing: -0.012em;
-    margin: 0 0 16px;
-  }
-  .caption-card .deck {
-    font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.6; opacity: 0.85;
-    margin: 0 0 22px;
-  }
-  .caption-card .cta {
-    font-family: var(--sans); font-weight: 500; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+  .project-link {
     display: inline-flex; align-items: center; gap: 12px;
-    border-bottom: 1px solid currentColor; padding-bottom: 4px;
-    transition: color .25s, border-color .25s;
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--ink); padding-bottom: 4px;
+    background: linear-gradient(currentColor, currentColor) bottom left / 0% 1px no-repeat;
+    transition: background-size .6s cubic-bezier(0.16, 1, 0.3, 1), color .25s;
   }
-  .caption-card .cta:hover { color: var(--vermillion); border-color: var(--vermillion); }
-  .caption-card .cta .arrow { display: inline-block; transition: transform .25s; }
-  .caption-card .cta:hover .arrow { transform: translateX(6px); }
+  .project-link:hover {
+    color: var(--copper);
+    background-size: 100% 1px;
+  }
+  .project-link .arrow { transition: transform .35s; }
+  .project-link:hover .arrow { transform: translateX(8px); }
+  .project-aside {
+    position: absolute; top: 14vh; font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--quiet);
+  }
+  .project[data-side="right"] .project-aside { right: 80px; }
+  .project[data-side="left"] .project-aside { left: 80px; }
 
-  .ar-stamp {
-    position: absolute; right: 36px; top: 50%; transform: translateY(-50%) rotate(180deg);
-    writing-mode: vertical-rl; z-index: 2;
-    font-family: var(--ar); font-size: 88px; line-height: 1; opacity: 0.18;
-    pointer-events: none;
+  /* ========== colophon ========== */
+  .colophon {
+    padding: 14vh 80px;
+    background: var(--ink); color: var(--paper);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end;
   }
+  .colophon-eyebrow {
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper);
+    margin-bottom: 22px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .colophon-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .colophon h2 {
+    font-family: var(--display); font-weight: 400; font-size: clamp(40px, 4.4vw, 64px); line-height: 1.05; margin: 0 0 22px;
+    color: var(--paper);
+  }
+  .colophon h2 em { font-style: italic; color: var(--copper); }
+  .colophon p {
+    font-family: var(--display); font-style: italic; font-size: 20px; line-height: 1.5; color: oklch(85% 0.005 60);
+    max-width: 42ch; margin: 0;
+  }
+  .colophon-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-top: 1px solid oklch(96% 0.008 80 / 0.18);
+  }
+  .colophon-card {
+    padding: 22px 0 18px; border-bottom: 1px solid oklch(96% 0.008 80 / 0.18);
+    border-right: 1px solid oklch(96% 0.008 80 / 0.18); padding-right: 22px;
+  }
+  .colophon-card:nth-child(2n) { border-right: none; padding-right: 0; padding-left: 22px; }
+  .colophon-card dt { font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--copper); margin: 0 0 6px; }
+  .colophon-card dd { margin: 0; font-family: var(--display); font-style: italic; font-size: 22px; color: var(--paper); }
+  .colophon-card a { background: linear-gradient(currentColor, currentColor) bottom left / 0% 1px no-repeat;
+    transition: background-size .6s cubic-bezier(0.16, 1, 0.3, 1), color .25s; padding-bottom: 2px; }
+  .colophon-card a:hover { background-size: 100% 1px; color: var(--copper); }
 
-  /* end frame — colophon */
-  .end {
-    grid-template-columns: 1fr; place-items: center; text-align: center;
-    position: relative;
+  /* ========== imprint ========== */
+  .imprint {
+    padding: 22px 56px;
+    background: var(--ink); color: oklch(72% 0.005 60);
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: baseline; gap: 24px;
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+    border-top: 1px solid oklch(96% 0.008 80 / 0.12);
   }
-  .end .stamp {
-    font-family: var(--sans); font-size: 10px; letter-spacing: 0.5em; text-transform: uppercase; opacity: 0.7;
-    margin-bottom: 36px;
-    display: flex; align-items: center; gap: 12px;
+  .imprint .center {
+    font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; color: oklch(85% 0.005 60);
   }
-  .end .stamp::before, .end .stamp::after { content: ""; width: 28px; height: 1px; background: currentColor; opacity: 0.6; }
-  .end h2 {
-    font-family: var(--display); font-style: italic; font-weight: 400;
-    font-size: clamp(56px, 8vw, 124px); line-height: 0.96; margin: 0 0 36px;
-  }
-  .end h2 .accent { color: var(--vermillion); }
-  .end .cards {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-    border-top: 1px solid oklch(98% 0.005 60 / 0.2); border-bottom: 1px solid oklch(98% 0.005 60 / 0.2);
-    width: min(960px, 90vw);
-  }
-  .end .cards dl {
-    margin: 0; padding: 22px 18px; border-right: 1px solid oklch(98% 0.005 60 / 0.15);
-    text-align: left;
-  }
-  .end .cards dl:last-child { border-right: none; }
-  .end .cards dt { font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.6; margin-bottom: 8px; }
-  .end .cards dd { margin: 0; font-family: var(--display); font-style: italic; font-size: 18px; }
-  .end .cards a { border-bottom: 1px solid transparent; transition: color .25s, border-color .25s; }
-  .end .cards a:hover { color: var(--vermillion); border-color: var(--vermillion); }
-  .end .imprint {
-    position: absolute; bottom: 32px; left: 0; right: 0;
-    font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.5;
-  }
+  .imprint .right { text-align: right; }
 
-  /* responsive */
-  @media (max-width: 900px) {
-    .runner { padding: 14px 22px; gap: 12px; grid-template-columns: 1fr auto auto; }
-    .runner .right a { display: none; }
-    .frame-counter { left: 22px; bottom: 22px; }
-    .opening h1 { font-size: clamp(56px, 14vw, 96px); }
-    .project .frame-num { left: 22px; top: 80px; }
-    .project .frame-num .big { font-size: 56px; }
-    .ar-stamp { right: 14px; font-size: 56px; }
-    .caption-card { margin: 0 22px 64px; padding: 22px 22px; max-width: none; }
-    .end .cards { grid-template-columns: 1fr 1fr; }
-    .end .cards dl:nth-child(2n) { border-right: none; }
-    .end .cards dl { border-bottom: 1px solid oklch(98% 0.005 60 / 0.15); }
+  /* ========== responsive ========== */
+  @media (max-width: 1100px) {
+    .opening-text { padding: 12vh 40px 8vh; }
+    .opening-figure::before, .opening-figure img { left: 32px; right: 32px; top: 32px; bottom: 32px; }
+    .opening-figure img { width: calc(100% - 64px); height: calc(100% - 64px); }
+    .opening-figure figcaption { left: 32px; bottom: 18px; }
+    .preface, .project, .colophon { padding: 12vh 40px; }
+    .project-aside { display: none; }
+  }
+  @media (max-width: 760px) {
+    .bar { padding: 16px 22px; gap: 12px; }
+    .bar-right a { display: none; }
+    .opening { grid-template-columns: 1fr; min-height: 0; }
+    .opening-text { padding: 10vh 22px 6vh; }
+    .opening-figure { grid-column: 1; min-height: 60vh; aspect-ratio: 4/5; }
+    .opening-figure::before, .opening-figure img { left: 22px; right: 22px; top: 22px; bottom: 22px; }
+    .opening-figure img { width: calc(100% - 44px); height: calc(100% - 44px); }
+    .opening-figure figcaption { left: 22px; bottom: 12px; }
+    .opening-meta { grid-template-columns: 1fr 1fr; gap: 22px; }
+    .preface { padding: 10vh 22px; grid-template-columns: 1fr; gap: 24px; }
+    .preface-body { font-size: 20px; }
+    .project { padding: 10vh 22px; column-gap: 0; row-gap: 24px; }
+    .project[data-side="right"] .project-figure,
+    .project[data-side="left"] .project-figure { grid-column: 1 / span 12; grid-row: 1; }
+    .project[data-side="right"] .project-text,
+    .project[data-side="left"] .project-text { grid-column: 1 / span 12; grid-row: 2; }
+    .project-figure { aspect-ratio: 4/3; }
+    .colophon { padding: 10vh 22px; grid-template-columns: 1fr; gap: 36px; }
+    .colophon-cards { grid-template-columns: 1fr; }
+    .colophon-card, .colophon-card:nth-child(2n) { border-right: none; padding: 22px 0 18px; }
+    .imprint { padding: 18px 22px; grid-template-columns: 1fr; gap: 6px; text-align: center; }
+    .imprint .right { text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<header class="runner">
-  <div class="left">FRAME · 00 / 09</div>
-  <div class="center">Hadeel Algheshaian</div>
-  <div class="right">
-    <a href="#opening" data-en="Top" data-ar="الأعلى">Top</a>
+<header class="bar">
+  <div class="bar-left">Hadeel Algheshaian</div>
+  <div class="bar-center" data-en="Selected Interiors" data-ar="فضاءات مختارة">Selected Interiors</div>
+  <div class="bar-right">
+    <a href="#preface" data-en="Preface" data-ar="مقدمة">Preface</a>
+    <a href="#projects" data-en="Work" data-ar="الأعمال">Work</a>
     <a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a>
     <button class="toggle" id="lang-toggle">AR</button>
   </div>
 </header>
 
-<div class="frame-counter">
-  <span class="now" id="counter-now">00</span>
-  <span class="bar"><i style="--progress:0%"></i></span>
-  <span class="total">/ 09</span>
-</div>
-
-<section class="frame opening dark" id="opening">
-  <div class="stamp" data-en="Selected interiors · 2022 — 2026" data-ar="فضاءات مختارة · 2022 — 2026">Selected interiors · 2022 — 2026</div>
-  <div>
-    <h1 data-en-html='Eight rooms,<br><span class="accent">one weather.</span>' data-ar-html='ثماني غرف،<br><span class="accent">طقسٌ واحد.</span>'>
-      Eight rooms,<br><span class="accent">one weather.</span>
-    </h1>
-    <p class="deck" data-en="Interior design portfolio of Hadeel Algheshaian, frame by frame. Scroll to advance." data-ar="معرض أعمال التصميم الداخلي لـ هديل الغيشيان، إطاراً تلو إطار. مرّر للأمام.">Interior design portfolio of Hadeel Algheshaian, frame by frame. Scroll to advance.</p>
-  </div>
-  <div class="footnote" data-en="Continue ↓" data-ar="تابع ↓">Continue ↓</div>
-</section>
-
-<main id="frames"></main>
-
-<section class="frame end dark" id="colophon">
-  <div>
-    <div class="stamp" data-en="End credits" data-ar="الخاتمة">End credits</div>
-    <h2 data-en-html='Available for new <span class="accent">commissions.</span>' data-ar-html='متاحة لمشاريع <span class="accent">جديدة.</span>'>Available for new <span class="accent">commissions.</span></h2>
-    <dl class="cards">
-      <dl><dt>Email</dt><dd><a href="mailto:int.hadeel.sa@gmail.com">int.hadeel.sa@gmail.com</a></dd></dl>
-      <dl><dt>Phone</dt><dd><a href="tel:+966503109887">+966 50 310 9887</a></dd></dl>
-      <dl><dt>Instagram</dt><dd><a href="https://instagram.com/int.hadeel">@int.hadeel</a></dd></dl>
-      <dl><dt>Studio</dt><dd>Riyadh, KSA</dd></dl>
+<section class="opening">
+  <div class="opening-text">
+    <div class="opening-eyebrow" data-en="A practice in interior design" data-ar="ممارسة في التصميم الداخلي">A practice in interior design</div>
+    <h1 class="opening-name" data-en-html='Hadeel<br><em>Algheshaian.</em>' data-ar-html='هديل<br><em>الغيشيان.</em>'>Hadeel<br><em>Algheshaian.</em></h1>
+    <p class="opening-tagline" data-en="Interiors that read like sentences — material, proportion, and the way a room behaves an hour after you walk in." data-ar="فضاءاتٌ داخلية تُقرأ كالجمل — مادةٌ، نسبة، وطريقةٌ تتصرّف بها الغرفة بعد ساعةٍ من دخولك إليها.">Interiors that read like sentences — material, proportion, and the way a room behaves an hour after you walk in.</p>
+    <dl class="opening-meta">
+      <div><dt data-en="Span" data-ar="الفترة">Span</dt><dd>2022 — 2026</dd></div>
+      <div><dt data-en="Projects" data-ar="المشاريع">Projects</dt><dd>Eight</dd></div>
+      <div><dt data-en="Studio" data-ar="المكتب">Studio</dt><dd data-en="Riyadh, KSA" data-ar="الرياض، السعودية">Riyadh, KSA</dd></div>
     </dl>
   </div>
-  <div class="imprint">© 2026 · Frame Edition · Riyadh</div>
+  <figure class="opening-figure">
+    <img src="../../2.%20ALMAMLAKA/4.%203D%20shots/1.jpg" alt="" loading="eager">
+    <figcaption data-en="Plate · ALMAMLAKA, 2026" data-ar="لوحة · المملكة، 2026">Plate · ALMAMLAKA, 2026</figcaption>
+  </figure>
 </section>
+
+<section class="preface" id="preface">
+  <div class="preface-marker">§ Preface</div>
+  <div class="preface-body">
+    <p data-en="My practice begins with the air of a place — its tempo, its weather, the way time moves through it — and only then with surfaces. I design <em>interiors that ripen rather than impress</em>, rooms that sound older than they look, and details that ask the visitor to slow down at the threshold." data-ar="تبدأ ممارستي من هواء المكان — إيقاعِه، طقسِه، طريقةِ مرور الزمن فيه — ثم تنتقل إلى السطح. أُصمِّم <em>فضاءاتٍ تنضج لا تبهر</em>، غرفاً يبدو صوتُها أقدم من شكلها، وتفاصيلَ تطلب من الزائر أن يتباطأ عند العتبة.">My practice begins with the air of a place — its tempo, its weather, the way time moves through it — and only then with surfaces. I design <em>interiors that ripen rather than impress</em>, rooms that sound older than they look, and details that ask the visitor to slow down at the threshold.</p>
+  </div>
+</section>
+
+<main class="projects" id="projects"></main>
+
+<section class="colophon" id="colophon">
+  <div>
+    <div class="colophon-eyebrow" data-en="Available" data-ar="متاحة">Available</div>
+    <h2 data-en-html='For new <em>commissions.</em>' data-ar-html='لمشاريعَ <em>جديدة.</em>'>For new <em>commissions.</em></h2>
+    <p data-en="Studios, hospitality, cultural, and private interiors across the Kingdom and the wider region. Briefs welcome at any stage of a project." data-ar="مكاتب وفنادق ومساحات ثقافية وأعمال داخلية خاصة في المملكة والمنطقة. أرحب بالمشاريع في أي مرحلة.">Studios, hospitality, cultural, and private interiors across the Kingdom and the wider region. Briefs welcome at any stage of a project.</p>
+  </div>
+  <dl class="colophon-cards">
+    <div class="colophon-card"><dt data-en="Email" data-ar="بريد">Email</dt><dd><a href="mailto:int.hadeel.sa@gmail.com">int.hadeel.sa@gmail.com</a></dd></div>
+    <div class="colophon-card"><dt data-en="Phone / WhatsApp" data-ar="هاتف / واتساب">Phone / WhatsApp</dt><dd><a href="tel:+966503109887">+966 50 310 9887</a></dd></div>
+    <div class="colophon-card"><dt data-en="Instagram" data-ar="انستغرام">Instagram</dt><dd><a href="https://instagram.com/int.hadeel">@int.hadeel</a></dd></div>
+    <div class="colophon-card"><dt data-en="Studio" data-ar="المكتب">Studio</dt><dd data-en="Riyadh, KSA" data-ar="الرياض، السعودية">Riyadh, KSA</dd></div>
+  </dl>
+</section>
+
+<footer class="imprint">
+  <div class="left">© 2026 Hadeel Algheshaian</div>
+  <div class="center" data-en="Selected Interiors · First Edition" data-ar="فضاءات مختارة · الطبعة الأولى">Selected Interiors · First Edition</div>
+  <div class="right">Riyadh, KSA</div>
+</footer>
 
 <script>
   const PROJECTS = [
-    {n:'01', tone:'dark', slug:'almamlaka', en:'ALMAMLAKA', ar:'المملكة', type_en:'Cultural', type_ar:'ثقافي', loc:'Riyadh', year:'2026', deck_en:'Najdi proportion meets modern restraint at the threshold of a contemporary mall.', deck_ar:'تلتقي النسب النجدية بالانضباط المعاصر عند عتبة مولٍّ معاصر.', hero:'../../2.%20ALMAMLAKA/4.%203D%20shots/1.jpg'},
-    {n:'02', tone:'light', slug:'coffee-day', en:'International Coffee Day', ar:'يوم القهوة العالمي', type_en:'Commercial', type_ar:'تجاري', loc:'Riyadh', year:'2025', deck_en:'Three booths — French, Saudi, and a contemporary outlier — share one structural language.', deck_ar:'ثلاثة أجنحة — فرنسية، سعودية، ومعاصرة — تتشارك لغة إنشائية واحدة.', hero:'../../3.%20International%20Coffee%20Day/2.%20French%20Coffee%20Booth/1.jpg'},
-    {n:'03', tone:'dark', slug:'courtyard', en:'Courtyard', ar:'الفناء', type_en:'Cultural', type_ar:'ثقافي', loc:'Najd', year:'2025', deck_en:'A small open-air courtyard composed around a single tree and the slow movement of light.', deck_ar:'فناء مفتوح صغير مُؤلَّف حول شجرة واحدة وحركة الضوء البطيئة.', hero:'../../4.%20courtyard/3.%203d%20shots/1.jpg'},
-    {n:'04', tone:'light', slug:'lavender', en:'Lavender Center', ar:'مركز الخزامى', type_en:'Commercial', type_ar:'تجاري', loc:'Riyadh', year:'2024', deck_en:'A wellness centre organised around the slow tempo of treatment.', deck_ar:'مركز عافية مُنظَّم حول إيقاع العلاج البطيء.', hero:'../../5.%20Lavender%20Center/4.%203d%20shots/1.jpg'},
-    {n:'05', tone:'dark', slug:'almaarefa', en:'AlMaarefa University', ar:'جامعة المعرفة', type_en:'Cultural', type_ar:'ثقافي', loc:'Riyadh', year:'2024', deck_en:'Lecture, library, studio, lounge — designed to teach by atmosphere.', deck_ar:'محاضرات، مكتبة، مرسم، استراحة — مُصمَّمة لتُعلِّم بالأجواء.', hero:'../../6.%20AlMaarefa%20University/4.%203d%20shots/1.jpg'},
-    {n:'06', tone:'light', slug:'awjaj', en:'Awjaj Hotel', ar:'فندق أوجاج', type_en:'Hospitality', type_ar:'ضيافة', loc:'Riyadh', year:'2023', deck_en:'Thirty-two keys arranged to slow a guest\'s first hour.', deck_ar:'اثنان وثلاثون مفتاحاً مُرتَّبة لإبطاء أول ساعة للضيف.', hero:'../../7.%20Awjaj%20hotel/4.%203d%20shots/1.jpg'},
-    {n:'07', tone:'dark', slug:'culinary', en:'Culinary Arts Institute', ar:'معهد فنون الطهي', type_en:'Cultural', type_ar:'ثقافي', loc:'Riyadh', year:'2023', deck_en:'Practical kitchens, dish stores, and the long counters they make possible.', deck_ar:'مطابخ تطبيقية، مخازن أطباق، والكاونترات الطويلة التي تتيحها.', hero:'../../8.%20Culinary%20Arts%20Institute/5.%203d%20shots/1.jpg'},
-    {n:'08', tone:'light', slug:'company', en:'Company', ar:'مقر الشركة', type_en:'Commercial', type_ar:'تجاري', loc:'Riyadh', year:'2022', deck_en:'A corporate interior — restraint that still reads as branded.', deck_ar:'تصميم مكاتب — انضباطٌ يحمل هويةً واضحة.', hero:'../../9.%20company/4.%203d%20shots/1.jpg'},
+    {n:'01', slug:'almamlaka',  en:'ALMAMLAKA',                ar:'المملكة',          type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2026', deck_en:'A civic interior that gathers Najdi proportion and modern restraint, and asks the visitor to slow down at the threshold.', deck_ar:'فضاءٌ داخلي مدني يجمع بين النسب النجدية والانضباط المعاصر، ويطلب من الزائر أن يبطئ عند العتبة.', hero:'../../2.%20ALMAMLAKA/4.%203D%20shots/1.jpg'},
+    {n:'02', slug:'coffee-day', en:'International Coffee Day', ar:'يوم القهوة العالمي', type_en:'Commercial',  type_ar:'تجاري',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2025', deck_en:'Three booths — French, Saudi, and a contemporary outlier — share one structural language and three accents of material.', deck_ar:'ثلاثة أجنحة — فرنسية، سعودية، ومعاصرة — تتشارك لغة إنشائية واحدة وثلاث لهجات من المادة.', hero:'../../3.%20International%20Coffee%20Day/2.%20French%20Coffee%20Booth/1.jpg'},
+    {n:'03', slug:'courtyard',  en:'Courtyard',                ar:'الفناء',           type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Najd',   loc_ar:'نجد',    year:'2025', deck_en:'A square of stone, four shaded edges, one tree at the centre. The plan does little; the air does the work.', deck_ar:'مربع من الحجر، أربع حواف مظللة، شجرةٌ واحدة في المنتصف. المسقط يفعل القليل؛ الهواء يقوم بالباقي.', hero:'../../4.%20courtyard/3.%203d%20shots/1.jpg'},
+    {n:'04', slug:'lavender',   en:'Lavender Center',          ar:'مركز الخزامى',     type_en:'Commercial',  type_ar:'تجاري',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2024', deck_en:'A wellness centre organised around the slow tempo of treatment — yoga, massage, herbal preparation, retail.', deck_ar:'مركز عافية مُنظَّم حول إيقاع العلاج البطيء — يوغا، مساج، تحضير أعشاب، تجزئة.', hero:'../../5.%20Lavender%20Center/4.%203d%20shots/1.jpg'},
+    {n:'05', slug:'almaarefa',  en:'AlMaarefa University',     ar:'جامعة المعرفة',    type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2024', deck_en:'Lecture, library, studio, lounge — interiors that teach by atmosphere as much as by content.', deck_ar:'محاضرات، مكتبة، مرسم، استراحة — فضاءاتٌ تُعلِّم بالأجواء كما بالمحتوى.', hero:'../../6.%20AlMaarefa%20University/4.%203d%20shots/1.jpg'},
+    {n:'06', slug:'awjaj',      en:'Awjaj Hotel',              ar:'فندق أوجاج',       type_en:'Hospitality', type_ar:'ضيافة',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2023', deck_en:'Thirty-two keys arranged to slow a guest\'s first hour. One stone palette and one rule about light.', deck_ar:'اثنان وثلاثون مفتاحاً مُرتَّبة لإبطاء أول ساعة للضيف. حكاية حجرية واحدة وقاعدةٌ واحدة عن الضوء.', hero:'../../7.%20Awjaj%20hotel/4.%203d%20shots/1.jpg'},
+    {n:'07', slug:'culinary',   en:'Culinary Arts Institute',  ar:'معهد فنون الطهي',  type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2023', deck_en:'Practical kitchens, dish stores, and the long counters they make possible. Material is the curriculum.', deck_ar:'مطابخ تطبيقية، مخازن أطباق، والكاونترات الطويلة التي تتيحها. المادة هي المنهج.', hero:'../../8.%20Culinary%20Arts%20Institute/5.%203d%20shots/1.jpg'},
+    {n:'08', slug:'company',    en:'Company',                  ar:'مقر الشركة',       type_en:'Commercial',  type_ar:'تجاري',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2022', deck_en:'A corporate interior — restraint that still reads as branded. The answer was tone, not graphic.', deck_ar:'تصميمٌ داخلي لمكاتب شركة — انضباطٌ يحمل هويةً واضحة. الجواب كان نبرةً، لا جرافيك.', hero:'../../9.%20company/4.%203d%20shots/1.jpg'},
   ];
 
   let lang = localStorage.getItem('lang') || 'en';
@@ -329,59 +379,39 @@
     document.getElementById('lang-toggle').textContent = lang === 'en' ? 'AR' : 'EN';
   }
 
-  function renderFrames() {
-    const host = document.getElementById('frames');
-    host.innerHTML = '';
+  function renderProjects() {
+    const root = document.getElementById('projects');
+    root.innerHTML = '';
     PROJECTS.forEach((p, i) => {
       const sec = document.createElement('section');
-      sec.className = `frame project ${p.tone}`;
-      sec.id = `frame-${p.n}`;
-      sec.dataset.n = p.n;
+      sec.className = 'project';
+      sec.dataset.side = (i % 2 === 0) ? 'right' : 'left';
+      sec.id = `project-${p.slug}`;
       sec.innerHTML = `
-        <div class="bg-img" style="background-image:url('${p.hero}')"></div>
-        <div class="ar-stamp" aria-hidden="true">${p.ar}</div>
-        <div class="vermillion-bar"></div>
-        <div class="frame-num"><span class="big">${p.n}</span><span>Frame ${p.n} / 08</span></div>
-        <div class="caption-card">
-          <div class="meta"><span class="accent" data-en-en="${p.type_en}" data-ar-ar="${p.type_ar}">${lang === 'ar' ? p.type_ar : p.type_en}</span><span>${p.loc}</span><span>${p.year}</span></div>
-          <h2 data-en="${p.en}" data-ar="${p.ar}">${lang === 'ar' ? p.ar : p.en}</h2>
-          <p class="deck" data-en="${p.deck_en}" data-ar="${p.deck_ar}">${lang === 'ar' ? p.deck_ar : p.deck_en}</p>
-          <a class="cta" href="project-${p.slug}.html" data-en="Open chapter" data-ar="افتح الفصل">${lang === 'ar' ? 'افتح الفصل' : 'Open chapter'} <span class="arrow">→</span></a>
+        <span class="project-aside">— ${p.n} / 08 —</span>
+        <a class="project-figure" href="project-${p.slug}.html" aria-label="Open ${p.en}">
+          <img src="${p.hero}" alt="" loading="lazy">
+        </a>
+        <div class="project-text">
+          <div class="project-no">${p.n}</div>
+          <h2 class="project-title" data-en="${p.en}" data-ar="${p.ar}">${lang === 'ar' ? p.ar : p.en}</h2>
+          ${lang === 'en' ? `<p class="project-title-ar">${p.ar}</p>` : ''}
+          <div class="project-info"><span data-en="${p.type_en}" data-ar="${p.type_ar}">${lang === 'ar' ? p.type_ar : p.type_en}</span><span data-en="${p.loc_en}" data-ar="${p.loc_ar}">${lang === 'ar' ? p.loc_ar : p.loc_en}</span><span>${p.year}</span></div>
+          <p class="project-deck" data-en="${p.deck_en}" data-ar="${p.deck_ar}">${lang === 'ar' ? p.deck_ar : p.deck_en}</p>
+          <a class="project-link" href="project-${p.slug}.html" data-en="Open chapter" data-ar="افتح الفصل">${lang === 'ar' ? 'افتح الفصل' : 'Open chapter'} <span class="arrow">→</span></a>
         </div>
       `;
-      host.appendChild(sec);
+      root.appendChild(sec);
     });
-    setupObserver();
-  }
-
-  function setupObserver() {
-    const counter = document.getElementById('counter-now');
-    const bar = document.querySelector('.frame-counter .bar');
-    const total = 9; // 8 projects + opening
-    const opening = document.getElementById('opening');
-    const colophon = document.getElementById('colophon');
-    const all = [opening, ...document.querySelectorAll('.project'), colophon];
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          // counter index
-          const idx = all.indexOf(e.target);
-          if (idx >= 0) {
-            counter.textContent = String(idx).padStart(2, '0');
-            const pct = Math.min(100, Math.round((idx / (all.length - 1)) * 100));
-            bar.style.setProperty('--progress', pct + '%');
-          }
-        } else {
-          e.target.classList.remove('in-view');
-        }
-      });
-    }, { threshold: 0.55 });
-    all.forEach(el => io.observe(el));
+    // reveal on scroll
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+    }, { threshold: 0.18 });
+    document.querySelectorAll('.project').forEach(el => io.observe(el));
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    renderFrames();
+    renderProjects();
     applyLanguage();
     document.getElementById('lang-toggle').addEventListener('click', () => {
       lang = lang === 'en' ? 'ar' : 'en'; applyLanguage();

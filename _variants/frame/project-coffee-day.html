@@ -3,198 +3,227 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Frame 02 — International Coffee Day — Hadeel Algheshaian</title>
+<title>International Coffee Day — Hadeel Algheshaian</title>
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --char: oklch(14% 0.005 250); --paper: oklch(98% 0.005 60); --ink: oklch(18% 0.005 250);
-    --vermillion: oklch(58% 0.20 28);
-    --display: 'Cormorant Garamond', serif; --sans: 'Inter', system-ui, sans-serif;
+    --paper: oklch(96% 0.008 80); --paper-2: oklch(94% 0.008 75);
+    --ink: oklch(22% 0.005 250); --graphite: oklch(38% 0.005 250); --quiet: oklch(58% 0.005 250);
+    --rule: oklch(80% 0.008 80); --copper: oklch(56% 0.06 50);
+    --display: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
     --ar: 'Tajawal', system-ui, sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--char); color: var(--paper); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.55;
-    -webkit-font-smoothing: antialiased; scroll-snap-type: y mandatory; height: 100vh; overflow-y: auto;
-  }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   html[lang="ar"] body { font-family: var(--ar); }
   html[lang="ar"] *, html[lang="ar"] *::before, html[lang="ar"] *::after { letter-spacing: 0 !important; text-transform: none !important; }
   a { color: inherit; text-decoration: none; }
-  ::selection { background: var(--vermillion); color: var(--paper); }
+  ::selection { background: var(--ink); color: var(--paper); }
+  img { display: block; max-width: 100%; }
 
-  .runner {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  .bar {
+    position: sticky; top: 0; z-index: 50;
     display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;
-    padding: 18px 36px; mix-blend-mode: difference;
-    font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper);
-    pointer-events: none;
+    padding: 22px 56px;
+    background: oklch(96% 0.008 80 / 0.92); backdrop-filter: saturate(1.2) blur(8px); -webkit-backdrop-filter: saturate(1.2) blur(8px);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--sans); font-size: 11px; color: var(--graphite); letter-spacing: 0.32em; text-transform: uppercase;
   }
-  .runner > * { pointer-events: auto; }
-  .runner .left { font-weight: 500; letter-spacing: 0.32em; }
-  .runner .center { font-family: var(--display); font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none; }
-  .runner .right { display: flex; gap: 20px; justify-content: flex-end; align-items: center; }
-  .runner button.toggle { background: transparent; border: 1px solid currentColor; color: inherit; font: inherit; font-size: 10px; padding: 6px 12px; border-radius: 999px; cursor: pointer; letter-spacing: 0.18em; }
-  .runner button.toggle:hover { border-color: var(--vermillion); color: var(--vermillion); }
+  .bar-left { font-style: italic; font-family: var(--display); font-size: 17px; letter-spacing: 0; text-transform: none; color: var(--ink); }
+  .bar-center { color: var(--quiet); }
+  .bar-right { display: flex; gap: 22px; justify-content: flex-end; align-items: center; }
+  .bar-right a { font-size: 11px; letter-spacing: 0.18em; transition: color .25s; }
+  .bar-right a:hover { color: var(--copper); }
+  .bar button.toggle { background: transparent; border: 1px solid var(--rule); color: var(--graphite); font: inherit; font-size: 10px; letter-spacing: 0.18em; padding: 5px 11px; border-radius: 999px; cursor: pointer; }
+  .bar button.toggle:hover { border-color: var(--copper); color: var(--copper); }
 
-  .frame { height: 100vh; min-height: 720px; scroll-snap-align: start; scroll-snap-stop: always; position: relative; overflow: hidden; }
+  /* opening */
+  .opening {
+    padding: 14vh 80px 9vh;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end;
+    border-bottom: 1px solid var(--rule);
+  }
+  .opening-eyebrow { font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .opening-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .opening-title {
+    font-family: var(--display); font-weight: 400; font-style: normal;
+    font-size: clamp(56px, 7vw, 116px); line-height: 0.96; letter-spacing: -0.018em; margin: 0 0 12px; color: var(--ink);
+  }
+  .opening-title em { font-style: italic; color: var(--copper); }
+  .opening-title-ar { font-family: var(--ar); font-size: clamp(28px, 3.5vw, 48px); line-height: 1.1; color: var(--quiet); margin: 0 0 28px; }
+  .opening-deck { font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--graphite); max-width: 38ch; margin: 0; }
+  .opening-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 36px; align-self: end; }
+  .opening-meta dt { font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); margin: 0 0 6px; }
+  .opening-meta dd { margin: 0; font-family: var(--display); font-style: italic; font-size: 22px; color: var(--ink); }
+  .opening-meta dt::before { content: ""; display: inline-block; width: 18px; height: 1px; background: var(--copper); margin-right: 10px; vertical-align: 4px; }
 
-  .open {
-    background: var(--char); color: var(--paper);
-    display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding: 96px;
+  /* lead plate */
+  .lead {
+    padding: 0 80px;
+    margin-top: -1px;
   }
-  .open-num {
-    font-family: var(--display); font-style: italic; font-size: clamp(120px, 18vw, 280px); line-height: 0.9;
-    color: var(--vermillion); margin: 0;
+  .lead figure { margin: 0; aspect-ratio: 16/10; overflow: hidden; }
+  .lead figure img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.04); }
+  .lead figcaption {
+    margin-top: 14px;
+    display: grid; grid-template-columns: 80px 1fr; gap: 18px; align-items: baseline;
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--quiet);
   }
-  .open-text h1 {
-    font-family: var(--display); font-style: italic; font-weight: 400; font-size: clamp(56px, 7vw, 96px); line-height: 0.96; margin: 0 0 18px; letter-spacing: -0.012em;
-  }
-  .open-text .ar { font-family: var(--ar); font-style: normal; font-size: clamp(40px, 5vw, 64px); margin: 0 0 32px; opacity: 0.78; }
-  .open-text .deck { font-family: var(--display); font-style: italic; font-size: 20px; line-height: 1.55; opacity: 0.78; max-width: 50ch; }
-  .open-meta {
-    position: absolute; bottom: 56px; left: 96px; right: 96px;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-    border-top: 1px solid oklch(98% 0.005 60 / 0.2); padding-top: 22px;
-    font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.78;
-  }
-  .open-meta dt { color: var(--vermillion); margin-bottom: 6px; }
-  .open-meta dd { margin: 0; font-family: var(--display); font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none; opacity: 1; }
+  .lead figcaption .num { color: var(--copper); }
+  .lead figcaption .text { font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--graphite); }
 
-  .photo { background-size: cover; background-position: center; color: var(--paper); position: relative; }
-  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.005 250 / 0.0) 30%, oklch(8% 0.005 250 / 0.7) 100%); }
-  .photo .frame-num {
-    position: absolute; top: 88px; left: 36px; z-index: 2;
-    font-family: var(--display); font-style: italic; font-size: 80px; line-height: 1; color: var(--vermillion);
+  /* description (essay) */
+  .essay {
+    padding: 14vh 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    border-bottom: 1px solid var(--rule);
   }
-  .photo .frame-num .label {
-    display: block; font-family: var(--sans); font-style: normal; font-weight: 500; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--paper); margin-top: 6px; opacity: 0.78;
+  .essay-marker { font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .essay-marker::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .essay h2 {
+    font-family: var(--display); font-weight: 400; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.05; letter-spacing: -0.012em; margin: 0 0 0; color: var(--ink);
   }
-  .photo .caption {
-    position: absolute; bottom: 64px; left: 36px; z-index: 2; max-width: 480px;
-    font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.4;
+  .essay-body { font-family: var(--sans); font-size: 16px; line-height: 1.75; color: var(--graphite); }
+  .essay-body p { margin: 0 0 1.1em; max-width: 60ch; text-align: justify; hyphens: auto; }
+  .essay-body p:first-child::first-letter {
+    font-family: var(--display); font-style: italic; font-size: 4.4em; line-height: 0.85;
+    float: left; padding: 0.06em 0.2em 0 0; color: var(--copper);
   }
-  .photo .caption .stamp { display: block; font-family: var(--sans); font-style: normal; font-weight: 500; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--vermillion); margin-bottom: 12px; }
+  html[lang="ar"] .essay-body p { text-align: justify; direction: rtl; }
+  html[lang="ar"] .essay-body p:first-child::first-letter { float: right; padding: 0 0 0 0.2em; }
 
-  .spread {
-    background: var(--paper); color: var(--ink);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding: 96px;
-    align-content: center;
+  /* plates — alternating editorial layout */
+  .plates {
+    padding: 0 80px 14vh;
   }
-  .spread h2 { font-family: var(--display); font-style: italic; font-weight: 400; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; margin: 0 0 28px; }
-  .spread .stamp { font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--vermillion); margin-bottom: 14px; }
-  .spread p { margin: 0 0 1em; max-width: 60ch; line-height: 1.7; font-size: 16px; text-align: justify; hyphens: auto; }
-
-  .end {
-    background: var(--char); color: var(--paper);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 28px; padding: 64px;
+  .plates-marker { padding: 14vh 0 64px; font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); display: flex; align-items: center; gap: 14px; }
+  .plates-marker::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .plate-row {
+    display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-bottom: 96px;
   }
-  .end .stamp { font-family: var(--sans); font-size: 10px; letter-spacing: 0.5em; text-transform: uppercase; opacity: 0.7; display: flex; align-items: center; gap: 12px; }
-  .end .stamp::before, .end .stamp::after { content: ""; width: 28px; height: 1px; background: currentColor; opacity: 0.6; }
-  .end h2 { font-family: var(--display); font-style: italic; font-size: clamp(48px, 7vw, 96px); margin: 0; }
-  .end .nav { margin-top: 32px; display: flex; gap: 32px; align-items: center; font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; }
-  .end .nav a { border-bottom: 1px solid currentColor; padding-bottom: 4px; }
-  .end .nav a:hover { color: var(--vermillion); border-color: var(--vermillion); }
-  .end .nav .accent { color: var(--vermillion); }
+  .plate { display: flex; flex-direction: column; gap: 14px; }
+  .plate figure { margin: 0; overflow: hidden; aspect-ratio: 4/3; }
+  .plate figure.tall { aspect-ratio: 4/5; }
+  .plate figure.wide { aspect-ratio: 16/10; }
+  .plate img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.05); transition: filter .8s, transform 1.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  .plate:hover img { filter: grayscale(0); transform: scale(1.02); }
+  .plate figcaption {
+    display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: baseline;
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--quiet);
+  }
+  .plate figcaption .num { color: var(--copper); }
+  .plate figcaption .text { font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--graphite); }
+  /* row variants */
+  .row-pair .plate:nth-child(1) { grid-column: 1 / span 6; }
+  .row-pair .plate:nth-child(2) { grid-column: 7 / span 6; }
+  .row-asym .plate:nth-child(1) { grid-column: 1 / span 7; }
+  .row-asym .plate:nth-child(2) { grid-column: 9 / span 4; align-self: end; }
+  .row-asym-r .plate:nth-child(1) { grid-column: 2 / span 4; align-self: end; }
+  .row-asym-r .plate:nth-child(2) { grid-column: 6 / span 7; }
+  .row-full .plate { grid-column: 2 / span 10; }
 
-  @media (max-width: 900px) {
-    .runner { padding: 14px 22px; }
-    .runner .right a { display: none; }
-    .open { padding: 72px 22px; grid-template-columns: 1fr; gap: 24px; }
-    .open-num { font-size: clamp(96px, 28vw, 180px); }
-    .open-meta { left: 22px; right: 22px; bottom: 32px; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 14px; }
-    .photo .frame-num { font-size: 56px; left: 22px; top: 80px; }
-    .photo .caption { left: 22px; right: 22px; bottom: 32px; font-size: 17px; }
-    .spread { padding: 64px 22px; grid-template-columns: 1fr; gap: 22px; }
-    .end .nav { flex-direction: column; gap: 14px; }
+  /* footer nav */
+  .endnav {
+    padding: 56px 80px;
+    background: var(--ink); color: var(--paper);
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;
+  }
+  .endnav a {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    background: linear-gradient(currentColor, currentColor) bottom left / 0% 1px no-repeat; padding-bottom: 4px;
+    transition: background-size .6s cubic-bezier(0.16, 1, 0.3, 1), color .25s;
+  }
+  .endnav a:hover { color: var(--copper); background-size: 100% 1px; }
+  .endnav .center { text-align: center; font-family: var(--display); font-style: italic; font-size: 18px; letter-spacing: 0; text-transform: none; color: oklch(85% 0.005 60); }
+  .endnav .right { text-align: right; }
+
+  @media (max-width: 1100px) {
+    .opening, .essay, .plates, .endnav { padding-left: 40px; padding-right: 40px; }
+    .lead { padding-left: 40px; padding-right: 40px; }
+  }
+  @media (max-width: 760px) {
+    .bar { padding: 16px 22px; gap: 12px; }
+    .bar-right a { display: none; }
+    .opening, .essay, .endnav { padding-left: 22px; padding-right: 22px; }
+    .opening { padding-top: 8vh; padding-bottom: 6vh; grid-template-columns: 1fr; gap: 28px; }
+    .opening-meta { grid-template-columns: 1fr 1fr; }
+    .lead { padding-left: 22px; padding-right: 22px; }
+    .essay { padding-top: 8vh; padding-bottom: 8vh; grid-template-columns: 1fr; gap: 22px; }
+    .essay-body p { text-align: left; }
+    .plates { padding: 0 22px 8vh; }
+    .plates-marker { padding-top: 8vh; padding-bottom: 32px; }
+    .plate-row { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
+    .row-pair .plate, .row-asym .plate, .row-asym-r .plate, .row-full .plate { grid-column: 1; }
+    .endnav { padding: 32px 22px; grid-template-columns: 1fr; row-gap: 14px; text-align: center; }
+    .endnav .right { text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<header class="runner">
-  <div class="left">FRAME · 02 / 08</div>
-  <div class="center">International Coffee Day</div>
-  <div class="right">
-    <a href="index.html" data-en="All frames" data-ar="كل الإطارات">All frames</a>
+<header class="bar">
+  <a class="bar-left" href="index.html">Hadeel Algheshaian</a>
+  <div class="bar-center" data-en="Chapter 02 / VIII" data-ar="الفصل 02 / ٨">Chapter 02 / VIII</div>
+  <div class="bar-right">
+    <a href="index.html" data-en="All work" data-ar="كل الأعمال">All work</a>
+    <a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a>
     <button class="toggle" id="lang-toggle">AR</button>
   </div>
 </header>
 
-<section class="frame open">
-  <div><div class="open-num">02</div></div>
-  <div class="open-text">
-    <h1>International Coffee Day.</h1>
-    <p class="ar">يوم القهوة العالمي</p>
-    <p class="deck" data-en="Three booths — French, Saudi, and a contemporary outlier — share one structural language." data-ar="ثلاثة أجنحة — فرنسية، سعودية، ومعاصرة — تتشارك لغة إنشائية واحدة.">Three booths — French, Saudi, and a contemporary outlier — share one structural language.</p>
+<section class="opening">
+  <div>
+    <div class="opening-eyebrow" data-en="Chapter 02 — Commercial, 2025" data-ar="الفصل 02 — تجاري، 2025">Chapter 02 — Commercial, 2025</div>
+    <h1 class="opening-title">International Coffee Day<em>.</em></h1>
+    <p class="opening-title-ar">يوم القهوة العالمي</p>
+    <p class="opening-deck" data-en="Three booths designed for International Coffee Day — French, Saudi, and a contemporary outlier — share one structural language." data-ar="ثلاثة أجنحة لمعرض يوم القهوة العالمي — فرنسي، سعودي، ومعاصر — تتشارك لغة إنشائية واحدة.">Three booths designed for International Coffee Day — French, Saudi, and a contemporary outlier — share one structural language.</p>
   </div>
-  <dl class="open-meta">
-    <div><dt>Year</dt><dd>2025</dd></div>
-    <div><dt>Type</dt><dd data-en="Commercial" data-ar="تجاري">Commercial</dd></div>
-    <div><dt>Location</dt><dd data-en="Riyadh" data-ar="الرياض">Riyadh</dd></div>
-    <div><dt>Frames</dt><dd>07</dd></div>
+  <dl class="opening-meta">
+    <div><dt data-en="Year" data-ar="السنة">Year</dt><dd>2025</dd></div>
+    <div><dt data-en="Type" data-ar="النوع">Type</dt><dd data-en="Commercial" data-ar="تجاري">Commercial</dd></div>
+    <div><dt data-en="Location" data-ar="الموقع">Location</dt><dd data-en="Riyadh" data-ar="الرياض">Riyadh</dd></div>
+    <div><dt data-en="Plates" data-ar="اللوحات">Plates</dt><dd>10</dd></div>
   </dl>
 </section>
 
-<section class="frame photo" style="background-image:url('../../3.%20International%20Coffee%20Day/2.%20French%20Coffee%20Booth/1.jpg')">
-  <div class="frame-num">02<span class="label">Frame</span></div>
-  <div class="caption">
-    <span class="stamp" data-en="Plate I — French" data-ar="اللوحة الأولى — الفرنسي">Plate I — French</span>
-    <span data-en="Marble and brass; reflective surfaces." data-ar="رخامٌ ونحاس؛ أسطحٌ عاكسة.">Marble and brass; reflective surfaces.</span>
-  </div>
+<section class="lead">
+  <figure>
+    <img src="../../3.%20International%20Coffee%20Day/2.%20French%20Coffee%20Booth/1.jpg" alt="" loading="eager">
+  </figure>
+  <figcaption><span class="num">PL. I.</span><span class="text" data-en="French booth; marble and brass." data-ar="الجناح الفرنسي؛ رخام ونحاس.">French booth; marble and brass.</span></figcaption>
 </section>
 
-<section class="frame photo" style="background-image:url('../../3.%20International%20Coffee%20Day/2.%20French%20Coffee%20Booth/2.jpg')">
-  <div class="frame-num">03<span class="label">Frame</span></div>
-  <div class="caption">
-    <span class="stamp" data-en="Plate II — Saudi" data-ar="اللوحة الثانية — السعودي">Plate II — Saudi</span>
-    <span data-en="Palm and copper; warm shadow." data-ar="سعفٌ ونحاس؛ ظلٌّ دافئ.">Palm and copper; warm shadow.</span>
-  </div>
-</section>
-
-
-<section class="frame spread">
+<section class="essay">
   <div>
-    <div class="stamp" data-en="On atmosphere" data-ar="عن الأجواء">On atmosphere</div>
+    <div class="essay-marker">§ Brief</div>
     <h2 data-en="One language; three accents." data-ar="لغةٌ واحدة؛ ثلاث لهجات.">One language; three accents.</h2>
-    <p data-en="Each booth pulls material register from a different coffee tradition: marble and brass for the French, palm and copper for the Saudi, painted plywood and glass for the contemporary outlier." data-ar="كل جناحٍ يستلهم مادته من تقليد قهوة مختلف: رخام ونحاس للفرنسي، سعف ونحاس للسعودي، خشبٌ معاكسٌ مدهون وزجاج للمعاصر.">Each booth pulls material register from a different coffee tradition: marble and brass for the French, palm and copper for the Saudi, painted plywood and glass for the contemporary outlier.</p>
   </div>
-  <div>
-    <div class="stamp" data-en="On material" data-ar="عن المادة">On material</div>
-    <p data-en="Underneath, the structure is the same: an elevated plinth, a hovering canopy, a counter at standing height. Repetition makes the difference legible." data-ar="تحتها، البنية واحدة: قاعدة مرتفعة، مظلّة معلّقة، طاولةٌ بارتفاع الوقوف. التكرار يجعل الفروق واضحة.">Underneath, the structure is the same: an elevated plinth, a hovering canopy, a counter at standing height. Repetition makes the difference legible.</p>
-  </div>
-</section>
-
-<section class="frame photo" style="background-image:url('../../3.%20International%20Coffee%20Day/2.%20French%20Coffee%20Booth/3.jpg')">
-  <div class="frame-num">05<span class="label">Frame</span></div>
-  <div class="caption">
-    <span class="stamp" data-en="Plate III — Outlier" data-ar="اللوحة الثالثة — المعاصر">Plate III — Outlier</span>
-    <span data-en="Painted plywood, soft glass." data-ar="خشبٌ معاكسٌ مدهون، زجاجٌ ناعم.">Painted plywood, soft glass.</span>
+  <div class="essay-body">
+    <p data-en="Each booth pulls material register from a different coffee tradition: marble and brass for the French, palm and copper for the Saudi, painted plywood and glass for the contemporary outlier. Underneath, the structure is the same: an elevated plinth, a hovering canopy, a counter at standing height." data-ar="كل جناحٍ يستلهم مادته من تقليد قهوة مختلف: رخامٌ ونحاس للفرنسي، سعفٌ ونحاس للسعودي، خشبٌ معاكسٌ مدهون وزجاج للمعاصر. تحتها، البنية واحدة: قاعدة مرتفعة، مظلّة معلّقة، طاولةٌ بارتفاع الوقوف.">Each booth pulls material register from a different coffee tradition: marble and brass for the French, palm and copper for the Saudi, painted plywood and glass for the contemporary outlier. Underneath, the structure is the same: an elevated plinth, a hovering canopy, a counter at standing height.</p>
+    <p data-en="Repetition makes the difference legible. A visitor moving between the three booths reads the structural language as a constant and the material variation as the argument — a small lesson, in passing, about how interior design works." data-ar="التكرار يجعل الفروق واضحة. الزائر الذي ينتقل بين الأجنحة الثلاثة يقرأ اللغة الإنشائية ثابتةً والتنوّع الماديَّ هو الحجّة — درسٌ صغير، عابر، عن كيفية عمل التصميم الداخلي.">Repetition makes the difference legible. A visitor moving between the three booths reads the structural language as a constant and the material variation as the argument — a small lesson, in passing, about how interior design works.</p>
   </div>
 </section>
 
-<section class="frame photo" style="background-image:url('../../3.%20International%20Coffee%20Day/3.%20Saudi%20Coffee%20Booth/1.png')">
-  <div class="frame-num">06<span class="label">Frame</span></div>
-  <div class="caption">
-    <span class="stamp" data-en="Plate IV — Set" data-ar="اللوحة الرابعة — المجموعة">Plate IV — Set</span>
-    <span data-en="Three plinths, one canopy." data-ar="ثلاث قواعد، مظلّة واحدة.">Three plinths, one canopy.</span>
-  </div>
+<section class="plates">
+  <div class="plates-marker">§ Plates</div>
+  <div class="plate-row row-pair"><div class="plate"><figure class=""><img src="../../3.%20International%20Coffee%20Day/2.%20French%20Coffee%20Booth/2.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. II</span><span class="text" data-en="French booth; marble and brass." data-ar="الجناح الفرنسي؛ رخام ونحاس.">French booth; marble and brass.</span></figcaption></div><div class="plate"><figure class="tall"><img src="../../3.%20International%20Coffee%20Day/2.%20French%20Coffee%20Booth/3.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. III</span><span class="text" data-en="Saudi booth; palm and copper." data-ar="الجناح السعودي؛ سعفٌ ونحاس.">Saudi booth; palm and copper.</span></figcaption></div></div>
+<div class="plate-row row-asym"><div class="plate"><figure class="tall"><img src="../../3.%20International%20Coffee%20Day/3.%20Saudi%20Coffee%20Booth/1.png" alt="" loading="lazy"></figure><figcaption><span class="num">PL. IV</span><span class="text" data-en="Contemporary outlier; soft glass." data-ar="الجناح المعاصر؛ زجاجٌ ناعم.">Contemporary outlier; soft glass.</span></figcaption></div><div class="plate"><figure class=""><img src="../../3.%20International%20Coffee%20Day/3.%20Saudi%20Coffee%20Booth/2.png" alt="" loading="lazy"></figure><figcaption><span class="num">PL. V</span><span class="text" data-en="Three plinths; one canopy." data-ar="ثلاث قواعد؛ مظلّة واحدة.">Three plinths; one canopy.</span></figcaption></div></div>
+<div class="plate-row row-pair"><div class="plate"><figure class=""><img src="../../3.%20International%20Coffee%20Day/3.%20Saudi%20Coffee%20Booth/3.png" alt="" loading="lazy"></figure><figcaption><span class="num">PL. VI</span><span class="text" data-en="Counter at standing height." data-ar="كاونتر بارتفاع الوقوف.">Counter at standing height.</span></figcaption></div><div class="plate"><figure class="wide"><img src="../../3.%20International%20Coffee%20Day/3.%20Saudi%20Coffee%20Booth/4.png" alt="" loading="lazy"></figure><figcaption><span class="num">PL. VII</span><span class="text" data-en="" data-ar=""></span></figcaption></div></div>
+<div class="plate-row row-asym-r"><div class="plate"><figure class="wide"><img src="../../3.%20International%20Coffee%20Day/3.%20Saudi%20Coffee%20Booth/5.png" alt="" loading="lazy"></figure><figcaption><span class="num">PL. VIII</span><span class="text" data-en="" data-ar=""></span></figcaption></div><div class="plate"><figure class=""><img src="../../3.%20International%20Coffee%20Day/4.%20Dupamicaffeine%20booth/1.png" alt="" loading="lazy"></figure><figcaption><span class="num">PL. IX</span><span class="text" data-en="" data-ar=""></span></figcaption></div></div>
+<div class="plate-row row-full"><div class="plate"><figure class=""><img src="../../3.%20International%20Coffee%20Day/4.%20Dupamicaffeine%20booth/2.png" alt="" loading="lazy"></figure><figcaption><span class="num">PL. X</span><span class="text" data-en="" data-ar=""></span></figcaption></div></div>
 </section>
 
-
-<section class="frame end">
-  <div class="stamp" data-en="End of chapter 02" data-ar="نهاية الفصل 02">End of chapter 02</div>
-  <h2>يوم القهوة العالمي · International Coffee Day</h2>
-  <div class="nav">
-    <a href="index.html" data-en="← All frames" data-ar="→ كل الإطارات">← All frames</a>
-    <span class="accent">·</span>
-    <a href="index.html#colophon" data-en="Contact →" data-ar="← تواصل">Contact →</a>
-  </div>
-</section>
+<nav class="endnav">
+  <a class="left" href="index.html" data-en="← Back to all work" data-ar="→ العودة إلى كل الأعمال">← Back to all work</a>
+  <span class="center">International Coffee Day · يوم القهوة العالمي</span>
+  <a class="right" href="contact.html" data-en="Contact →" data-ar="← تواصل">Contact →</a>
+</nav>
 
 <script>
   let lang = localStorage.getItem('lang') || 'en';

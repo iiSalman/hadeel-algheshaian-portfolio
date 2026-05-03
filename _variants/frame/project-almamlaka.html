@@ -3,215 +3,227 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Frame 01 — ALMAMLAKA — Hadeel Algheshaian</title>
+<title>ALMAMLAKA — Hadeel Algheshaian</title>
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --char: oklch(14% 0.005 250); --paper: oklch(98% 0.005 60); --ink: oklch(18% 0.005 250);
-    --vermillion: oklch(58% 0.20 28);
-    --display: 'Cormorant Garamond', serif; --sans: 'Inter', system-ui, sans-serif;
+    --paper: oklch(96% 0.008 80); --paper-2: oklch(94% 0.008 75);
+    --ink: oklch(22% 0.005 250); --graphite: oklch(38% 0.005 250); --quiet: oklch(58% 0.005 250);
+    --rule: oklch(80% 0.008 80); --copper: oklch(56% 0.06 50);
+    --display: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
     --ar: 'Tajawal', system-ui, sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--char); color: var(--paper); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.55;
-    -webkit-font-smoothing: antialiased; scroll-snap-type: y mandatory; height: 100vh; overflow-y: auto;
-  }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   html[lang="ar"] body { font-family: var(--ar); }
   html[lang="ar"] *, html[lang="ar"] *::before, html[lang="ar"] *::after { letter-spacing: 0 !important; text-transform: none !important; }
   a { color: inherit; text-decoration: none; }
-  ::selection { background: var(--vermillion); color: var(--paper); }
+  ::selection { background: var(--ink); color: var(--paper); }
+  img { display: block; max-width: 100%; }
 
-  .runner {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  .bar {
+    position: sticky; top: 0; z-index: 50;
     display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;
-    padding: 18px 36px; mix-blend-mode: difference;
-    font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--paper);
-    pointer-events: none;
+    padding: 22px 56px;
+    background: oklch(96% 0.008 80 / 0.92); backdrop-filter: saturate(1.2) blur(8px); -webkit-backdrop-filter: saturate(1.2) blur(8px);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--sans); font-size: 11px; color: var(--graphite); letter-spacing: 0.32em; text-transform: uppercase;
   }
-  .runner > * { pointer-events: auto; }
-  .runner .left { font-weight: 500; letter-spacing: 0.32em; }
-  .runner .center { font-family: var(--display); font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none; }
-  .runner .right { display: flex; gap: 20px; justify-content: flex-end; align-items: center; }
-  .runner button.toggle { background: transparent; border: 1px solid currentColor; color: inherit; font: inherit; font-size: 10px; padding: 6px 12px; border-radius: 999px; cursor: pointer; letter-spacing: 0.18em; }
-  .runner button.toggle:hover { border-color: var(--vermillion); color: var(--vermillion); }
+  .bar-left { font-style: italic; font-family: var(--display); font-size: 17px; letter-spacing: 0; text-transform: none; color: var(--ink); }
+  .bar-center { color: var(--quiet); }
+  .bar-right { display: flex; gap: 22px; justify-content: flex-end; align-items: center; }
+  .bar-right a { font-size: 11px; letter-spacing: 0.18em; transition: color .25s; }
+  .bar-right a:hover { color: var(--copper); }
+  .bar button.toggle { background: transparent; border: 1px solid var(--rule); color: var(--graphite); font: inherit; font-size: 10px; letter-spacing: 0.18em; padding: 5px 11px; border-radius: 999px; cursor: pointer; }
+  .bar button.toggle:hover { border-color: var(--copper); color: var(--copper); }
 
-  .frame { height: 100vh; min-height: 720px; scroll-snap-align: start; scroll-snap-stop: always; position: relative; overflow: hidden; }
+  /* opening */
+  .opening {
+    padding: 14vh 80px 9vh;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end;
+    border-bottom: 1px solid var(--rule);
+  }
+  .opening-eyebrow { font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .opening-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .opening-title {
+    font-family: var(--display); font-weight: 400; font-style: normal;
+    font-size: clamp(56px, 7vw, 116px); line-height: 0.96; letter-spacing: -0.018em; margin: 0 0 12px; color: var(--ink);
+  }
+  .opening-title em { font-style: italic; color: var(--copper); }
+  .opening-title-ar { font-family: var(--ar); font-size: clamp(28px, 3.5vw, 48px); line-height: 1.1; color: var(--quiet); margin: 0 0 28px; }
+  .opening-deck { font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--graphite); max-width: 38ch; margin: 0; }
+  .opening-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 36px; align-self: end; }
+  .opening-meta dt { font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); margin: 0 0 6px; }
+  .opening-meta dd { margin: 0; font-family: var(--display); font-style: italic; font-size: 22px; color: var(--ink); }
+  .opening-meta dt::before { content: ""; display: inline-block; width: 18px; height: 1px; background: var(--copper); margin-right: 10px; vertical-align: 4px; }
 
-  /* opening title frame */
-  .open {
-    background: var(--char); color: var(--paper);
-    display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding: 96px;
+  /* lead plate */
+  .lead {
+    padding: 0 80px;
+    margin-top: -1px;
   }
-  .open-num {
-    font-family: var(--display); font-style: italic; font-size: clamp(120px, 18vw, 280px); line-height: 0.9;
-    color: var(--vermillion); margin: 0;
+  .lead figure { margin: 0; aspect-ratio: 16/10; overflow: hidden; }
+  .lead figure img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.04); }
+  .lead figcaption {
+    margin-top: 14px;
+    display: grid; grid-template-columns: 80px 1fr; gap: 18px; align-items: baseline;
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--quiet);
   }
-  .open-text h1 {
-    font-family: var(--display); font-style: italic; font-weight: 400; font-size: clamp(56px, 7vw, 96px); line-height: 0.96; margin: 0 0 18px; letter-spacing: -0.012em;
-  }
-  .open-text .ar { font-family: var(--ar); font-style: normal; font-size: clamp(40px, 5vw, 64px); margin: 0 0 32px; opacity: 0.78; }
-  .open-text .deck { font-family: var(--display); font-style: italic; font-size: 20px; line-height: 1.55; opacity: 0.78; max-width: 50ch; }
-  .open-meta {
-    position: absolute; bottom: 56px; left: 96px; right: 96px;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-    border-top: 1px solid oklch(98% 0.005 60 / 0.2); padding-top: 22px;
-    font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.78;
-  }
-  .open-meta dt { color: var(--vermillion); margin-bottom: 6px; }
-  .open-meta dd { margin: 0; font-family: var(--display); font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none; opacity: 1; }
+  .lead figcaption .num { color: var(--copper); }
+  .lead figcaption .text { font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--graphite); }
 
-  /* full-bleed photo frames */
-  .photo {
-    background-size: cover; background-position: center;
-    color: var(--paper);
-    position: relative;
+  /* description (essay) */
+  .essay {
+    padding: 14vh 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    border-bottom: 1px solid var(--rule);
   }
-  .photo::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, oklch(8% 0.005 250 / 0.0) 30%, oklch(8% 0.005 250 / 0.7) 100%);
+  .essay-marker { font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .essay-marker::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .essay h2 {
+    font-family: var(--display); font-weight: 400; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.05; letter-spacing: -0.012em; margin: 0 0 0; color: var(--ink);
   }
-  .photo .frame-num {
-    position: absolute; top: 88px; left: 36px; z-index: 2;
-    font-family: var(--display); font-style: italic; font-size: 80px; line-height: 1;
-    color: var(--vermillion);
+  .essay-body { font-family: var(--sans); font-size: 16px; line-height: 1.75; color: var(--graphite); }
+  .essay-body p { margin: 0 0 1.1em; max-width: 60ch; text-align: justify; hyphens: auto; }
+  .essay-body p:first-child::first-letter {
+    font-family: var(--display); font-style: italic; font-size: 4.4em; line-height: 0.85;
+    float: left; padding: 0.06em 0.2em 0 0; color: var(--copper);
   }
-  .photo .frame-num .label {
-    display: block; font-family: var(--sans); font-style: normal; font-weight: 500; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--paper); margin-top: 6px; opacity: 0.78;
-  }
-  .photo .caption {
-    position: absolute; bottom: 64px; left: 36px; z-index: 2;
-    max-width: 480px;
-    font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.4;
-  }
-  .photo .caption .stamp {
-    display: block; font-family: var(--sans); font-style: normal; font-weight: 500; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--vermillion); margin-bottom: 12px;
-  }
+  html[lang="ar"] .essay-body p { text-align: justify; direction: rtl; }
+  html[lang="ar"] .essay-body p:first-child::first-letter { float: right; padding: 0 0 0 0.2em; }
 
-  /* spread — text-only frame */
-  .spread {
-    background: var(--paper); color: var(--ink);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding: 96px;
-    align-content: center;
+  /* plates — alternating editorial layout */
+  .plates {
+    padding: 0 80px 14vh;
   }
-  .spread h2 {
-    font-family: var(--display); font-style: italic; font-weight: 400; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; margin: 0 0 28px;
+  .plates-marker { padding: 14vh 0 64px; font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); display: flex; align-items: center; gap: 14px; }
+  .plates-marker::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .plate-row {
+    display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-bottom: 96px;
   }
-  .spread .stamp { font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--vermillion); margin-bottom: 14px; }
-  .spread p { margin: 0 0 1em; max-width: 60ch; line-height: 1.7; font-size: 16px; text-align: justify; hyphens: auto; }
-  html[lang="ar"] .spread p { text-align: justify; }
+  .plate { display: flex; flex-direction: column; gap: 14px; }
+  .plate figure { margin: 0; overflow: hidden; aspect-ratio: 4/3; }
+  .plate figure.tall { aspect-ratio: 4/5; }
+  .plate figure.wide { aspect-ratio: 16/10; }
+  .plate img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.05); transition: filter .8s, transform 1.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  .plate:hover img { filter: grayscale(0); transform: scale(1.02); }
+  .plate figcaption {
+    display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: baseline;
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--quiet);
+  }
+  .plate figcaption .num { color: var(--copper); }
+  .plate figcaption .text { font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--graphite); }
+  /* row variants */
+  .row-pair .plate:nth-child(1) { grid-column: 1 / span 6; }
+  .row-pair .plate:nth-child(2) { grid-column: 7 / span 6; }
+  .row-asym .plate:nth-child(1) { grid-column: 1 / span 7; }
+  .row-asym .plate:nth-child(2) { grid-column: 9 / span 4; align-self: end; }
+  .row-asym-r .plate:nth-child(1) { grid-column: 2 / span 4; align-self: end; }
+  .row-asym-r .plate:nth-child(2) { grid-column: 6 / span 7; }
+  .row-full .plate { grid-column: 2 / span 10; }
 
-  /* end frame */
-  .end {
-    background: var(--char); color: var(--paper);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 28px; padding: 64px;
+  /* footer nav */
+  .endnav {
+    padding: 56px 80px;
+    background: var(--ink); color: var(--paper);
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;
   }
-  .end .stamp { font-family: var(--sans); font-size: 10px; letter-spacing: 0.5em; text-transform: uppercase; opacity: 0.7; display: flex; align-items: center; gap: 12px; }
-  .end .stamp::before, .end .stamp::after { content: ""; width: 28px; height: 1px; background: currentColor; opacity: 0.6; }
-  .end h2 { font-family: var(--display); font-style: italic; font-size: clamp(48px, 7vw, 96px); margin: 0; }
-  .end .nav { margin-top: 32px; display: flex; gap: 32px; align-items: center; font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; }
-  .end .nav a { border-bottom: 1px solid currentColor; padding-bottom: 4px; }
-  .end .nav a:hover { color: var(--vermillion); border-color: var(--vermillion); }
-  .end .nav .accent { color: var(--vermillion); }
+  .endnav a {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    background: linear-gradient(currentColor, currentColor) bottom left / 0% 1px no-repeat; padding-bottom: 4px;
+    transition: background-size .6s cubic-bezier(0.16, 1, 0.3, 1), color .25s;
+  }
+  .endnav a:hover { color: var(--copper); background-size: 100% 1px; }
+  .endnav .center { text-align: center; font-family: var(--display); font-style: italic; font-size: 18px; letter-spacing: 0; text-transform: none; color: oklch(85% 0.005 60); }
+  .endnav .right { text-align: right; }
 
-  @media (max-width: 900px) {
-    .runner { padding: 14px 22px; }
-    .runner .right a { display: none; }
-    .open { padding: 72px 22px; grid-template-columns: 1fr; gap: 24px; }
-    .open-num { font-size: clamp(96px, 28vw, 180px); }
-    .open-meta { left: 22px; right: 22px; bottom: 32px; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 14px; }
-    .photo .frame-num { font-size: 56px; left: 22px; top: 80px; }
-    .photo .caption { left: 22px; right: 22px; bottom: 32px; font-size: 17px; }
-    .spread { padding: 64px 22px; grid-template-columns: 1fr; gap: 22px; }
-    .end .nav { flex-direction: column; gap: 14px; }
+  @media (max-width: 1100px) {
+    .opening, .essay, .plates, .endnav { padding-left: 40px; padding-right: 40px; }
+    .lead { padding-left: 40px; padding-right: 40px; }
+  }
+  @media (max-width: 760px) {
+    .bar { padding: 16px 22px; gap: 12px; }
+    .bar-right a { display: none; }
+    .opening, .essay, .endnav { padding-left: 22px; padding-right: 22px; }
+    .opening { padding-top: 8vh; padding-bottom: 6vh; grid-template-columns: 1fr; gap: 28px; }
+    .opening-meta { grid-template-columns: 1fr 1fr; }
+    .lead { padding-left: 22px; padding-right: 22px; }
+    .essay { padding-top: 8vh; padding-bottom: 8vh; grid-template-columns: 1fr; gap: 22px; }
+    .essay-body p { text-align: left; }
+    .plates { padding: 0 22px 8vh; }
+    .plates-marker { padding-top: 8vh; padding-bottom: 32px; }
+    .plate-row { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
+    .row-pair .plate, .row-asym .plate, .row-asym-r .plate, .row-full .plate { grid-column: 1; }
+    .endnav { padding: 32px 22px; grid-template-columns: 1fr; row-gap: 14px; text-align: center; }
+    .endnav .right { text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<header class="runner">
-  <div class="left">FRAME · 01 / 08</div>
-  <div class="center">ALMAMLAKA</div>
-  <div class="right">
-    <a href="index.html" data-en="All frames" data-ar="كل الإطارات">All frames</a>
+<header class="bar">
+  <a class="bar-left" href="index.html">Hadeel Algheshaian</a>
+  <div class="bar-center" data-en="Chapter 01 / VIII" data-ar="الفصل 01 / ٨">Chapter 01 / VIII</div>
+  <div class="bar-right">
+    <a href="index.html" data-en="All work" data-ar="كل الأعمال">All work</a>
+    <a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a>
     <button class="toggle" id="lang-toggle">AR</button>
   </div>
 </header>
 
-<section class="frame open">
-  <div><div class="open-num">01</div></div>
-  <div class="open-text">
-    <h1>ALMAMLAKA.</h1>
-    <p class="ar">المملكة</p>
-    <p class="deck" data-en="A civic interior that gathers Najdi proportion and modern restraint, and asks the visitor to slow down at the threshold." data-ar="فضاء داخلي مدني يجمع بين النسب النجدية والانضباط المعاصر، ويطلب من الزائر أن يبطئ عند العتبة.">A civic interior that gathers Najdi proportion and modern restraint, and asks the visitor to slow down at the threshold.</p>
+<section class="opening">
+  <div>
+    <div class="opening-eyebrow" data-en="Chapter 01 — Cultural, 2026" data-ar="الفصل 01 — ثقافي، 2026">Chapter 01 — Cultural, 2026</div>
+    <h1 class="opening-title">ALMAMLAKA<em>.</em></h1>
+    <p class="opening-title-ar">المملكة</p>
+    <p class="opening-deck" data-en="A civic interior that gathers Najdi proportion and modern restraint, and asks the visitor to slow down at the threshold." data-ar="فضاء داخلي مدني يجمع بين النسب النجدية والانضباط المعاصر، ويطلب من الزائر أن يبطئ عند العتبة.">A civic interior that gathers Najdi proportion and modern restraint, and asks the visitor to slow down at the threshold.</p>
   </div>
-  <dl class="open-meta">
-    <div><dt>Year</dt><dd>2026</dd></div>
-    <div><dt>Type</dt><dd data-en="Cultural" data-ar="ثقافي">Cultural</dd></div>
-    <div><dt>Location</dt><dd data-en="Riyadh" data-ar="الرياض">Riyadh</dd></div>
-    <div><dt>Frames</dt><dd>06</dd></div>
+  <dl class="opening-meta">
+    <div><dt data-en="Year" data-ar="السنة">Year</dt><dd>2026</dd></div>
+    <div><dt data-en="Type" data-ar="النوع">Type</dt><dd data-en="Cultural" data-ar="ثقافي">Cultural</dd></div>
+    <div><dt data-en="Location" data-ar="الموقع">Location</dt><dd data-en="Riyadh" data-ar="الرياض">Riyadh</dd></div>
+    <div><dt data-en="Plates" data-ar="اللوحات">Plates</dt><dd>10</dd></div>
   </dl>
 </section>
 
-<section class="frame photo" style="background-image:url('../../2.%20ALMAMLAKA/4.%203D%20shots/1.jpg')">
-  <div class="frame-num">02<span class="label">Frame</span></div>
-  <div class="caption">
-    <span class="stamp" data-en="Plate I — Threshold" data-ar="اللوحة الأولى — العتبة">Plate I — Threshold</span>
-    <span data-en="Najdi pendant work above brick coursing." data-ar="تعليقات نجدية فوق طبقات الطوب.">Najdi pendant work above brick coursing.</span>
-  </div>
+<section class="lead">
+  <figure>
+    <img src="../../2.%20ALMAMLAKA/2.%20FINAL%20OUTCOME/1.jpg" alt="" loading="eager">
+  </figure>
+  <figcaption><span class="num">PL. I.</span><span class="text" data-en="Threshold; pendant work above brick." data-ar="العتبة؛ التعليقات فوق الطوب.">Threshold; pendant work above brick.</span></figcaption>
 </section>
 
-<section class="frame spread">
+<section class="essay">
   <div>
-    <div class="stamp" data-en="On atmosphere" data-ar="عن الأجواء">On atmosphere</div>
+    <div class="essay-marker">§ Brief</div>
     <h2 data-en="A building that would feel inevitable." data-ar="مبنى يبدو وكأنه كان دائماً هنا.">A building that would feel inevitable.</h2>
-    <p data-en="The first move was the threshold: a deep porch of brick coursing and tasselled pendants that does the labour of an actual masonry wall, even though it is only forty centimetres of frame." data-ar="أول قرارٍ كان العتبة: شُرفة عميقة من طبقات الطوب والتعليقات المهدّبة تقوم بعمل جدارٍ بنّاءٍ كاملٍ، رغم أنها أربعون سنتيمتراً من الإطار فحسب.">The first move was the threshold: a deep porch of brick coursing and tasselled pendants that does the labour of an actual masonry wall, even though it is only forty centimetres of frame.</p>
   </div>
-  <div>
-    <div class="stamp" data-en="On material" data-ar="عن المادة">On material</div>
-    <p data-en="Inside, the strategy is reduction. A single colour story — terracotta, brass, bone — and a single rule about light: it falls, never glares." data-ar="في الداخل، الاستراتيجية اختزال. حكاية لونٍ واحدة — تيراكوتا، نحاس، عظم — وقاعدةٌ واحدة عن الضوء: يقع، لا يُبهر.">Inside, the strategy is reduction. A single colour story — terracotta, brass, bone — and a single rule about light: it falls, never glares.</p>
-    <p data-en="The carpet is a continuous deep red, hand-knotted to deaden footfall, so the room sounds older than it looks." data-ar="السجاد قطعةٌ متواصلة بحُمرة عميقة، منسوجٌ يدوياً ليُخمد وقع الأقدام، فيبدو صوت الغرفة أقدم مما تبدو عليه.">The carpet is a continuous deep red, hand-knotted to deaden footfall, so the room sounds older than it looks.</p>
+  <div class="essay-body">
+    <p data-en="The brief for ALMAMLAKA was unusual in that it asked, in different words, for a building that would feel inevitable. The site is a corner of a contemporary mall — bright, hurried, indifferent to history — and the client wanted a counter-current. The interior had to carry the gravity of a place that had been there for a while, while remaining, of course, very new." data-ar="كان البرنامج لمشروع المملكة غير مألوف، إذ طلب — بكلماتٍ مختلفة — مبنىً يبدو وكأنه كان دائماً هنا. الموقع زاوية في مولٍّ معاصر — مضيءٍ، مستعجل، لا مبالٍ بالتاريخ — وأراد العميل تياراً معاكساً. كان على الفضاء الداخلي أن يحمل ثقل مكانٍ كان موجوداً منذ زمنٍ، مع أنه — بطبيعة الحال — جديد تماماً.">The brief for ALMAMLAKA was unusual in that it asked, in different words, for a building that would feel inevitable. The site is a corner of a contemporary mall — bright, hurried, indifferent to history — and the client wanted a counter-current. The interior had to carry the gravity of a place that had been there for a while, while remaining, of course, very new.</p>
+    <p data-en="The first move was the threshold: a deep porch of brick coursing and tasselled pendants that does the labour of an actual masonry wall, even though it is, in plan, only forty centimetres of frame. From this porch, sightlines slow. Inside, the strategy is reduction — a single colour story, terracotta, brass, bone, and a single rule about light: it falls, never glares." data-ar="كان أول قرارٍ هو العتبة: شُرفة عميقة من طبقات الطوب والتعليقات المهدّبة، تقوم بعمل جدارٍ بنّاءٍ كاملٍ، رغم أنها في المسقط أربعون سنتيمتراً من الإطار فحسب. من هذه الشُرفة، تتباطأ خطوط النظر. في الداخل، الاستراتيجية اختزال — حكاية لونٍ واحدة، تيراكوتا، نحاس، عظم، وقاعدةٌ واحدة عن الضوء: يقع، لا يُبهر.">The first move was the threshold: a deep porch of brick coursing and tasselled pendants that does the labour of an actual masonry wall, even though it is, in plan, only forty centimetres of frame. From this porch, sightlines slow. Inside, the strategy is reduction — a single colour story, terracotta, brass, bone, and a single rule about light: it falls, never glares.</p>
   </div>
 </section>
 
-<section class="frame photo" style="background-image:url('../../2.%20ALMAMLAKA/4.%203D%20shots/2.jpg')">
-  <div class="frame-num">03<span class="label">Frame</span></div>
-  <div class="caption">
-    <span class="stamp" data-en="Plate II — Hall" data-ar="اللوحة الثانية — القاعة">Plate II — Hall</span>
-    <span data-en="Looking toward the porch; brass and bone." data-ar="نظرة نحو الشُرفة؛ نحاس وعظم.">Looking toward the porch; brass and bone.</span>
-  </div>
+<section class="plates">
+  <div class="plates-marker">§ Plates</div>
+  <div class="plate-row row-pair"><div class="plate"><figure class=""><img src="../../2.%20ALMAMLAKA/2.%20FINAL%20OUTCOME/2.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. II</span><span class="text" data-en="Threshold; pendant work above brick." data-ar="العتبة؛ التعليقات فوق الطوب.">Threshold; pendant work above brick.</span></figcaption></div><div class="plate"><figure class="tall"><img src="../../2.%20ALMAMLAKA/2.%20FINAL%20OUTCOME/3.png" alt="" loading="lazy"></figure><figcaption><span class="num">PL. III</span><span class="text" data-en="Hall, looking toward porch." data-ar="القاعة، نظرة نحو الشُرفة.">Hall, looking toward porch.</span></figcaption></div></div>
+<div class="plate-row row-asym"><div class="plate"><figure class="tall"><img src="../../2.%20ALMAMLAKA/4.%203D%20shots/1.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. IV</span><span class="text" data-en="Detail; brass and bone." data-ar="التفصيل؛ نحاس وعظم.">Detail; brass and bone.</span></figcaption></div><div class="plate"><figure class=""><img src="../../2.%20ALMAMLAKA/4.%203D%20shots/2.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. V</span><span class="text" data-en="Light; falling, never glaring." data-ar="الضوء؛ يقع، لا يُبهر.">Light; falling, never glaring.</span></figcaption></div></div>
+<div class="plate-row row-pair"><div class="plate"><figure class=""><img src="../../2.%20ALMAMLAKA/4.%203D%20shots/3.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. VI</span><span class="text" data-en="Pendants in repetition." data-ar="التعليقات في تكرار.">Pendants in repetition.</span></figcaption></div><div class="plate"><figure class="wide"><img src="../../2.%20ALMAMLAKA/4.%203D%20shots/4.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. VII</span><span class="text" data-en="" data-ar=""></span></figcaption></div></div>
+<div class="plate-row row-asym-r"><div class="plate"><figure class="wide"><img src="../../2.%20ALMAMLAKA/4.%203D%20shots/5.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. VIII</span><span class="text" data-en="" data-ar=""></span></figcaption></div><div class="plate"><figure class=""><img src="../../2.%20ALMAMLAKA/4.%203D%20shots/6.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. IX</span><span class="text" data-en="" data-ar=""></span></figcaption></div></div>
+<div class="plate-row row-full"><div class="plate"><figure class=""><img src="../../2.%20ALMAMLAKA/4.%203D%20shots/7.jpg" alt="" loading="lazy"></figure><figcaption><span class="num">PL. X</span><span class="text" data-en="" data-ar=""></span></figcaption></div></div>
 </section>
 
-<section class="frame photo" style="background-image:url('../../2.%20ALMAMLAKA/4.%203D%20shots/4.jpg')">
-  <div class="frame-num">04<span class="label">Frame</span></div>
-  <div class="caption">
-    <span class="stamp" data-en="Plate III — Light" data-ar="اللوحة الثالثة — الضوء">Plate III — Light</span>
-    <span data-en="It falls, never glares." data-ar="يقع، لا يُبهر.">It falls, never glares.</span>
-  </div>
-</section>
-
-<section class="frame photo" style="background-image:url('../../2.%20ALMAMLAKA/4.%203D%20shots/6.jpg')">
-  <div class="frame-num">05<span class="label">Frame</span></div>
-  <div class="caption">
-    <span class="stamp" data-en="Plate IV — Detail" data-ar="اللوحة الرابعة — التفصيل">Plate IV — Detail</span>
-    <span data-en="Pendants, in repetition." data-ar="التعليقات، في تكرار.">Pendants, in repetition.</span>
-  </div>
-</section>
-
-<section class="frame end">
-  <div class="stamp" data-en="End of chapter 01" data-ar="نهاية الفصل الأول">End of chapter 01</div>
-  <h2>المملكة · ALMAMLAKA</h2>
-  <div class="nav">
-    <a href="index.html" data-en="← All frames" data-ar="→ كل الإطارات">← All frames</a>
-    <span class="accent">·</span>
-    <a href="index.html#colophon" data-en="Contact →" data-ar="← تواصل">Contact →</a>
-  </div>
-</section>
+<nav class="endnav">
+  <a class="left" href="index.html" data-en="← Back to all work" data-ar="→ العودة إلى كل الأعمال">← Back to all work</a>
+  <span class="center">ALMAMLAKA · المملكة</span>
+  <a class="right" href="contact.html" data-en="Contact →" data-ar="← تواصل">Contact →</a>
+</nav>
 
 <script>
   let lang = localStorage.getItem('lang') || 'en';
