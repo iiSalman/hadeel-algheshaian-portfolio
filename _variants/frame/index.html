@@ -94,23 +94,21 @@
   .opening-meta dd { margin: 0; font-family: var(--display); font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none; color: var(--ink); }
   .opening-figure {
     grid-column: 2; position: relative; align-self: stretch; min-height: 60vh;
-    background: var(--paper-2);
     overflow: hidden;
-  }
-  .opening-figure::before {
-    content: ""; position: absolute; left: 64px; right: 64px; top: 64px; bottom: 64px;
-    background: var(--ink); opacity: 0.92;
+    border-left: 1px solid var(--rule);
   }
   .opening-figure img {
-    position: absolute; left: 64px; right: 64px; top: 64px; bottom: 64px;
-    width: calc(100% - 128px); height: calc(100% - 128px);
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
     object-fit: cover;
-    filter: grayscale(0.18) brightness(0.96);
+    filter: grayscale(0.06) brightness(0.99);
   }
   .opening-figure figcaption {
-    position: absolute; bottom: 28px; left: 64px;
+    position: absolute; bottom: 28px; left: 28px;
     font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
-    color: var(--graphite);
+    color: oklch(96% 0.008 80); text-shadow: 0 1px 12px oklch(20% 0.005 250 / 0.55);
+    background: oklch(20% 0.005 250 / 0.35); padding: 8px 14px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   }
 
   /* ========== preface (about) ========== */
@@ -174,9 +172,11 @@
     letter-spacing: -0.012em; color: var(--ink); margin: 0 0 14px;
   }
   .project-title-ar {
-    font-family: var(--ar); font-size: 22px; line-height: 1.3; color: var(--quiet); margin: 0 0 22px;
-    direction: rtl; font-weight: 400;
+    font-family: var(--ar); font-size: 17px; line-height: 1.3; color: var(--copper); opacity: 0.78;
+    margin: 0 0 22px; direction: rtl; font-weight: 400;
+    display: flex; align-items: baseline; gap: 12px;
   }
+  .project-title-ar::before { content: ""; width: 18px; height: 1px; background: var(--copper); display: inline-block; }
   .project-info {
     font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--quiet); margin-bottom: 22px;
@@ -259,9 +259,8 @@
   /* ========== responsive ========== */
   @media (max-width: 1100px) {
     .opening-text { padding: 12vh 40px 8vh; }
-    .opening-figure::before, .opening-figure img { left: 32px; right: 32px; top: 32px; bottom: 32px; }
-    .opening-figure img { width: calc(100% - 64px); height: calc(100% - 64px); }
-    .opening-figure figcaption { left: 32px; bottom: 18px; }
+    .opening-figure img { width: 100%; height: 100%; }
+    .opening-figure figcaption { left: 22px; bottom: 18px; }
     .preface, .project, .colophon { padding: 12vh 40px; }
     .project-aside { display: none; }
   }
@@ -270,10 +269,9 @@
     .bar-right a { display: none; }
     .opening { grid-template-columns: 1fr; min-height: 0; }
     .opening-text { padding: 10vh 22px 6vh; }
-    .opening-figure { grid-column: 1; min-height: 60vh; aspect-ratio: 4/5; }
-    .opening-figure::before, .opening-figure img { left: 22px; right: 22px; top: 22px; bottom: 22px; }
-    .opening-figure img { width: calc(100% - 44px); height: calc(100% - 44px); }
-    .opening-figure figcaption { left: 22px; bottom: 12px; }
+    .opening-figure { grid-column: 1; min-height: 60vh; aspect-ratio: 4/5; border-left: none; border-top: 1px solid var(--rule); }
+    .opening-figure img { width: 100%; height: 100%; }
+    .opening-figure figcaption { left: 22px; bottom: 18px; padding: 6px 12px; font-size: 9px; }
     .opening-meta { grid-template-columns: 1fr 1fr; gap: 22px; }
     .preface { padding: 10vh 22px; grid-template-columns: 1fr; gap: 24px; }
     .preface-body { font-size: 20px; }
@@ -324,7 +322,7 @@
 <section class="preface" id="preface">
   <div class="preface-marker">§ Preface</div>
   <div class="preface-body">
-    <p data-en="My practice begins with the air of a place — its tempo, its weather, the way time moves through it — and only then with surfaces. I design <em>interiors that ripen rather than impress</em>, rooms that sound older than they look, and details that ask the visitor to slow down at the threshold." data-ar="تبدأ ممارستي من هواء المكان — إيقاعِه، طقسِه، طريقةِ مرور الزمن فيه — ثم تنتقل إلى السطح. أُصمِّم <em>فضاءاتٍ تنضج لا تبهر</em>، غرفاً يبدو صوتُها أقدم من شكلها، وتفاصيلَ تطلب من الزائر أن يتباطأ عند العتبة.">My practice begins with the air of a place — its tempo, its weather, the way time moves through it — and only then with surfaces. I design <em>interiors that ripen rather than impress</em>, rooms that sound older than they look, and details that ask the visitor to slow down at the threshold.</p>
+    <p data-en-html="My practice begins with the air of a place — its tempo, its weather, the way time moves through it — and only then with surfaces. I design <em>interiors that ripen rather than impress</em>, rooms that sound older than they look, and details that ask the visitor to slow down at the threshold." data-ar-html="تبدأ ممارستي من هواء المكان — إيقاعِه، طقسِه، طريقةِ مرور الزمن فيه — ثم تنتقل إلى السطح. أُصمِّم <em>فضاءاتٍ تنضج لا تبهر</em>، غرفاً يبدو صوتُها أقدم من شكلها، وتفاصيلَ تطلب من الزائر أن يتباطأ عند العتبة.">My practice begins with the air of a place — its tempo, its weather, the way time moves through it — and only then with surfaces. I design <em>interiors that ripen rather than impress</em>, rooms that sound older than they look, and details that ask the visitor to slow down at the threshold.</p>
   </div>
 </section>
 
@@ -354,12 +352,12 @@
   const PROJECTS = [
     {n:'01', slug:'almamlaka',  en:'ALMAMLAKA',                ar:'المملكة',          type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2026', deck_en:'A civic interior that gathers Najdi proportion and modern restraint, and asks the visitor to slow down at the threshold.', deck_ar:'فضاءٌ داخلي مدني يجمع بين النسب النجدية والانضباط المعاصر، ويطلب من الزائر أن يبطئ عند العتبة.', hero:'../../2.%20ALMAMLAKA/4.%203D%20shots/1.jpg'},
     {n:'02', slug:'coffee-day', en:'International Coffee Day', ar:'يوم القهوة العالمي', type_en:'Commercial',  type_ar:'تجاري',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2025', deck_en:'Three booths — French, Saudi, and a contemporary outlier — share one structural language and three accents of material.', deck_ar:'ثلاثة أجنحة — فرنسية، سعودية، ومعاصرة — تتشارك لغة إنشائية واحدة وثلاث لهجات من المادة.', hero:'../../3.%20International%20Coffee%20Day/2.%20French%20Coffee%20Booth/1.jpg'},
-    {n:'03', slug:'courtyard',  en:'Courtyard',                ar:'الفناء',           type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Najd',   loc_ar:'نجد',    year:'2025', deck_en:'A square of stone, four shaded edges, one tree at the centre. The plan does little; the air does the work.', deck_ar:'مربع من الحجر، أربع حواف مظللة، شجرةٌ واحدة في المنتصف. المسقط يفعل القليل؛ الهواء يقوم بالباقي.', hero:'../../4.%20courtyard/3.%203d%20shots/1.jpg'},
-    {n:'04', slug:'lavender',   en:'Lavender Center',          ar:'مركز الخزامى',     type_en:'Commercial',  type_ar:'تجاري',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2024', deck_en:'A wellness centre organised around the slow tempo of treatment — yoga, massage, herbal preparation, retail.', deck_ar:'مركز عافية مُنظَّم حول إيقاع العلاج البطيء — يوغا، مساج، تحضير أعشاب، تجزئة.', hero:'../../5.%20Lavender%20Center/4.%203d%20shots/1.jpg'},
-    {n:'05', slug:'almaarefa',  en:'AlMaarefa University',     ar:'جامعة المعرفة',    type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2024', deck_en:'Lecture, library, studio, lounge — interiors that teach by atmosphere as much as by content.', deck_ar:'محاضرات، مكتبة، مرسم، استراحة — فضاءاتٌ تُعلِّم بالأجواء كما بالمحتوى.', hero:'../../6.%20AlMaarefa%20University/4.%203d%20shots/1.jpg'},
-    {n:'06', slug:'awjaj',      en:'Awjaj Hotel',              ar:'فندق أوجاج',       type_en:'Hospitality', type_ar:'ضيافة',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2023', deck_en:'Thirty-two keys arranged to slow a guest\'s first hour. One stone palette and one rule about light.', deck_ar:'اثنان وثلاثون مفتاحاً مُرتَّبة لإبطاء أول ساعة للضيف. حكاية حجرية واحدة وقاعدةٌ واحدة عن الضوء.', hero:'../../7.%20Awjaj%20hotel/4.%203d%20shots/1.jpg'},
-    {n:'07', slug:'culinary',   en:'Culinary Arts Institute',  ar:'معهد فنون الطهي',  type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2023', deck_en:'Practical kitchens, dish stores, and the long counters they make possible. Material is the curriculum.', deck_ar:'مطابخ تطبيقية، مخازن أطباق، والكاونترات الطويلة التي تتيحها. المادة هي المنهج.', hero:'../../8.%20Culinary%20Arts%20Institute/5.%203d%20shots/1.jpg'},
-    {n:'08', slug:'company',    en:'Company',                  ar:'مقر الشركة',       type_en:'Commercial',  type_ar:'تجاري',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2022', deck_en:'A corporate interior — restraint that still reads as branded. The answer was tone, not graphic.', deck_ar:'تصميمٌ داخلي لمكاتب شركة — انضباطٌ يحمل هويةً واضحة. الجواب كان نبرةً، لا جرافيك.', hero:'../../9.%20company/4.%203d%20shots/1.jpg'},
+    {n:'03', slug:'courtyard',  en:'Courtyard',                ar:'الفناء',           type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Najd',   loc_ar:'نجد',    year:'2025', deck_en:'A square of stone, four shaded edges, one tree at the centre. The plan does little; the air does the work.', deck_ar:'مربع من الحجر، أربع حواف مظللة، شجرةٌ واحدة في المنتصف. المسقط يفعل القليل؛ الهواء يقوم بالباقي.', hero:'../../4.%20courtyard/3.%203d%20shots/1.png'},
+    {n:'04', slug:'lavender',   en:'Lavender Center',          ar:'مركز الخزامى',     type_en:'Commercial',  type_ar:'تجاري',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2024', deck_en:'A wellness centre organised around the slow tempo of treatment — yoga, massage, herbal preparation, retail.', deck_ar:'مركز عافية مُنظَّم حول إيقاع العلاج البطيء — يوغا، مساج، تحضير أعشاب، تجزئة.', hero:'../../5.%20Lavender%20Center/4.%203d%20shots/1.%20yoga%20room1.png'},
+    {n:'05', slug:'almaarefa',  en:'AlMaarefa University',     ar:'جامعة المعرفة',    type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2024', deck_en:'Lecture, library, studio, lounge — interiors that teach by atmosphere as much as by content.', deck_ar:'محاضرات، مكتبة، مرسم، استراحة — فضاءاتٌ تُعلِّم بالأجواء كما بالمحتوى.', hero:'../../6.%20AlMaarefa%20University/4.%203d%20shots/1.png'},
+    {n:'06', slug:'awjaj',      en:'Awjaj Hotel',              ar:'فندق أوجاج',       type_en:'Hospitality', type_ar:'ضيافة',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2023', deck_en:'Thirty-two keys arranged to slow a guest\'s first hour. One stone palette and one rule about light.', deck_ar:'اثنان وثلاثون مفتاحاً مُرتَّبة لإبطاء أول ساعة للضيف. حكاية حجرية واحدة وقاعدةٌ واحدة عن الضوء.', hero:'../../7.%20Awjaj%20hotel/4.%203d%20shots/1.png'},
+    {n:'07', slug:'culinary',   en:'Culinary Arts Institute',  ar:'معهد فنون الطهي',  type_en:'Cultural',    type_ar:'ثقافي',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2023', deck_en:'Practical kitchens, dish stores, and the long counters they make possible. Material is the curriculum.', deck_ar:'مطابخ تطبيقية، مخازن أطباق، والكاونترات الطويلة التي تتيحها. المادة هي المنهج.', hero:'../../8.%20Culinary%20Arts%20Institute/5.%203d%20shots/1.%20Practical%20cooking%20class.png'},
+    {n:'08', slug:'company',    en:'Company',                  ar:'مقر الشركة',       type_en:'Commercial',  type_ar:'تجاري',  loc_en:'Riyadh', loc_ar:'الرياض', year:'2022', deck_en:'A corporate interior — restraint that still reads as branded. The answer was tone, not graphic.', deck_ar:'تصميمٌ داخلي لمكاتب شركة — انضباطٌ يحمل هويةً واضحة. الجواب كان نبرةً، لا جرافيك.', hero:'../../9.%20company/4.%203d%20shots/1.%20Recepion.jpg'},
   ];
 
   let lang = localStorage.getItem('lang') || 'en';
