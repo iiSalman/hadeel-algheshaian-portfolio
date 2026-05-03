@@ -86,7 +86,7 @@
   }
   .opening-meta {
     margin-top: 28px;
-    display: grid; grid-template-columns: repeat(3, auto); gap: 32px; justify-content: start;
+    display: grid; grid-template-columns: repeat(3, minmax(0, auto)); gap: 32px 48px; justify-content: start;
     font-family: var(--sans); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--quiet);
   }
@@ -151,7 +151,7 @@
   .project[data-side="left"] .project-text { grid-column: 1 / span 4; grid-row: 1; }
   .project-figure {
     position: relative; overflow: hidden;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 2;
   }
   .project-figure img {
     width: 100%; height: 100%; object-fit: cover;
@@ -272,7 +272,9 @@
     .opening-figure { grid-column: 1; min-height: 60vh; aspect-ratio: 4/5; border-left: none; border-top: 1px solid var(--rule); }
     .opening-figure img { width: 100%; height: 100%; }
     .opening-figure figcaption { left: 22px; bottom: 18px; padding: 6px 12px; font-size: 9px; }
-    .opening-meta { grid-template-columns: 1fr 1fr; gap: 22px; }
+    .opening-meta { grid-template-columns: 1fr; gap: 16px 0; }
+    .opening-meta > div { display: grid; grid-template-columns: 80px 1fr; align-items: baseline; column-gap: 14px; }
+    .opening-meta dt { margin: 0; }
     .preface { padding: 10vh 22px; grid-template-columns: 1fr; gap: 24px; }
     .preface-body { font-size: 20px; }
     .project { padding: 10vh 22px; column-gap: 0; row-gap: 24px; }

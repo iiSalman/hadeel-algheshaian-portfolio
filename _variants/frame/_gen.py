@@ -172,7 +172,7 @@ PAGE = """<!doctype html>
 
   /* opening */
   .opening {{
-    padding: 14vh 80px 9vh;
+    padding: 9vh 80px 7vh;
     display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end;
     border-bottom: 1px solid var(--rule);
   }}
@@ -205,21 +205,20 @@ PAGE = """<!doctype html>
   .lead figcaption .num {{ color: var(--copper); }}
   .lead figcaption .text {{ font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--graphite); }}
 
-  /* description (essay) */
+  /* description (essay) — header full-width, body two columns under it */
   .essay {{
-    padding: 14vh 80px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    padding: 11vh 80px 9vh;
+    display: grid; grid-template-columns: 80px 1fr; column-gap: 32px; row-gap: 36px;
     border-bottom: 1px solid var(--rule);
   }}
-  .essay-marker {{ font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }}
-  .essay-marker::before {{ content: ""; width: 32px; height: 1px; background: var(--copper); }}
+  .essay-marker {{ font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); padding-top: 18px; }}
   .essay h2 {{
-    font-family: var(--display); font-weight: 400; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.05; letter-spacing: -0.012em; margin: 0 0 0; color: var(--ink);
+    font-family: var(--display); font-weight: 400; font-size: clamp(36px, 4.4vw, 64px); line-height: 1.05; letter-spacing: -0.012em; margin: 0; color: var(--ink); max-width: 22ch;
   }}
-  .essay-body {{ font-family: var(--sans); font-size: 16px; line-height: 1.75; color: var(--graphite); }}
-  .essay-body p {{ margin: 0 0 1.1em; max-width: 60ch; text-align: justify; hyphens: auto; }}
+  .essay-body {{ grid-column: 2; columns: 2; column-gap: 56px; font-family: var(--sans); font-size: 16px; line-height: 1.75; color: var(--graphite); }}
+  .essay-body p {{ margin: 0 0 1.1em; text-align: justify; hyphens: auto; break-inside: avoid; }}
   .essay-body p:first-child::first-letter {{
-    font-family: var(--display); font-style: italic; font-size: 4.4em; line-height: 0.85;
+    font-family: var(--display); font-style: italic; font-size: 4em; line-height: 0.85;
     float: left; padding: 0.06em 0.2em 0 0; color: var(--copper);
   }}
   html[lang="ar"] .essay-body p {{ text-align: justify; direction: rtl; }}
@@ -281,7 +280,9 @@ PAGE = """<!doctype html>
     .opening {{ padding-top: 8vh; padding-bottom: 6vh; grid-template-columns: 1fr; gap: 28px; }}
     .opening-meta {{ grid-template-columns: 1fr 1fr; }}
     .lead {{ padding-left: 22px; padding-right: 22px; }}
-    .essay {{ padding-top: 8vh; padding-bottom: 8vh; grid-template-columns: 1fr; gap: 22px; }}
+    .essay {{ padding-top: 8vh; padding-bottom: 8vh; grid-template-columns: 1fr; row-gap: 18px; }}
+    .essay-marker {{ padding-top: 0; }}
+    .essay-body {{ grid-column: 1; columns: 1; }}
     .essay-body p {{ text-align: left; }}
     .plates {{ padding: 0 22px 8vh; }}
     .plates-marker {{ padding-top: 8vh; padding-bottom: 32px; }}
@@ -327,10 +328,8 @@ PAGE = """<!doctype html>
 </section>
 
 <section class="essay">
-  <div>
-    <div class="essay-marker">§ Brief</div>
-    <h2 data-en="{h_en}" data-ar="{h_ar}">{h_en}</h2>
-  </div>
+  <div class="essay-marker">§ Brief</div>
+  <h2 data-en="{h_en}" data-ar="{h_ar}">{h_en}</h2>
   <div class="essay-body">
     <p data-en="{p1_en}" data-ar="{p1_ar}">{p1_en}</p>
     <p data-en="{p2_en}" data-ar="{p2_ar}">{p2_en}</p>

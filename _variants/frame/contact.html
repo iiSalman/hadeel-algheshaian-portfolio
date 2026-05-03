@@ -42,10 +42,30 @@
   .bar button.toggle:hover { border-color: var(--copper); color: var(--copper); }
 
   main {
-    flex: 1; padding: 16vh 80px 12vh;
+    flex: 1; padding: 11vh 80px 4vh;
     display: grid; grid-template-columns: 1.1fr 1fr; gap: 96px; align-items: start;
     max-width: 1400px; margin: 0 auto; width: 100%;
   }
+  .selected-strip {
+    padding: 0 80px 9vh; max-width: 1400px; margin: 0 auto; width: 100%;
+  }
+  .selected-strip-head {
+    border-top: 1px solid var(--rule); padding-top: 22px; margin-bottom: 22px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--quiet);
+  }
+  .selected-strip-head .label { color: var(--copper); display: flex; align-items: center; gap: 14px; }
+  .selected-strip-head .label::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
+  .selected-strip-head a { font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; transition: color .25s; }
+  .selected-strip-head a:hover { color: var(--copper); }
+  .selected-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .selected-tile { display: flex; flex-direction: column; gap: 10px; }
+  .selected-tile figure { margin: 0; aspect-ratio: 4/5; overflow: hidden; }
+  .selected-tile img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.06); transition: filter .6s, transform 1.2s cubic-bezier(0.16,1,0.3,1); }
+  .selected-tile:hover img { filter: grayscale(0); transform: scale(1.03); }
+  .selected-tile .meta { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--sans); font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--quiet); }
+  .selected-tile .meta .num { color: var(--copper); }
+  .selected-tile .title { font-family: var(--display); font-style: italic; font-size: 17px; line-height: 1.2; color: var(--ink); }
   .h-eyebrow { font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--copper); margin-bottom: 22px;
     display: flex; align-items: center; gap: 14px; }
   .h-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--copper); }
@@ -78,14 +98,16 @@
   .imprint .center { font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--graphite); text-align: center; }
   .imprint .right { text-align: right; }
 
-  @media (max-width: 1100px) { main { padding: 14vh 40px 10vh; gap: 56px; } }
+  @media (max-width: 1100px) { main { padding: 9vh 40px 4vh; gap: 56px; } .selected-strip { padding: 0 40px 7vh; } }
   @media (max-width: 760px) {
     .bar { padding: 16px 22px; gap: 12px; }
     .bar-right a { display: none; }
-    main { padding: 10vh 22px; grid-template-columns: 1fr; gap: 36px; }
+    main { padding: 8vh 22px 3vh; grid-template-columns: 1fr; gap: 36px; }
     .cards { grid-template-columns: 1fr; }
     .card { border-right: none; padding: 22px 0; }
     .card:nth-child(2n) { padding-left: 0; }
+    .selected-strip { padding: 0 22px 6vh; }
+    .selected-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
     .imprint { padding: 18px 22px; grid-template-columns: 1fr; gap: 6px; text-align: center; }
     .imprint .right { text-align: center; }
   }
@@ -117,6 +139,14 @@
   </dl>
 </main>
 
+<section class="selected-strip">
+  <div class="selected-strip-head">
+    <span class="label" data-en="Selected" data-ar="مختارة">Selected</span>
+    <a href="index.html" data-en="See all eight projects →" data-ar="← كل الأعمال الثمانية">See all eight projects →</a>
+  </div>
+  <div class="selected-grid" id="selected-grid"></div>
+</section>
+
 <footer class="imprint">
   <div class="left">© 2026 Hadeel Algheshaian</div>
   <div class="center" data-en="Selected Interiors · First Edition" data-ar="فضاءات مختارة · الطبعة الأولى">Selected Interiors · First Edition</div>
@@ -139,10 +169,32 @@
     });
     document.getElementById('lang-toggle').textContent = lang === 'en' ? 'AR' : 'EN';
   }
+  const SELECTED = [
+    {n:'01', slug:'almamlaka', en:'ALMAMLAKA', ar:'المملكة', hero:'../../2.%20ALMAMLAKA/4.%203D%20shots/1.jpg'},
+    {n:'04', slug:'lavender', en:'Lavender Center', ar:'مركز الخزامى', hero:'../../5.%20Lavender%20Center/4.%203d%20shots/1.%20yoga%20room1.png'},
+    {n:'06', slug:'awjaj', en:'Awjaj Hotel', ar:'فندق أوجاج', hero:'../../7.%20Awjaj%20hotel/4.%203d%20shots/1.png'},
+    {n:'08', slug:'company', en:'Company', ar:'مقر الشركة', hero:'../../9.%20company/4.%203d%20shots/1.%20Recepion.jpg'},
+  ];
+  function renderSelected() {
+    const grid = document.getElementById('selected-grid');
+    grid.innerHTML = '';
+    SELECTED.forEach(p => {
+      const a = document.createElement('a');
+      a.className = 'selected-tile';
+      a.href = `project-${p.slug}.html`;
+      a.innerHTML = `
+        <figure><img src="${p.hero}" alt="" loading="lazy"></figure>
+        <div class="meta"><span class="num">№ ${p.n}</span><span>${p.year || ''}</span></div>
+        <span class="title">${lang === 'ar' ? p.ar : p.en}</span>
+      `;
+      grid.appendChild(a);
+    });
+  }
   document.addEventListener('DOMContentLoaded', () => {
+    renderSelected();
     applyLanguage();
     document.getElementById('lang-toggle').addEventListener('click', () => {
-      lang = lang === 'en' ? 'ar' : 'en'; applyLanguage();
+      lang = lang === 'en' ? 'ar' : 'en'; applyLanguage(); renderSelected();
     });
   });
 </script>
